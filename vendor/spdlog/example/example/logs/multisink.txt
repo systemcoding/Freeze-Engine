@@ -1,0 +1,2 @@
+[2023-05-23 14:17:51.403] [multi_sink] [warning] this should appear in both console and file
+[2023-05-23 14:17:51.403] [multi_sink] [info] this message should not appear in the console, only in the file

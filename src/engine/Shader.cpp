@@ -1,0 +1,59 @@
+#include "Shader.h"
+
+Shader::Shader()
+{
+}
+
+void Shader::loadShaders(const std::string& vertexShader, const std::string& fragmentShader)
+{
+    const GLchar* vertexSource = vertexShader.c_str();
+    m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(m_VertexShader, 1, &vertexSource, nullptr);
+    glCompileShader(m_VertexShader);
+
+    int resultVertex;
+    char infoVertex[1024];
+    glGetShaderiv(m_VertexShader, GL_COMPILE_STATUS, &resultVertex);
+
+    if(!resultVertex)
+    {
+        glGetShaderInfoLog(m_VertexShader, 1024, nullptr, infoVertex);
+        spdlog::error("Failed to compile vertex shader {}", infoVertex);
+    }
+
+    const GLchar* fragmentSource = fragmentShader.c_str();
+    m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(m_FragmentShader, 1, &fragmentSource, nullptr);
+    glCompileShader(m_FragmentShader);
+
+    int resultFragment;
+    char infoFragment[1024];
+    glGetShaderiv(m_FragmentShader, GL_COMPILE_STATUS, &resultFragment);
+
+    if(!resultFragment)
+    {
+        glGetShaderInfoLog(m_FragmentShader, 1024, nullptr, infoFragment);
+        spdlog::error("Failed to compile fragment shader {} ", infoFragment);
+    }
+
+    m_ShaderProgramID = glCreateProgram();
+    glAttachShader(m_ShaderProgramID, m_VertexShader);
+    glAttachShader(m_ShaderProgramID, m_FragmentShader);
+    glLinkProgram(m_ShaderProgramID);
+}
+
+void Shader::useShaderProgram()
+{
+    glUseProgram(m_ShaderProgramID);
+}
+
+void Shader::unbindShaderProgram()
+{
+    glUseProgram(0);
+}
+
+Shader::~Shader()
+{
+    glDeleteShader(m_VertexShader);
+    glDeleteShader(m_FragmentShader);
+}
