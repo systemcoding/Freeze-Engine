@@ -5,6 +5,7 @@
 #include <spdlog/spdlog.h>
 
 #include "../engine/Shader.h"
+#include "../engine/Texture.h"
 
 #include <iostream>
 #include <memory>
@@ -18,8 +19,10 @@ public:
 
     ~RenderTriangle();
 private:
-    uint32_t m_ShaderProgram, textureID;
-    std::unique_ptr<Shader> m_Shader{new Shader()};
+    uint32_t m_TextureID;
     unsigned int VBO, VAO, EBO;
     int m_Width, m_Height, m_NChannels;
+private:
+    std::unique_ptr<Shader> m_Shader{new Shader()};
+    std::unique_ptr<Texture> m_Texture{new Texture()};
 };

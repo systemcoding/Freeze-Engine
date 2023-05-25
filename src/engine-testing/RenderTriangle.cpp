@@ -13,20 +13,23 @@ void RenderTriangle::create()
         -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
         -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
     };
-    unsigned int indices[] = {
+
+    uint32_t indices[] = {
         0, 1, 3, // first triangle
         1, 2, 3  // second triangle
     };
 
+    // Vertex Array Object
     glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-    glGenBuffers(1, &EBO);
-
     glBindVertexArray(VAO);
 
+    // Vertex Buffer Object
+    glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
+    // Element buffer object
+    glGenBuffers(1, &EBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
@@ -36,77 +39,54 @@ void RenderTriangle::create()
     // color attribute
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
-    // texture coord attribute
+    // texture attribute
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-    glEnableVertexAttribArray(2);
-
-    stbi_set_flip_vertically_on_load(1);
-    uint8_t *data = stbi_load("./grass.png", &m_Width, &m_Height, &m_NChannels, 4);
-
-    glGenTextures(1, &textureID);
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureID);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-    glBindTexture(GL_TEXTURE_2D, 0);
-
-    stbi_image_free(data);
-
-    // Vertex Attributes
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)0);
-    glEnableVertexAttribArray(0);
-
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)12);
-    glEnableVertexAttribArray(1);
-
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)24);
     glEnableVertexAttribArray(2);
 
     std::string vertexShader = R"(
         #version 420 core
 
         layout (location = 0) in vec3 a_Position;
+        layout (location = 1) in vec3 a_Color;
         layout (location = 2) in vec2 a_TexCoords;
 
-        out vec2 texCoords;
+        out vec3 triangleColor;
+        out vec2 textureCoords;
 
         void main()
         {
             gl_Position = vec4(a_Position, 1.0f);
-            texCoords = a_TexCoords;
+            triangleColor = a_Color;
+            textureCoords = a_TexCoords;
         }
     )";
 
     std::string fragmentShader = R"(
         #version 420 core
 
-        out vec4 triangleColor;
+        out vec4 f_TColor;
 
-        in vec2 texCoords;
-        uniform sampler2D ourTexture;
+        in vec3 triangleColor;
+        in vec2 textureCoords;
+
+        uniform sampler2D tex0;
 
         void main()
         {
-            vec4 textureColor = texture(ourTexture, texCoords);
-            triangleColor = textureColor; // first argument is the texture sampler and the second is the texture coordinates
+            f_TColor = texture(tex0, textureCoords);
         }
     )";
 
     m_Shader->loadShaders(vertexShader, fragmentShader);
     m_Shader->useShaderProgram();
 
-    glBindVertexArray(0);
+    m_Texture->generateTexture(1, "../resources/textures/block.png", GL_RGB);
 }
 
 void RenderTriangle::render()
 {
+    m_Texture->bindTexture();
     m_Shader->useShaderProgram();
-    glBindTexture(GL_TEXTURE_2D, textureID);
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }

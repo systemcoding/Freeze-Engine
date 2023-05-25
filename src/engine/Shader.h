@@ -16,6 +16,8 @@ public:
     void useShaderProgram();
     void unbindShaderProgram();
 
+    uint32_t getShaderProgramID() { return m_ShaderProgramID; }
+
     ~Shader();
 private:
     uint32_t m_ShaderProgramID;
