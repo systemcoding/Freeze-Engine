@@ -68,6 +68,10 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "cfenv": "cpp"
+        "cfenv": "cpp",
+        "forward_list": "cpp",
+        "future": "cpp",
+        "stdfloat": "cpp",
+        "typeindex": "cpp"
     }
 }

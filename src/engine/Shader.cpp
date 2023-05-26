@@ -52,6 +52,17 @@ void Shader::unbindShaderProgram()
     glUseProgram(0);
 }
 
+uint32_t Shader::getUniformLocation(const std::string& uniformName) const
+{
+    m_GetUniformLocation = glGetUniformLocation(m_ShaderProgramID, uniformName.c_str());
+    return m_GetUniformLocation;
+}
+
+void Shader::setMatrix4fv(uint32_t loc, int matrixCount, GLboolean transpose, const glm::mat4& matrix)
+{
+    glUniformMatrix4fv(m_GetUniformLocation, matrixCount, transpose, glm::value_ptr(matrix));
+}
+
 Shader::~Shader()
 {
     glDeleteShader(m_VertexShader);
