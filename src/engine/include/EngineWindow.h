@@ -1,20 +1,24 @@
 #pragma once
 
+// External includes
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
-
 #include "spdlog/spdlog.h"
 
-#include "../engine-testing/RenderTriangle.h"
+// Actual rendering
+#include "../../../sandbox/RenderTriangle.h"
+
+// Engine files
+#include "KeyboardEvent.h"
 #include "RenderCommands.h"
 
+// STD Library Includes
 #include <iostream>
 #include <string>
 #include <memory>
 
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-static void process_input(GLFWwindow* window);
 
 class EngineWindow {
 public:
@@ -32,4 +36,5 @@ private:
 private:
     static GLFWwindow* m_EngineWindow;
     std::unique_ptr<RenderTriangle> m_RenderTriangle = std::make_unique<RenderTriangle>();
+    std::unique_ptr<KeyboardEvent> m_KeyboardEvent = std::make_unique<KeyboardEvent>();
 };

@@ -1,4 +1,4 @@
-#include "EngineWindow.h"
+#include "include/EngineWindow.h"
 
 GLFWwindow* EngineWindow::m_EngineWindow;
 
@@ -55,10 +55,10 @@ void EngineWindow::gameLoop()
     m_RenderTriangle->create();
     while (!glfwWindowShouldClose(m_EngineWindow))
     {
-        process_input(m_EngineWindow);
+        m_RenderTriangle->process_input(m_EngineWindow);
 
         // clear the screen with some color at every start of the frame
-        glm::vec4 color(0.2f, 0.3f, 0.1f, 1.0f);
+        glm::vec4 color(0.130f, 0.120f, 0.120f, 1.0f);
         RenderCommands::SetRenderColor(color);
         RenderCommands::RenderClear(); 
 

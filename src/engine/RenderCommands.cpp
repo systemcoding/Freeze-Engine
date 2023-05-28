@@ -1,4 +1,4 @@
-#include "RenderCommands.h"
+#include "include/RenderCommands.h"
 
 void RenderCommands::SetRenderColor(glm::vec4& color)
 {

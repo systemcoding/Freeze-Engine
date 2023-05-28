@@ -82,7 +82,16 @@ void RenderTriangle::create()
     m_Shader->loadShaders(vertexShader, fragmentShader);
     m_Shader->useShaderProgram();
 
-    m_Texture->generateTexture(1, "../resources/textures/block.png", GL_RGB);
+    m_Texture->generateTexture(1, "../../../resources/textures/pop_cat.png", GL_RGBA);
+}
+
+void RenderTriangle::process_input(GLFWwindow* window)
+{
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE))
+    {
+        exit(0);
+        spdlog::info("Pressed Escape Key and Window Closed!");
+    }
 }
 
 void RenderTriangle::render()
@@ -90,7 +99,7 @@ void RenderTriangle::render()
     m_Texture->bindTexture();
 
     glm::mat4 trans = glm::mat4(1.0f);
-    trans = glm::rotate(trans, (float)glfwGetTime() * glm::radians(360.0f), glm::vec3(0.0, 0.0, 1.0));
+    trans = glm::rotate(trans, (float)glfwGetTime() * glm::radians(20.0f), glm::vec3(0.0, 0.0, 1.0));
     trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
 
     // Use the shader program

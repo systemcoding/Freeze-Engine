@@ -8,8 +8,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "../engine/Shader.h"
-#include "../engine/Texture.h"
+#include "../src/engine/include/Shader.h"
+#include "../src/engine/include/Texture.h"
+#include "../src/engine/include/KeyboardEvent.h"
 
 #include <iostream>
 #include <memory>
@@ -20,6 +21,7 @@ public:
     
     void create();
     void render();
+    void process_input(GLFWwindow* window);
 
     ~RenderTriangle();
 private:
@@ -29,4 +31,5 @@ private:
 private:
     std::unique_ptr<Shader> m_Shader{new Shader()};
     std::unique_ptr<Texture> m_Texture{new Texture()};
+    std::unique_ptr<KeyboardEvent> m_KeyboardEvent{new KeyboardEvent()};
 };
