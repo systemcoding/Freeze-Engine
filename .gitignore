@@ -1,4 +1,5 @@
-build/bin
-build/obj
-build/OpenGLEngine.make
-build/Makefile
+**/build/bin
+**/build/obj
+**/build/OpenGLEngine.make
+**/build/Sandbox.make
+**/build/Makefile
