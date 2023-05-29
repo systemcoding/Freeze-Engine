@@ -1,4 +1,4 @@
-#include "engine/include/EngineWindow.h"
+#include "include/EngineWindow.h"
 #include "spdlog/spdlog.h"
 
 int main()

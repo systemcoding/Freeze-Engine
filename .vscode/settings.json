@@ -72,6 +72,9 @@
         "forward_list": "cpp",
         "future": "cpp",
         "stdfloat": "cpp",
-        "typeindex": "cpp"
+        "typeindex": "cpp",
+        "bitset": "cpp",
+        "codecvt": "cpp",
+        "regex": "cpp"
     }
 }

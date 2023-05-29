@@ -1,6 +1,6 @@
-obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
- /usr/include/stdc-predef.h ../src/engine/include/Texture.h \
- /usr/include/GL/glew.h /usr/include/c++/13.1.1/cstddef \
+obj/x64/Debug/Texture.o: ../src/Texture.cpp /usr/include/stdc-predef.h \
+ ../src/include/Texture.h /usr/include/GL/glew.h \
+ /usr/include/c++/13.1.1/cstddef \
  /usr/include/c++/13.1.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.1.1/x86_64-pc-linux-gnu/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -42,10 +42,10 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-float.h /usr/include/c++/13.1.1/bits/std_abs.h \
- ../vendor/spdlog/include/spdlog/spdlog.h \
- ../vendor/spdlog/include/spdlog/common.h \
- ../vendor/spdlog/include/spdlog/tweakme.h \
- ../vendor/spdlog/include/spdlog/details/null_mutex.h \
+ ../../vendor/spdlog/include/spdlog/spdlog.h \
+ ../../vendor/spdlog/include/spdlog/common.h \
+ ../../vendor/spdlog/include/spdlog/tweakme.h \
+ ../../vendor/spdlog/include/spdlog/details/null_mutex.h \
  /usr/include/c++/13.1.1/atomic \
  /usr/include/c++/13.1.1/bits/atomic_base.h /usr/include/c++/13.1.1/new \
  /usr/include/c++/13.1.1/bits/exception.h \
@@ -162,8 +162,8 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
  /usr/include/c++/13.1.1/bits/algorithmfwd.h \
  /usr/include/c++/13.1.1/bits/stl_heap.h \
  /usr/include/c++/13.1.1/bits/uniform_int_dist.h \
- ../vendor/spdlog/include/spdlog/fmt/fmt.h \
- ../vendor/spdlog/include/spdlog/fmt/bundled/core.h \
+ ../../vendor/spdlog/include/spdlog/fmt/fmt.h \
+ ../../vendor/spdlog/include/spdlog/fmt/bundled/core.h \
  /usr/include/c++/13.1.1/cstring /usr/include/string.h \
  /usr/include/strings.h /usr/include/c++/13.1.1/iterator \
  /usr/include/c++/13.1.1/bits/stream_iterator.h \
@@ -176,7 +176,7 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
  /usr/include/c++/13.1.1/x86_64-pc-linux-gnu/bits/error_constants.h \
  /usr/include/c++/13.1.1/stdexcept \
  /usr/include/c++/13.1.1/bits/streambuf.tcc \
- ../vendor/spdlog/include/spdlog/fmt/bundled/format.h \
+ ../../vendor/spdlog/include/spdlog/fmt/bundled/format.h \
  /usr/include/c++/13.1.1/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -196,8 +196,8 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
  /usr/include/c++/13.1.1/tr1/poly_hermite.tcc \
  /usr/include/c++/13.1.1/tr1/poly_laguerre.tcc \
  /usr/include/c++/13.1.1/tr1/riemann_zeta.tcc \
- ../vendor/spdlog/include/spdlog/fmt/bundled/core.h \
- ../vendor/spdlog/include/spdlog/fmt/bundled/format-inl.h \
+ ../../vendor/spdlog/include/spdlog/fmt/bundled/core.h \
+ ../../vendor/spdlog/include/spdlog/fmt/bundled/format-inl.h \
  /usr/include/c++/13.1.1/algorithm \
  /usr/include/c++/13.1.1/pstl/glue_algorithm_defs.h \
  /usr/include/c++/13.1.1/climits \
@@ -220,30 +220,31 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
  /usr/include/libintl.h /usr/include/c++/13.1.1/bits/codecvt.h \
  /usr/include/c++/13.1.1/bits/locale_facets_nonio.tcc \
  /usr/include/c++/13.1.1/bits/locale_conv.h \
- ../vendor/spdlog/include/spdlog/fmt/bundled/format.h \
- ../vendor/spdlog/include/spdlog/common-inl.h \
- ../vendor/spdlog/include/spdlog/details/registry.h \
- ../vendor/spdlog/include/spdlog/details/periodic_worker.h \
+ ../../vendor/spdlog/include/spdlog/fmt/bundled/format.h \
+ ../../vendor/spdlog/include/spdlog/common-inl.h \
+ ../../vendor/spdlog/include/spdlog/details/registry.h \
+ ../../vendor/spdlog/include/spdlog/details/periodic_worker.h \
  /usr/include/c++/13.1.1/condition_variable \
  /usr/include/c++/13.1.1/bits/std_mutex.h \
  /usr/include/c++/13.1.1/bits/unique_lock.h /usr/include/c++/13.1.1/mutex \
  /usr/include/c++/13.1.1/thread /usr/include/c++/13.1.1/bits/std_thread.h \
  /usr/include/c++/13.1.1/bits/this_thread_sleep.h \
- ../vendor/spdlog/include/spdlog/details/periodic_worker-inl.h \
- ../vendor/spdlog/include/spdlog/details/registry-inl.h \
- ../vendor/spdlog/include/spdlog/logger.h \
- ../vendor/spdlog/include/spdlog/details/log_msg.h \
- ../vendor/spdlog/include/spdlog/details/log_msg-inl.h \
- ../vendor/spdlog/include/spdlog/details/os.h \
- ../vendor/spdlog/include/spdlog/details/os-inl.h /usr/include/sys/stat.h \
- /usr/include/bits/stat.h /usr/include/bits/struct_stat.h \
- /usr/include/bits/statx.h /usr/include/linux/stat.h \
- /usr/include/linux/types.h /usr/include/asm/types.h \
- /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h \
- /usr/include/asm/bitsperlong.h /usr/include/asm-generic/bitsperlong.h \
- /usr/include/linux/posix_types.h /usr/include/linux/stddef.h \
- /usr/include/asm/posix_types.h /usr/include/asm/posix_types_64.h \
- /usr/include/asm-generic/posix_types.h /usr/include/bits/statx-generic.h \
+ ../../vendor/spdlog/include/spdlog/details/periodic_worker-inl.h \
+ ../../vendor/spdlog/include/spdlog/details/registry-inl.h \
+ ../../vendor/spdlog/include/spdlog/logger.h \
+ ../../vendor/spdlog/include/spdlog/details/log_msg.h \
+ ../../vendor/spdlog/include/spdlog/details/log_msg-inl.h \
+ ../../vendor/spdlog/include/spdlog/details/os.h \
+ ../../vendor/spdlog/include/spdlog/details/os-inl.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/bits/struct_stat.h /usr/include/bits/statx.h \
+ /usr/include/linux/stat.h /usr/include/linux/types.h \
+ /usr/include/asm/types.h /usr/include/asm-generic/types.h \
+ /usr/include/asm-generic/int-ll64.h /usr/include/asm/bitsperlong.h \
+ /usr/include/asm-generic/bitsperlong.h /usr/include/linux/posix_types.h \
+ /usr/include/linux/stddef.h /usr/include/asm/posix_types.h \
+ /usr/include/asm/posix_types_64.h /usr/include/asm-generic/posix_types.h \
+ /usr/include/bits/statx-generic.h \
  /usr/include/bits/types/struct_statx_timestamp.h \
  /usr/include/bits/types/struct_statx.h /usr/include/fcntl.h \
  /usr/include/bits/fcntl.h /usr/include/bits/fcntl-linux.h \
@@ -254,27 +255,27 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
  /usr/include/bits/unistd_ext.h /usr/include/linux/close_range.h \
  /usr/include/sys/syscall.h /usr/include/asm/unistd.h \
  /usr/include/asm/unistd_64.h /usr/include/bits/syscall.h \
- ../vendor/spdlog/include/spdlog/details/backtracer.h \
- ../vendor/spdlog/include/spdlog/details/log_msg_buffer.h \
- ../vendor/spdlog/include/spdlog/details/log_msg_buffer-inl.h \
- ../vendor/spdlog/include/spdlog/details/circular_q.h \
+ ../../vendor/spdlog/include/spdlog/details/backtracer.h \
+ ../../vendor/spdlog/include/spdlog/details/log_msg_buffer.h \
+ ../../vendor/spdlog/include/spdlog/details/log_msg_buffer-inl.h \
+ ../../vendor/spdlog/include/spdlog/details/circular_q.h \
  /usr/include/c++/13.1.1/cassert /usr/include/assert.h \
- ../vendor/spdlog/include/spdlog/details/backtracer-inl.h \
- ../vendor/spdlog/include/spdlog/logger-inl.h \
- ../vendor/spdlog/include/spdlog/sinks/sink.h \
- ../vendor/spdlog/include/spdlog/formatter.h \
- ../vendor/spdlog/include/spdlog/sinks/sink-inl.h \
- ../vendor/spdlog/include/spdlog/pattern_formatter.h \
- ../vendor/spdlog/include/spdlog/pattern_formatter-inl.h \
- ../vendor/spdlog/include/spdlog/details/fmt_helper.h \
- ../vendor/spdlog/include/spdlog/sinks/ansicolor_sink.h \
- ../vendor/spdlog/include/spdlog/details/console_globals.h \
- ../vendor/spdlog/include/spdlog/sinks/ansicolor_sink-inl.h \
- ../vendor/spdlog/include/spdlog/version.h \
- ../vendor/spdlog/include/spdlog/details/synchronous_factory.h \
- ../vendor/spdlog/include/spdlog/spdlog-inl.h
+ ../../vendor/spdlog/include/spdlog/details/backtracer-inl.h \
+ ../../vendor/spdlog/include/spdlog/logger-inl.h \
+ ../../vendor/spdlog/include/spdlog/sinks/sink.h \
+ ../../vendor/spdlog/include/spdlog/formatter.h \
+ ../../vendor/spdlog/include/spdlog/sinks/sink-inl.h \
+ ../../vendor/spdlog/include/spdlog/pattern_formatter.h \
+ ../../vendor/spdlog/include/spdlog/pattern_formatter-inl.h \
+ ../../vendor/spdlog/include/spdlog/details/fmt_helper.h \
+ ../../vendor/spdlog/include/spdlog/sinks/ansicolor_sink.h \
+ ../../vendor/spdlog/include/spdlog/details/console_globals.h \
+ ../../vendor/spdlog/include/spdlog/sinks/ansicolor_sink-inl.h \
+ ../../vendor/spdlog/include/spdlog/version.h \
+ ../../vendor/spdlog/include/spdlog/details/synchronous_factory.h \
+ ../../vendor/spdlog/include/spdlog/spdlog-inl.h
 /usr/include/stdc-predef.h:
-../src/engine/include/Texture.h:
+../src/include/Texture.h:
 /usr/include/GL/glew.h:
 /usr/include/c++/13.1.1/cstddef:
 /usr/include/c++/13.1.1/x86_64-pc-linux-gnu/bits/c++config.h:
@@ -347,10 +348,10 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
 /usr/include/alloca.h:
 /usr/include/bits/stdlib-float.h:
 /usr/include/c++/13.1.1/bits/std_abs.h:
-../vendor/spdlog/include/spdlog/spdlog.h:
-../vendor/spdlog/include/spdlog/common.h:
-../vendor/spdlog/include/spdlog/tweakme.h:
-../vendor/spdlog/include/spdlog/details/null_mutex.h:
+../../vendor/spdlog/include/spdlog/spdlog.h:
+../../vendor/spdlog/include/spdlog/common.h:
+../../vendor/spdlog/include/spdlog/tweakme.h:
+../../vendor/spdlog/include/spdlog/details/null_mutex.h:
 /usr/include/c++/13.1.1/atomic:
 /usr/include/c++/13.1.1/bits/atomic_base.h:
 /usr/include/c++/13.1.1/new:
@@ -493,8 +494,8 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
 /usr/include/c++/13.1.1/bits/algorithmfwd.h:
 /usr/include/c++/13.1.1/bits/stl_heap.h:
 /usr/include/c++/13.1.1/bits/uniform_int_dist.h:
-../vendor/spdlog/include/spdlog/fmt/fmt.h:
-../vendor/spdlog/include/spdlog/fmt/bundled/core.h:
+../../vendor/spdlog/include/spdlog/fmt/fmt.h:
+../../vendor/spdlog/include/spdlog/fmt/bundled/core.h:
 /usr/include/c++/13.1.1/cstring:
 /usr/include/string.h:
 /usr/include/strings.h:
@@ -509,7 +510,7 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
 /usr/include/c++/13.1.1/x86_64-pc-linux-gnu/bits/error_constants.h:
 /usr/include/c++/13.1.1/stdexcept:
 /usr/include/c++/13.1.1/bits/streambuf.tcc:
-../vendor/spdlog/include/spdlog/fmt/bundled/format.h:
+../../vendor/spdlog/include/spdlog/fmt/bundled/format.h:
 /usr/include/c++/13.1.1/cmath:
 /usr/include/math.h:
 /usr/include/bits/math-vector.h:
@@ -534,8 +535,8 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
 /usr/include/c++/13.1.1/tr1/poly_hermite.tcc:
 /usr/include/c++/13.1.1/tr1/poly_laguerre.tcc:
 /usr/include/c++/13.1.1/tr1/riemann_zeta.tcc:
-../vendor/spdlog/include/spdlog/fmt/bundled/core.h:
-../vendor/spdlog/include/spdlog/fmt/bundled/format-inl.h:
+../../vendor/spdlog/include/spdlog/fmt/bundled/core.h:
+../../vendor/spdlog/include/spdlog/fmt/bundled/format-inl.h:
 /usr/include/c++/13.1.1/algorithm:
 /usr/include/c++/13.1.1/pstl/glue_algorithm_defs.h:
 /usr/include/c++/13.1.1/climits:
@@ -564,10 +565,10 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
 /usr/include/c++/13.1.1/bits/codecvt.h:
 /usr/include/c++/13.1.1/bits/locale_facets_nonio.tcc:
 /usr/include/c++/13.1.1/bits/locale_conv.h:
-../vendor/spdlog/include/spdlog/fmt/bundled/format.h:
-../vendor/spdlog/include/spdlog/common-inl.h:
-../vendor/spdlog/include/spdlog/details/registry.h:
-../vendor/spdlog/include/spdlog/details/periodic_worker.h:
+../../vendor/spdlog/include/spdlog/fmt/bundled/format.h:
+../../vendor/spdlog/include/spdlog/common-inl.h:
+../../vendor/spdlog/include/spdlog/details/registry.h:
+../../vendor/spdlog/include/spdlog/details/periodic_worker.h:
 /usr/include/c++/13.1.1/condition_variable:
 /usr/include/c++/13.1.1/bits/std_mutex.h:
 /usr/include/c++/13.1.1/bits/unique_lock.h:
@@ -575,13 +576,13 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
 /usr/include/c++/13.1.1/thread:
 /usr/include/c++/13.1.1/bits/std_thread.h:
 /usr/include/c++/13.1.1/bits/this_thread_sleep.h:
-../vendor/spdlog/include/spdlog/details/periodic_worker-inl.h:
-../vendor/spdlog/include/spdlog/details/registry-inl.h:
-../vendor/spdlog/include/spdlog/logger.h:
-../vendor/spdlog/include/spdlog/details/log_msg.h:
-../vendor/spdlog/include/spdlog/details/log_msg-inl.h:
-../vendor/spdlog/include/spdlog/details/os.h:
-../vendor/spdlog/include/spdlog/details/os-inl.h:
+../../vendor/spdlog/include/spdlog/details/periodic_worker-inl.h:
+../../vendor/spdlog/include/spdlog/details/registry-inl.h:
+../../vendor/spdlog/include/spdlog/logger.h:
+../../vendor/spdlog/include/spdlog/details/log_msg.h:
+../../vendor/spdlog/include/spdlog/details/log_msg-inl.h:
+../../vendor/spdlog/include/spdlog/details/os.h:
+../../vendor/spdlog/include/spdlog/details/os-inl.h:
 /usr/include/sys/stat.h:
 /usr/include/bits/stat.h:
 /usr/include/bits/struct_stat.h:
@@ -618,23 +619,23 @@ obj/x64/Debug/Texture.o: ../src/engine/Texture.cpp \
 /usr/include/asm/unistd.h:
 /usr/include/asm/unistd_64.h:
 /usr/include/bits/syscall.h:
-../vendor/spdlog/include/spdlog/details/backtracer.h:
-../vendor/spdlog/include/spdlog/details/log_msg_buffer.h:
-../vendor/spdlog/include/spdlog/details/log_msg_buffer-inl.h:
-../vendor/spdlog/include/spdlog/details/circular_q.h:
+../../vendor/spdlog/include/spdlog/details/backtracer.h:
+../../vendor/spdlog/include/spdlog/details/log_msg_buffer.h:
+../../vendor/spdlog/include/spdlog/details/log_msg_buffer-inl.h:
+../../vendor/spdlog/include/spdlog/details/circular_q.h:
 /usr/include/c++/13.1.1/cassert:
 /usr/include/assert.h:
-../vendor/spdlog/include/spdlog/details/backtracer-inl.h:
-../vendor/spdlog/include/spdlog/logger-inl.h:
-../vendor/spdlog/include/spdlog/sinks/sink.h:
-../vendor/spdlog/include/spdlog/formatter.h:
-../vendor/spdlog/include/spdlog/sinks/sink-inl.h:
-../vendor/spdlog/include/spdlog/pattern_formatter.h:
-../vendor/spdlog/include/spdlog/pattern_formatter-inl.h:
-../vendor/spdlog/include/spdlog/details/fmt_helper.h:
-../vendor/spdlog/include/spdlog/sinks/ansicolor_sink.h:
-../vendor/spdlog/include/spdlog/details/console_globals.h:
-../vendor/spdlog/include/spdlog/sinks/ansicolor_sink-inl.h:
-../vendor/spdlog/include/spdlog/version.h:
-../vendor/spdlog/include/spdlog/details/synchronous_factory.h:
-../vendor/spdlog/include/spdlog/spdlog-inl.h:
+../../vendor/spdlog/include/spdlog/details/backtracer-inl.h:
+../../vendor/spdlog/include/spdlog/logger-inl.h:
+../../vendor/spdlog/include/spdlog/sinks/sink.h:
+../../vendor/spdlog/include/spdlog/formatter.h:
+../../vendor/spdlog/include/spdlog/sinks/sink-inl.h:
+../../vendor/spdlog/include/spdlog/pattern_formatter.h:
+../../vendor/spdlog/include/spdlog/pattern_formatter-inl.h:
+../../vendor/spdlog/include/spdlog/details/fmt_helper.h:
+../../vendor/spdlog/include/spdlog/sinks/ansicolor_sink.h:
+../../vendor/spdlog/include/spdlog/details/console_globals.h:
+../../vendor/spdlog/include/spdlog/sinks/ansicolor_sink-inl.h:
+../../vendor/spdlog/include/spdlog/version.h:
+../../vendor/spdlog/include/spdlog/details/synchronous_factory.h:
+../../vendor/spdlog/include/spdlog/spdlog-inl.h:

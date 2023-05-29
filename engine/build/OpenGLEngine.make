@@ -16,7 +16,7 @@ ifeq ($(config),debug_x64)
   TARGET = $(TARGETDIR)/OpenGLEngine
   OBJDIR = obj/x64/Debug
   DEFINES += -DDEBUG
-  INCLUDES += -Iinclude -I../vendor/stb_image/include -I../vendor/spdlog/include
+  INCLUDES += -Iinclude -I../../vendor/stb_image/include -I../../vendor/spdlog/include
   FORCE_INCLUDE +=
   ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g
@@ -43,7 +43,7 @@ ifeq ($(config),release_x64)
   TARGET = $(TARGETDIR)/OpenGLEngine
   OBJDIR = obj/x64/Release
   DEFINES += -DNDEBUG
-  INCLUDES += -Iinclude -I../vendor/stb_image/include -I../vendor/spdlog/include
+  INCLUDES += -Iinclude -I../../vendor/stb_image/include -I../../vendor/spdlog/include
   FORCE_INCLUDE +=
   ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
@@ -65,11 +65,8 @@ all: prebuild prelink $(TARGET)
 endif
 
 OBJECTS := \
-	$(OBJDIR)/RenderTriangle.o \
-	$(OBJDIR)/SandboxApp.o \
 	$(OBJDIR)/Application.o \
 	$(OBJDIR)/EngineWindow.o \
-	$(OBJDIR)/KeyboardEvent.o \
 	$(OBJDIR)/RenderCommands.o \
 	$(OBJDIR)/Shader.o \
 	$(OBJDIR)/Texture.o \
@@ -132,31 +129,22 @@ else
 $(OBJECTS): | $(OBJDIR)
 endif
 
-$(OBJDIR)/RenderTriangle.o: ../sandbox/RenderTriangle.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/SandboxApp.o: ../sandbox/SandboxApp.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/Application.o: ../src/Application.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/EngineWindow.o: ../src/engine/EngineWindow.cpp
+$(OBJDIR)/EngineWindow.o: ../src/EngineWindow.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/KeyboardEvent.o: ../src/engine/KeyboardEvent.cpp
+$(OBJDIR)/RenderCommands.o: ../src/RenderCommands.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/RenderCommands.o: ../src/engine/RenderCommands.cpp
+$(OBJDIR)/Shader.o: ../src/Shader.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/Shader.o: ../src/engine/Shader.cpp
+$(OBJDIR)/Texture.o: ../src/Texture.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/Texture.o: ../src/engine/Texture.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/stb_image.o: ../vendor/stb_image/stb_image.cpp
+$(OBJDIR)/stb_image.o: ../../vendor/stb_image/stb_image.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 

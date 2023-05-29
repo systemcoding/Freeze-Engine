@@ -1,5 +1,5 @@
-obj/x64/Debug/stb_image.o: ../vendor/stb_image/stb_image.cpp \
- /usr/include/stdc-predef.h ../vendor/stb_image/include/stb_image.h \
+obj/x64/Debug/stb_image.o: ../../vendor/stb_image/stb_image.cpp \
+ /usr/include/stdc-predef.h ../../vendor/stb_image/include/stb_image.h \
  /usr/include/stdio.h /usr/include/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
@@ -91,7 +91,7 @@ obj/x64/Debug/stb_image.o: ../vendor/stb_image/stb_image.cpp \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.1.1/include/mmintrin.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.1.1/include/mm_malloc.h
 /usr/include/stdc-predef.h:
-../vendor/stb_image/include/stb_image.h:
+../../vendor/stb_image/include/stb_image.h:
 /usr/include/stdio.h:
 /usr/include/bits/libc-header-start.h:
 /usr/include/features.h:

@@ -7,10 +7,8 @@ kind "ConsoleApp"
 language "C++"
 targetdir "bin/%{cfg.buildcfg}"
 
-files {"../src/Application.cpp"}
-files {"../src/engine/**.cpp", "src/include/**.h"}
-files {"../vendor/stb_image/stb_image.cpp"}
-files {"../sandbox/*.cpp"}
+files {"../src/*.cpp", "../src/include/**.h"}
+files {"../../vendor/stb_image/stb_image.cpp"}
 
 includedirs {"include"}
 
@@ -24,10 +22,10 @@ links {"GLEW"}
 links {"glfw", "X11", "dl", "pthread"}
 
 -- stb_image
-includedirs {"../vendor/stb_image/include"}
+includedirs {"../../vendor/stb_image/include"}
 
 -- spdlog
-includedirs {"../vendor/spdlog/include"}
+includedirs {"../../vendor/spdlog/include"}
 
 filter "configurations:Debug"
 defines {"DEBUG"}

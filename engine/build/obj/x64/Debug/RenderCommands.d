@@ -1,5 +1,5 @@
-obj/x64/Debug/RenderCommands.o: ../src/engine/RenderCommands.cpp \
- /usr/include/stdc-predef.h ../src/engine/include/RenderCommands.h \
+obj/x64/Debug/RenderCommands.o: ../src/RenderCommands.cpp \
+ /usr/include/stdc-predef.h ../src/include/RenderCommands.h \
  /usr/include/GL/glew.h /usr/include/c++/13.1.1/cstddef \
  /usr/include/c++/13.1.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.1.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -196,7 +196,7 @@ obj/x64/Debug/RenderCommands.o: ../src/engine/RenderCommands.cpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl
 /usr/include/stdc-predef.h:
-../src/engine/include/RenderCommands.h:
+../src/include/RenderCommands.h:
 /usr/include/GL/glew.h:
 /usr/include/c++/13.1.1/cstddef:
 /usr/include/c++/13.1.1/x86_64-pc-linux-gnu/bits/c++config.h:
