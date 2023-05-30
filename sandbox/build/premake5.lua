@@ -11,9 +11,12 @@ files {"../src/*.cpp", "../src/**.h"}
 files {"../../vendor/stb_image/stb_image.cpp"}
 files {
     "../../engine/src/Shader.cpp",
+    "../../engine/src/Application.cpp",
+    "../../engine/src/EngineWindow.cpp",
     "../../engine/src/Texture.cpp",
     "../../engine/src/RenderCommands.cpp",
-    "../../engine/src/RenderCommands.cpp"
+
+    "../../engine/src/include/*.h"
 }
 
 includedirs {"include"}

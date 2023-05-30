@@ -8,12 +8,12 @@
             "name": "g++ - Build and debug active file",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/engine/build/bin/Debug/OpenGLEngine",
+            "program": "${workspaceFolder}/sandbox/build/bin/Debug/Sandbox",
             "args": [
                 "-g"
             ],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/engine/build/bin/Debug",
+            "cwd": "${workspaceFolder}/sandbox/build/",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",

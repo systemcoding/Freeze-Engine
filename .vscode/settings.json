@@ -75,6 +75,7 @@
         "typeindex": "cpp",
         "bitset": "cpp",
         "codecvt": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "shared_mutex": "cpp"
     }
 }

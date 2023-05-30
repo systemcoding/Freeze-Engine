@@ -1,4 +1,4 @@
-#include "RenderTriangle.h"
+#include "SandboxExample.h"
 
 RenderTriangle::RenderTriangle()
 {
@@ -82,7 +82,7 @@ void RenderTriangle::create()
     m_Shader->loadShaders(vertexShader, fragmentShader);
     m_Shader->useShaderProgram();
 
-    m_Texture->generateTexture(1, "../../../resources/textures/pop_cat.png", GL_RGBA);
+    m_Texture->generateTexture(1, "../../resources/textures/pop_cat.png", GL_RGBA);
 }
 
 void RenderTriangle::process_input(GLFWwindow* window)

@@ -11,10 +11,6 @@
 #include "../../engine/src/include/Shader.h"
 #include "../../engine/src/include/Texture.h"
 
-// #include "Shader.h"
-// #include "Texture.h"
-// #include "KeyboardEvent.h"
-
 #include <iostream>
 #include <memory>
 
@@ -35,3 +31,13 @@ private:
     std::unique_ptr<Shader> m_Shader{new Shader()};
     std::unique_ptr<Texture> m_Texture{new Texture()};
 };
+
+// class SandboxExample {
+// public:
+//     SandboxExample();
+
+//     void OnStart();
+
+//     ~SandboxExample();
+// private:
+// };

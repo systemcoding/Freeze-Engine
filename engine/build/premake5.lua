@@ -3,7 +3,7 @@ configurations {"Debug", "Release"}
 platforms {"x64"}
 
 project "OpenGLEngine"
-kind "ConsoleApp"
+kind "StaticLib"
 language "C++"
 targetdir "bin/%{cfg.buildcfg}"
 
