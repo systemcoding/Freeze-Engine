@@ -8,10 +8,10 @@ void SandboxExample::OnInit()
 {
     float vertices[] = {
         // positions          // colors           // texture coords
-        0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,   // top right
-        0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, // bottom left
-        -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f   // top left
+         0.5f,  0.5f, 0.0f,    1.0f, 0.0f, 0.0f,    1.0f, 1.0f,             // top right
+         0.5f, -0.5f, 0.0f,    0.0f, 1.0f, 0.0f,    1.0f, 0.0f,             // bottom right
+        -0.5f, -0.5f, 0.0f,    0.0f, 0.0f, 1.0f,    0.0f, 0.0f,             // bottom left
+        -0.5f,  0.5f, 0.0f,    1.0f, 1.0f, 0.0f,    0.0f, 1.0f              // top left
     };
 
     uint32_t indices[] = {
@@ -24,14 +24,12 @@ void SandboxExample::OnInit()
     glBindVertexArray(m_VertexArrayObject);
 
     // Vertex Buffer Object
-    glGenBuffers(1, &m_VertexBufferObject);
-    glBindBuffer(GL_ARRAY_BUFFER, m_VertexBufferObject);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    m_VertexBuffer->AddVertexBuffer(1, vertices, sizeof(vertices), GL_STATIC_DRAW);
+    m_VertexBuffer->BindVertexBuffer();
 
     // Element buffer object
-    glGenBuffers(1, &m_ElementBufferObject);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ElementBufferObject);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    m_ElementBuffer->AddElementBuffer(1, indices, sizeof(indices), GL_STATIC_DRAW);
+    m_ElementBuffer->BindElementBuffer();
 
     // position attribute
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)0);
@@ -63,7 +61,7 @@ void SandboxExample::OnUpdate()
     m_Texture->BindTexture();
 
     glm::mat4 trans = glm::mat4(1.0f);
-    trans = glm::translate(trans, glm::vec3((float)glfwGetTime(), 0.0f, 0.0f));
+    trans = glm::translate(trans, glm::vec3(0.3f, 0.0f, 0.0f));
     trans = glm::rotate(trans, (float)glfwGetTime() * glm::radians(360.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
     // Use the shader program

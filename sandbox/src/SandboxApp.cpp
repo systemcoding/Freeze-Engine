@@ -1,7 +1,7 @@
 #include "spdlog/spdlog.h"
 
-#include "Window.h"
-#include "Application.h"
+#include "core/Window.h"
+#include "core/Application.h"
 
 class SandboxApp : public Freeze::Application 
 {

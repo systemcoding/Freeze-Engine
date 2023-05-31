@@ -3,7 +3,7 @@
 #include <GL/glew.h>
 
 #include "../../../sandbox/src/SandboxExample.h"
-#include "RenderCommands.h"
+#include "../renderer/RenderCommands.h"
 #include "Window.h"
 
 #include <memory>

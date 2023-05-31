@@ -7,7 +7,7 @@
 #include "spdlog/spdlog.h"
 
 // Engine files
-#include "RenderCommands.h"
+#include "../renderer/RenderCommands.h"
 
 // STD Library Includes
 #include <iostream>

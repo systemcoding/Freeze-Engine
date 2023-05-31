@@ -8,8 +8,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "Shader.h"
-#include "Texture.h"
+// Engine Headers
+#include "utils/Shader.h"
+#include "utils/Texture.h"
+#include "buffer/Buffer.h"
 
 #include <iostream>
 #include <memory>
@@ -28,4 +30,6 @@ private:
 private:
     std::shared_ptr<Freeze::Shader> m_Shader = std::make_shared<Freeze::Shader>();
     std::shared_ptr<Freeze::Texture> m_Texture = std::make_shared<Freeze::Texture>();
+    std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
+    std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
 };
