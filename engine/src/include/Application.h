@@ -3,25 +3,32 @@
 #include <GL/glew.h>
 
 #include "../../../sandbox/src/SandboxExample.h"
+#include "RenderCommands.h"
 
 #include "Window.h"
 #include <memory>
 
-static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-static void process_input(GLFWwindow* window);
+namespace Freeze
+{
+    static void framebuffer_size_callback(GLFWwindow *window, int width, int height);
+    static void process_input(GLFWwindow *window);
 
-class Application {
-public:
-    Application(uint32_t width, uint32_t height, const std::string& title);
+    class Application
+    {
+    public:
+        Application(uint32_t width, uint32_t height, const std::string &title);
 
-    void Init(uint32_t width, uint32_t height, const std::string& title);
-    void Run();
-    void SetEngineViewport();
+        void Init(uint32_t width, uint32_t height, const std::string &title);
+        void Run();
+        void SetEngineViewport();
 
-    virtual ~Application();
-private:
-    bool InitGLEW();
-private:
-    std::unique_ptr<SandboxExample> m_Sandbox{new SandboxExample()};
-    std::unique_ptr<Window> m_Window{new Window()};
+        virtual ~Application();
+
+    private:
+        bool InitGLEW();
+
+    private:
+        std::shared_ptr<SandboxExample> m_Sandbox{new SandboxExample()};
+        std::shared_ptr<Freeze::Window> m_Window;
+    };
 };

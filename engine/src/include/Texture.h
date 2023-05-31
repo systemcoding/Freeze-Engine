@@ -6,18 +6,23 @@
 
 #include <string>
 
-class Texture {
-public:
-    Texture();
+namespace Freeze
+{
+    class Texture
+    {
+    public:
+        Texture();
 
-    void generateTexture(int nTextures, const std::string& filepath, GLint format);
+        void GenerateTexture(int nTextures, const std::string &filepath, GLint format);
 
-    void bindTexture() const;
-    void unbindTexture() const;
+        void BindTexture() const;
+        void UnbindTexture() const;
 
-    ~Texture();
-private:
-    uint32_t m_TextureID;
-    uint8_t* m_ImageData;
-    int m_TextureWidth, m_TextureHeight, m_NTextureChannels;
+        ~Texture();
+
+    private:
+        uint32_t m_TextureID;
+        uint8_t *m_ImageData;
+        int m_TextureWidth, m_TextureHeight, m_NTextureChannels;
+    };
 };

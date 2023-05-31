@@ -1,33 +1,36 @@
 #include "include/Window.h"
 
-GLFWwindow* Window::m_Window;
-
-Window::Window()
+namespace Freeze
 {
-}
+    GLFWwindow *Window::m_Window;
 
-bool Window::CreateWindow(uint32_t width, uint32_t height, const std::string& title)
-{
-    glfwInit();
-
-    m_Window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
-
-    if(m_Window == nullptr)
+    Window::Window()
     {
-        spdlog::error("Window failed to initialise");
-        exit(0);
-        return false;
     }
 
-    return true;
-}
+    bool Window::CreateWindow(uint32_t width, uint32_t height, const std::string &title)
+    {
+        glfwInit();
 
-void Window::CreateWindowContext()
-{
-    glfwMakeContextCurrent(m_Window);
-}
+        m_Window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
 
-Window::~Window()
-{
-    glfwTerminate();
-}
+        if (m_Window == nullptr)
+        {
+            spdlog::error("Window failed to initialise");
+            exit(0);
+            return false;
+        }
+
+        return true;
+    }
+
+    void Window::CreateWindowContext()
+    {
+        glfwMakeContextCurrent(m_Window);
+    }
+
+    Window::~Window()
+    {
+        glfwTerminate();
+    }
+};

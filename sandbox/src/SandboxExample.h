@@ -26,6 +26,6 @@ public:
 private:
     unsigned int VBO, VAO, EBO;
 private:
-    std::unique_ptr<Shader> m_Shader{new Shader()};
-    std::unique_ptr<Texture> m_Texture{new Texture()};
+    std::shared_ptr<Freeze::Shader> m_Shader = std::make_shared<Freeze::Shader>();
+    std::shared_ptr<Freeze::Texture> m_Texture = std::make_shared<Freeze::Texture>();
 };

@@ -3,7 +3,7 @@
 #include "../../engine/src/include/Window.h"
 #include "../../engine/src/include/Application.h"
 
-class SandboxApp : public Application 
+class SandboxApp : public Freeze::Application 
 {
 public:
     SandboxApp()

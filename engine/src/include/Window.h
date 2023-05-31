@@ -14,15 +14,20 @@
 #include <string>
 #include <memory>
 
-class Window {
-public:
-    Window();
+namespace Freeze
+{
+    class Window
+    {
+    public:
+        Window();
 
-    bool CreateWindow(uint32_t width, uint32_t height, const std::string& title);
-    void CreateWindowContext();
-    GLFWwindow* getWindowInstance() { return m_Window; }
+        bool CreateWindow(uint32_t width, uint32_t height, const std::string &title);
+        void CreateWindowContext();
+        GLFWwindow *getWindowInstance() { return m_Window; }
 
-    ~Window();
-private:
-    static GLFWwindow* m_Window;
+        ~Window();
+
+    private:
+        static GLFWwindow *m_Window;
+    };
 };

@@ -79,10 +79,10 @@ void SandboxExample::OnInit()
         }
     )";
 
-    m_Shader->loadShaders(vertexShader, fragmentShader);
-    m_Shader->useShaderProgram();
+    m_Shader->LoadShaders(vertexShader, fragmentShader);
+    m_Shader->UseShader();
 
-    m_Texture->generateTexture(1, "../../resources/textures/pop_cat.png", GL_RGBA);
+    m_Texture->GenerateTexture(1, "../../resources/textures/pop_cat.png", GL_RGBA);
 }
 
 void SandboxExample::OnEvent(GLFWwindow* window)
@@ -96,18 +96,18 @@ void SandboxExample::OnEvent(GLFWwindow* window)
 
 void SandboxExample::OnUpdate()
 {
-    m_Texture->bindTexture();
+    m_Texture->BindTexture();
 
     glm::mat4 trans = glm::mat4(1.0f);
     trans = glm::rotate(trans, (float)glfwGetTime() * glm::radians(20.0f), glm::vec3(0.0, 0.0, 1.0));
     trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
 
     // Use the shader program
-    m_Shader->useShaderProgram();
+    m_Shader->UseShader();
 
     // Then set the uniform and stuff
-    uint32_t transformLoc = m_Shader->getUniformLocation("transMatrix");
-    m_Shader->setMatrix4fv(transformLoc, 1, GL_FALSE, trans);
+    uint32_t transformLoc = m_Shader->GetUniformLocation("transMatrix");
+    m_Shader->SetMatrix4fv(transformLoc, 1, GL_FALSE, trans);
 
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
