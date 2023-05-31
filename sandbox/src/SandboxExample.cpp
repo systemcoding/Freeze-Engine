@@ -1,10 +1,10 @@
 #include "SandboxExample.h"
 
-RenderTriangle::RenderTriangle()
+SandboxExample::SandboxExample()
 {
 }
 
-void RenderTriangle::create()
+void SandboxExample::OnInit()
 {
     float vertices[] = {
         // positions          // colors           // texture coords
@@ -85,16 +85,16 @@ void RenderTriangle::create()
     m_Texture->generateTexture(1, "../../resources/textures/pop_cat.png", GL_RGBA);
 }
 
-void RenderTriangle::process_input(GLFWwindow* window)
+void SandboxExample::OnEvent(GLFWwindow* window)
 {
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE))
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
     {
-        exit(0);
         spdlog::info("Pressed Escape Key and Window Closed!");
+        glfwSetWindowShouldClose(window, true);
     }
 }
 
-void RenderTriangle::render()
+void SandboxExample::OnUpdate()
 {
     m_Texture->bindTexture();
 
@@ -113,6 +113,6 @@ void RenderTriangle::render()
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 
-RenderTriangle::~RenderTriangle()
+SandboxExample::~SandboxExample()
 {
 }

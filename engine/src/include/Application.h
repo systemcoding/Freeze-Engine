@@ -4,10 +4,8 @@
 
 #include "../../../sandbox/src/SandboxExample.h"
 
-#include "EngineWindow.h"
+#include "Window.h"
 #include <memory>
-
-class SandboxApp;
 
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 static void process_input(GLFWwindow* window);
@@ -24,6 +22,6 @@ public:
 private:
     bool InitGLEW();
 private:
-    std::unique_ptr<RenderTriangle> m_RenderTriangle{new RenderTriangle()};
-    std::unique_ptr<EngineWindow> m_EngineWindow{new EngineWindow()};
+    std::unique_ptr<SandboxExample> m_Sandbox{new SandboxExample()};
+    std::unique_ptr<Window> m_Window{new Window()};
 };

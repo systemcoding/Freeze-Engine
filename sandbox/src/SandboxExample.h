@@ -14,30 +14,18 @@
 #include <iostream>
 #include <memory>
 
-class RenderTriangle {
+class SandboxExample {
 public:
-    RenderTriangle();
+    SandboxExample();
     
-    void create();
-    void render();
-    void process_input(GLFWwindow* window);
+    void OnInit();
+    void OnUpdate();
+    void OnEvent(GLFWwindow* window);
 
-    ~RenderTriangle();
+    ~SandboxExample();
 private:
-    uint32_t m_TextureID;
     unsigned int VBO, VAO, EBO;
-    int m_Width, m_Height, m_NChannels;
 private:
     std::unique_ptr<Shader> m_Shader{new Shader()};
     std::unique_ptr<Texture> m_Texture{new Texture()};
 };
-
-// class SandboxExample {
-// public:
-//     SandboxExample();
-
-//     void OnStart();
-
-//     ~SandboxExample();
-// private:
-// };

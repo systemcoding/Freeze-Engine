@@ -14,15 +14,15 @@
 #include <string>
 #include <memory>
 
-class EngineWindow {
+class Window {
 public:
-    EngineWindow();
+    Window();
 
     bool CreateWindow(uint32_t width, uint32_t height, const std::string& title);
     void CreateWindowContext();
-    GLFWwindow* getWindowInstance() { return m_EngineWindow; }
+    GLFWwindow* getWindowInstance() { return m_Window; }
 
-    ~EngineWindow();
+    ~Window();
 private:
-    static GLFWwindow* m_EngineWindow;
+    static GLFWwindow* m_Window;
 };
