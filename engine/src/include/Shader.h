@@ -10,7 +10,8 @@
 #include <spdlog/spdlog.h>
 
 #include <cstdint>
-#include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
 
 namespace Freeze
@@ -21,6 +22,8 @@ namespace Freeze
         Shader();
 
         void LoadShaders(const std::string &vertexShader, const std::string &fragmentShader);
+        void LoadShadersFromFile(const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
+
         void UseShader();
         void UnbindShader();
 

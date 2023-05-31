@@ -4,8 +4,8 @@
 
 #include "../../../sandbox/src/SandboxExample.h"
 #include "RenderCommands.h"
-
 #include "Window.h"
+
 #include <memory>
 
 namespace Freeze

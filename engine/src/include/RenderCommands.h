@@ -4,6 +4,6 @@
 #include <glm/glm.hpp>
 
 namespace RenderCommands {
-    void SetRenderColor(glm::vec4& color);
+    void SetRenderColor(const glm::vec4& color);
     void RenderClear();
 };

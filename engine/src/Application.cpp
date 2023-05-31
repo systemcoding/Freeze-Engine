@@ -1,5 +1,4 @@
 #include "include/Application.h"
-#include "include/Window.h"
 
 namespace Freeze
 {
@@ -26,8 +25,7 @@ namespace Freeze
             m_Sandbox->OnEvent(m_Window->getWindowInstance());
 
             // clear the screen with some color at every start of the frame
-            glm::vec4 color(0.130f, 0.120f, 0.120f, 1.0f);
-            RenderCommands::SetRenderColor(color);
+            RenderCommands::SetRenderColor(glm::vec4(0.2f, 0.3f, 0.5f, 1.0f));
             RenderCommands::RenderClear();
 
             // Rendering commands here like (RenderDraw, RenderClear and stuff)

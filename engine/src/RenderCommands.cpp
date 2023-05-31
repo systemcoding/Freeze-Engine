@@ -1,6 +1,6 @@
 #include "include/RenderCommands.h"
 
-void RenderCommands::SetRenderColor(glm::vec4& color)
+void RenderCommands::SetRenderColor(const glm::vec4& color)
 {
     glClearColor(color.r, color.g, color.b, color.a);
 }

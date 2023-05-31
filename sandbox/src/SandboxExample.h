@@ -8,8 +8,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "../../engine/src/include/Shader.h"
-#include "../../engine/src/include/Texture.h"
+#include "Shader.h"
+#include "Texture.h"
 
 #include <iostream>
 #include <memory>
@@ -24,7 +24,7 @@ public:
 
     ~SandboxExample();
 private:
-    unsigned int VBO, VAO, EBO;
+    uint32_t m_VertexBufferObject, m_VertexArrayObject, m_ElementBufferObject;
 private:
     std::shared_ptr<Freeze::Shader> m_Shader = std::make_shared<Freeze::Shader>();
     std::shared_ptr<Freeze::Texture> m_Texture = std::make_shared<Freeze::Texture>();

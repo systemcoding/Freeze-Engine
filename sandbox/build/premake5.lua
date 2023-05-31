@@ -11,8 +11,6 @@ files {"../src/*.cpp", "../src/**.h"}
 files {"../../vendor/stb_image/stb_image.cpp"}
 files {"../../engine/src/*.cpp", "../../engine/src/include/*.h"}
 
-includedirs {"include"}
-
 -- OpenGL
 links {"GL"}
 
@@ -27,6 +25,9 @@ includedirs {"../../vendor/spdlog/include"}
 
 -- stb_image
 includedirs {"../../vendor/stb_image/include"}
+
+-- Engine files
+includedirs {"../../engine/src/include"}
 
 filter "configurations:Debug"
 defines {"DEBUG"}
