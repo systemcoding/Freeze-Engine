@@ -4,12 +4,14 @@
 
 #include "../../../sandbox/src/SandboxExample.h"
 #include "../renderer/RenderCommands.h"
+#include "../imgui/ImGuiContext.h"
 #include "Window.h"
 
 #include <memory>
 
 namespace Freeze
 {
+    // Callback functions
     static void framebuffer_size_callback(GLFWwindow *window, int width, int height);
     static void process_input(GLFWwindow *window);
 
@@ -30,5 +32,6 @@ namespace Freeze
     private:
         std::shared_ptr<SandboxExample> m_Sandbox{new SandboxExample()};
         std::shared_ptr<Freeze::Window> m_Window;
+        std::shared_ptr<Freeze::ImGuiContext> m_ImGuiContext;
     };
 };

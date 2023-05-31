@@ -73,6 +73,9 @@ void SandboxExample::OnUpdate()
 
     glBindVertexArray(m_VertexArrayObject);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+    bool show = true;
+    ImGui::ShowMetricsWindow(&show); 
 }
 
 SandboxExample::~SandboxExample()

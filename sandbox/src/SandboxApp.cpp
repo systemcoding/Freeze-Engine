@@ -9,7 +9,7 @@ public:
     SandboxApp()
         :Application(800, 600, "Sandbox")
     {
-        spdlog::info("Sandbox!");
+        spdlog::info("Sandbox App!");
     }
 
     ~SandboxApp()

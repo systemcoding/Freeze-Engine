@@ -15,6 +15,7 @@ namespace Freeze
         m_Window = std::make_unique<Freeze::Window>();
         m_Window->CreateWindow(width, height, title);
         m_Window->CreateWindowContext();
+        m_ImGuiContext->CreateImGuiContext(m_Window->getWindowInstance());
     }
 
     void Application::Run()
@@ -28,8 +29,14 @@ namespace Freeze
             RenderCommands::SetRenderColor(glm::vec4(0.2f, 0.3f, 0.5f, 1.0f));
             RenderCommands::RenderClear();
 
+            // Setup ImGui
+            m_ImGuiContext->UpdateImGui();
+
             // Rendering commands here like (RenderDraw, RenderClear and stuff)
             m_Sandbox->OnUpdate();
+
+            // Render ImGui Stuff
+            m_ImGuiContext->RenderImGui();
 
             // Then swap the buffers and check for events
             glfwSwapBuffers(m_Window->getWindowInstance());

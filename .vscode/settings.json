@@ -77,5 +77,6 @@
         "codecvt": "cpp",
         "regex": "cpp",
         "shared_mutex": "cpp"
-    }
+    },
+    "explorer.autoReveal": false
 }

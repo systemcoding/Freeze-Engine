@@ -8,8 +8,12 @@ language "C++"
 targetdir "bin/%{cfg.buildcfg}"
 
 files {"../src/*.cpp", "../src/**.h"}
-files {"../../vendor/stb_image/stb_image.cpp"}
 files {"../../engine/src/*.cpp", "../../engine/src/include/*.h"}
+
+-- External Deps
+files {"../../vendor/stb_image/stb_image.cpp"} -- stb_image
+files {"../../vendor/imgui/*.cpp"} -- imgui
+files {"../../vendor/imgui/backends/imgui_impl_glfw.cpp", "../../vendor/imgui/backends/imgui_impl_opengl3.cpp"}
 
 -- OpenGL
 links {"GL"}
@@ -25,6 +29,9 @@ includedirs {"../../vendor/spdlog/include"}
 
 -- stb_image
 includedirs {"../../vendor/stb_image/include"}
+
+-- imgui
+includedirs {"../../vendor/imgui"}
 
 -- Engine files
 includedirs {"../../engine/src/include"}
