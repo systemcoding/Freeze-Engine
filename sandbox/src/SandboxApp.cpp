@@ -2,6 +2,7 @@
 
 #include "core/Window.h"
 #include "core/Application.h"
+#include "core/Core.h"
 
 class SandboxApp : public Freeze::Application 
 {
@@ -9,7 +10,7 @@ public:
     SandboxApp()
         :Application(800, 600, "Sandbox")
     {
-        spdlog::info("Sandbox App!");
+        FZ_INFO("Sandbox App!");
     }
 
     ~SandboxApp()

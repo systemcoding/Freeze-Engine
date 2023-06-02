@@ -1,4 +1,4 @@
-#include "include/utils/Shader.h"
+#include "include/core/Shader.h"
 
 namespace Freeze
 {
@@ -72,7 +72,7 @@ namespace Freeze
         }
         catch (std::ifstream::failure &e)
         {
-            spdlog::error("Shader file failed to read! {}", e.what());
+            FZ_INFO("Shader file failed to read! {}", e.what());
         }
 
         const GLchar *vertexSource = vertexCode.c_str();

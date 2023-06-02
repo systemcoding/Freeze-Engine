@@ -6,6 +6,9 @@
 #include <spdlog/spdlog.h>
 
 #include "imgui.h"
+#include "imgui_internal.h"
+
+#include "../core/Core.h"
 
 namespace Freeze
 {
@@ -16,12 +19,13 @@ namespace Freeze
 
         void CreateImGuiContext(GLFWwindow *window)
         {
-            spdlog::info("ImGui Version: {}", IMGUI_VERSION); // Check the version
+            FZ_INFO("ImGui Version: {}", IMGUI_VERSION); // Check the version
             ImGui::CreateContext();                           // Create the ImGui Context
 
             ImGuiIO &io = ImGui::GetIO();                         // Main configuration and I/O between your application and ImGui
             io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
             io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
+            ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 
             ImGui_ImplGlfw_InitForOpenGL(window, true);
             ImGui_ImplOpenGL3_Init("#version 420");

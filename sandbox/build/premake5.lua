@@ -9,11 +9,14 @@ targetdir "bin/%{cfg.buildcfg}"
 
 files {"../src/*.cpp", "../src/**.h"}
 files {"../../engine/src/*.cpp", "../../engine/src/include/*.h"}
+files {"../../engine/src/platform/linux/*.cpp", "../../engine/src/platform/linux/*.h", "../../engine/src/platform/linux/build_dir.h"}
 
 -- External Deps
 files {"../../vendor/stb_image/stb_image.cpp"} -- stb_image
 files {"../../vendor/imgui/*.cpp"} -- imgui
 files {"../../vendor/imgui/backends/imgui_impl_glfw.cpp", "../../vendor/imgui/backends/imgui_impl_opengl3.cpp"}
+
+prebuildcommands {'echo "static const char* build_dir = \\"$(shell pwd)\\";" > ../../engine/src/platform/linux/build_path.h'}
 
 -- OpenGL
 links {"GL"}

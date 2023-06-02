@@ -11,7 +11,7 @@ namespace Freeze
 
     void Application::Init(uint32_t width, uint32_t height, const std::string &title)
     {
-        spdlog::info("Engine Running!");
+        FZ_INFO("Engine Running!");
         m_Window = std::make_unique<Freeze::Window>();
         m_Window->CreateWindow(width, height, title);
         m_Window->CreateWindowContext();

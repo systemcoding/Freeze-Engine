@@ -30,7 +30,7 @@ namespace Freeze {
 
     VertexBuffer::~VertexBuffer()
     {
-        spdlog::info("Freed Vertex Buffers: {}", m_NVertexBuffers);
+        FZ_INFO("Freed Vertex Buffers: {}", m_NVertexBuffers);
         glDeleteBuffers(m_NVertexBuffers, &m_VertexBufferObjectID);
     }
 
@@ -45,7 +45,7 @@ namespace Freeze {
 
         if(data == nullptr || m_NElementBuffers == 0)
         {
-            spdlog::error("Element Buffer: No Data/Invalid Data Provided or No Of Buffers is 0!");
+            FZ_ERROR("Element Buffer: No Data/Invalid Data Provided or No Of Buffers is 0!");
             exit(0);
         }
     }
@@ -62,7 +62,7 @@ namespace Freeze {
 
     ElementBuffer::~ElementBuffer()
     {
-        spdlog::info("Freed Element Buffers: {}", m_NElementBuffers);
+        FZ_INFO("Freed Element Buffers: {}", m_NElementBuffers);
         glDeleteBuffers(m_NElementBuffers, &m_ElementBufferObjectID);
     }
 };

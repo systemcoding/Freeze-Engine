@@ -2,7 +2,7 @@
 
 #include <GL/glew.h>
 
-#include "spdlog/spdlog.h"
+#include "../core/Core.h"
 
 #include <cstdint>
 

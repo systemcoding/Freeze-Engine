@@ -7,6 +7,8 @@
 #include "../imgui/ImGuiContext.h"
 #include "Window.h"
 
+#include "../core/Core.h"
+
 #include <memory>
 
 namespace Freeze

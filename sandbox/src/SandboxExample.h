@@ -10,11 +10,13 @@
 
 // ImGui
 #include <imgui.h>
+#include <imgui_internal.h>
 
 // Engine Headers
-#include "utils/Shader.h"
-#include "utils/Texture.h"
+#include "core/Shader.h"
+#include "core/Texture.h"
 #include "buffer/Buffer.h"
+#include "../platform/linux/UtilityManager.h"
 
 #include <iostream>
 #include <memory>
@@ -35,4 +37,7 @@ private:
     std::shared_ptr<Freeze::Texture> m_Texture = std::make_shared<Freeze::Texture>();
     std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
     std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
+    std::shared_ptr<Freeze::UtilityManager> m_UtilityManager = std::make_shared<Freeze::UtilityManager>();
+private:
+    bool m_Show{true};
 };

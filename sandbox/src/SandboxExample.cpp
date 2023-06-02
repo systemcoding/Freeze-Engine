@@ -2,16 +2,17 @@
 
 SandboxExample::SandboxExample()
 {
+    m_UtilityManager->PrintCurrentBuildDirectory();
 }
 
 void SandboxExample::OnInit()
 {
     float vertices[] = {
         // positions          // colors           // texture coords
-         0.5f,  0.5f, 0.0f,    1.0f, 0.0f, 0.0f,    1.0f, 1.0f,             // top right
-         0.5f, -0.5f, 0.0f,    0.0f, 1.0f, 0.0f,    1.0f, 0.0f,             // bottom right
-        -0.5f, -0.5f, 0.0f,    0.0f, 0.0f, 1.0f,    0.0f, 0.0f,             // bottom left
-        -0.5f,  0.5f, 0.0f,    1.0f, 1.0f, 0.0f,    0.0f, 1.0f              // top left
+        0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,   // top right
+        0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, // bottom left
+        -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f   // top left
     };
 
     uint32_t indices[] = {
@@ -47,11 +48,11 @@ void SandboxExample::OnInit()
     m_Texture->GenerateTexture(1, "../../resources/textures/pop_cat.png", GL_RGBA);
 }
 
-void SandboxExample::OnEvent(GLFWwindow* window)
+void SandboxExample::OnEvent(GLFWwindow *window)
 {
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
     {
-        spdlog::info("Pressed Escape Key and Window Closed!");
+        FZ_INFO("Pressed Escape Key and Window Closed!");
         glfwSetWindowShouldClose(window, true);
     }
 }
@@ -60,8 +61,10 @@ void SandboxExample::OnUpdate()
 {
     m_Texture->BindTexture();
 
+    glm::vec3 pos(0.0f, 0.0f, 0.0f);
+
     glm::mat4 trans = glm::mat4(1.0f);
-    trans = glm::translate(trans, glm::vec3(0.3f, 0.0f, 0.0f));
+    trans = glm::translate(trans, pos);
     trans = glm::rotate(trans, (float)glfwGetTime() * glm::radians(360.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
     // Use the shader program
@@ -74,8 +77,26 @@ void SandboxExample::OnUpdate()
     glBindVertexArray(m_VertexArrayObject);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-    bool show = true;
-    ImGui::ShowMetricsWindow(&show); 
+    bool my_tool_active = true;
+
+    ImGui::Begin("My First Tool", &my_tool_active, ImGuiWindowFlags_MenuBar);
+    if (ImGui::BeginMenuBar())
+    {
+        if (ImGui::BeginMenu("File"))
+        {
+            if (ImGui::MenuItem("Open Texture", "Ctrl+O"))
+            {
+                m_UtilityManager->OpenDirectory(".");
+            }
+            if (ImGui::MenuItem("Close", "Ctrl+W"))
+            {
+                my_tool_active = false;
+            }
+            ImGui::EndMenu();
+        }
+        ImGui::EndMenuBar();
+    }
+    ImGui::End();
 }
 
 SandboxExample::~SandboxExample()
