@@ -6,25 +6,14 @@
     "configurations": [
         {
             "name": "g++ - Build and debug active file",
-            "type": "cppdbg",
+            "type": "lldb",
             "request": "launch",
             "program": "${workspaceFolder}/sandbox/build/bin/Debug/Sandbox",
             "args": [
-                "-g"
+                "-g",
+                "-O6"
             ],
-            "stopAtEntry": false,
             "cwd": "${workspaceFolder}/sandbox/build/",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
 }
