@@ -5,6 +5,7 @@
 #include "../../../sandbox/src/SandboxExample.h"
 #include "../renderer/RenderCommands.h"
 #include "../imgui/ImGuiContext.h"
+#include "OpenGLDebug.h"
 #include "Window.h"
 
 #include "../core/Core.h"
@@ -14,8 +15,8 @@
 namespace Freeze
 {
     // Callback functions
-    static void framebuffer_size_callback(GLFWwindow *window, int width, int height);
-    static void process_input(GLFWwindow *window);
+    inline void framebuffer_size_callback(GLFWwindow *window, int width, int height);
+    inline void process_input(GLFWwindow *window);
 
     class Application
     {

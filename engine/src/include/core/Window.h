@@ -8,6 +8,7 @@
 
 // Engine files
 #include "../renderer/RenderCommands.h"
+#include "../core/OpenGLDebug.h"
 
 // STD Library Includes
 #include <iostream>

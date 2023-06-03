@@ -13,9 +13,12 @@
 #include <imgui_internal.h>
 
 // Engine Headers
+#include "core/Core.h"
 #include "core/Shader.h"
 #include "core/Texture.h"
 #include "buffer/Buffer.h"
+#include "input/KeyboardInput.h"
+#include "../platform/linux/root_dir.h"
 #include "../platform/linux/UtilityManager.h"
 
 #include <iostream>
@@ -38,6 +41,7 @@ private:
     std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
     std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
     std::shared_ptr<Freeze::UtilityManager> m_UtilityManager = std::make_shared<Freeze::UtilityManager>();
+    std::shared_ptr<Freeze::KeyboardInput> m_KeyboardInput = std::make_shared<Freeze::KeyboardInput>();
 private:
     bool m_Show{true};
 };

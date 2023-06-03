@@ -42,7 +42,7 @@ void SandboxExample::OnInit()
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
 
-    m_Shader->LoadShadersFromFile("../../shaders/SandboxExample.vs", "../../shaders/SandboxExample.fs");
+    m_Shader->LoadShadersFromFile(rootDir + "shaders/SandboxExample.vert", rootDir + "shaders/SandboxExample.frag");
     m_Shader->UseShader();
 
     m_Texture->GenerateTexture(1, "../../resources/textures/pop_cat.png", GL_RGBA);
@@ -50,7 +50,7 @@ void SandboxExample::OnInit()
 
 void SandboxExample::OnEvent(GLFWwindow *window)
 {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    if (m_KeyboardInput->IsKeyPressed(window, GLFW_KEY_ESCAPE))
     {
         FZ_INFO("Pressed Escape Key and Window Closed!");
         glfwSetWindowShouldClose(window, true);

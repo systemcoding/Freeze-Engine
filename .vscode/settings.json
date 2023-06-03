@@ -78,7 +78,8 @@
         "regex": "cpp",
         "shared_mutex": "cpp",
         "*.rh": "cpp",
-        "csignal": "cpp"
+        "csignal": "cpp",
+        "any": "cpp"
     },
     "explorer.autoReveal": false
 }

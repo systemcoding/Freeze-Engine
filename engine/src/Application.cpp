@@ -6,6 +6,7 @@ namespace Freeze
     {
         Init(width, height, title);
         InitGLEW();
+        Freeze::EnableOpenGLDebug();
         SetEngineViewport();
     }
 
@@ -63,7 +64,7 @@ namespace Freeze
     }
 
     // Callback functions
-    static void framebuffer_size_callback(GLFWwindow *window, int width, int height)
+    inline void framebuffer_size_callback(GLFWwindow *window, int width, int height)
     {
         glViewport(0, 0, width, height);
     }

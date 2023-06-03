@@ -12,6 +12,7 @@ namespace Freeze
     {
         glfwInit();
 
+        glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
         m_Window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
 
         if (m_Window == nullptr)
