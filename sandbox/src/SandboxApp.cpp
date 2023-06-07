@@ -4,25 +4,24 @@
 #include "core/Application.h"
 #include "core/Core.h"
 
-class SandboxApp : public Freeze::Application 
+class SandboxApp : public Freeze::Application
 {
 public:
     SandboxApp()
-        :Application(800, 600, "Sandbox")
+        : Application(800, 600, "Sandbox")
     {
         FZ_INFO("Sandbox App!");
     }
 
     ~SandboxApp()
     {
-
     }
 };
 
 int main()
 {
-    SandboxApp* sandboxApp = new SandboxApp();
-    sandboxApp->Run();
+    SandboxApp *sandboxApp = new SandboxApp();
+    sandboxApp->OnUpdate();
 
     delete sandboxApp;
 

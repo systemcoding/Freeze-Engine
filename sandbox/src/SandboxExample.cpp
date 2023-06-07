@@ -2,7 +2,7 @@
 
 SandboxExample::SandboxExample()
 {
-    m_UtilityManager->PrintCurrentBuildDirectory();
+    FZ_INFO("Sandbox Example Calling!");
 }
 
 void SandboxExample::OnInit()
@@ -45,21 +45,27 @@ void SandboxExample::OnInit()
     m_Shader->LoadShadersFromFile(rootDir + "shaders/SandboxExample.vert", rootDir + "shaders/SandboxExample.frag");
     m_Shader->UseShader();
 
-    m_Texture->GenerateTexture(1, "../../resources/textures/pop_cat.png", GL_RGBA);
+    m_Texture->GenerateTexture(1, rootDir + "resources/textures/pop_cat.png", GL_RGBA);
 }
 
-void SandboxExample::OnEvent(GLFWwindow *window)
+void SandboxExample::OnInput(GLFWwindow *window)
 {
-    if (m_KeyboardInput->IsKeyPressed(window, GLFW_KEY_ESCAPE))
+    if (Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_ESCAPE))
     {
         FZ_INFO("Pressed Escape Key and Window Closed!");
         glfwSetWindowShouldClose(window, true);
     }
+    if (Freeze::MouseInput::IsMousePressed(window, GLFW_MOUSE_BUTTON_LEFT))
+    {
+        FZ_INFO("Pressed Left Mouse Button");
+    }
 }
 
-void SandboxExample::OnUpdate()
+void SandboxExample::OnUpdate(float dt, GLFWwindow *window)
 {
     m_Texture->BindTexture();
+
+    FZ_INFO("Mouse Coordinates are: {}, {}", m_MouseInput->GetMouseCoords(window).first, m_MouseInput->GetMouseCoords(window).second);
 
     glm::vec3 pos(0.0f, 0.0f, 0.0f);
 
@@ -76,27 +82,6 @@ void SandboxExample::OnUpdate()
 
     glBindVertexArray(m_VertexArrayObject);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
-    bool my_tool_active = true;
-
-    ImGui::Begin("My First Tool", &my_tool_active, ImGuiWindowFlags_MenuBar);
-    if (ImGui::BeginMenuBar())
-    {
-        if (ImGui::BeginMenu("File"))
-        {
-            if (ImGui::MenuItem("Open Texture", "Ctrl+O"))
-            {
-                m_UtilityManager->OpenDirectory(".");
-            }
-            if (ImGui::MenuItem("Close", "Ctrl+W"))
-            {
-                my_tool_active = false;
-            }
-            ImGui::EndMenu();
-        }
-        ImGui::EndMenuBar();
-    }
-    ImGui::End();
 }
 
 SandboxExample::~SandboxExample()

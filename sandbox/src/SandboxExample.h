@@ -14,34 +14,38 @@
 
 // Engine Headers
 #include "core/Core.h"
+#include "core/root_dir.h"
 #include "core/Shader.h"
 #include "core/Texture.h"
 #include "buffer/Buffer.h"
 #include "input/KeyboardInput.h"
-#include "../platform/linux/root_dir.h"
-#include "../platform/linux/UtilityManager.h"
+#include "input/MouseInput.h"
 
 #include <iostream>
 #include <memory>
 
-class SandboxExample {
+class SandboxExample
+{
 public:
     SandboxExample();
-    
+
     void OnInit();
-    void OnUpdate();
-    void OnEvent(GLFWwindow* window);
+    void OnUpdate(float dt, GLFWwindow *window);
+    void OnInput(GLFWwindow *window);
 
     ~SandboxExample();
+
 private:
     uint32_t m_VertexBufferObject, m_VertexArrayObject, m_ElementBufferObject;
+
 private:
     std::shared_ptr<Freeze::Shader> m_Shader = std::make_shared<Freeze::Shader>();
     std::shared_ptr<Freeze::Texture> m_Texture = std::make_shared<Freeze::Texture>();
     std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
     std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
-    std::shared_ptr<Freeze::UtilityManager> m_UtilityManager = std::make_shared<Freeze::UtilityManager>();
     std::shared_ptr<Freeze::KeyboardInput> m_KeyboardInput = std::make_shared<Freeze::KeyboardInput>();
+    std::shared_ptr<Freeze::MouseInput> m_MouseInput = std::make_shared<Freeze::MouseInput>();
+
 private:
     bool m_Show{true};
 };

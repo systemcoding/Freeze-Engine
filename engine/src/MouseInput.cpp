@@ -1,21 +1,38 @@
 #include "include/input/MouseInput.h"
 
-MouseInput::MouseInput()
+namespace Freeze
 {
+    MouseInput::MouseInput()
+    {
+    }
 
-}
+    bool MouseInput::IsMousePressed(GLFWwindow* window, int scancode)
+    {
+        if(glfwGetMouseButton(window, scancode) == GLFW_PRESS) 
+        {
+            return true;
+        }
 
-bool MouseInput::IsMousePressed(int scancode)
-{
-    
-}
+        return false;
+    }
 
-std::array<float, 2> MouseInput::GetMouseCoords()
-{
+    void MouseInput::HideCursor(GLFWwindow* window, bool setCursorStatus)
+    {
+        if(setCursorStatus)
+        {
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        }
+    }
 
-}
+    std::pair<double, double> MouseInput::GetMouseCoords(GLFWwindow *window)
+    {
+        std::pair<double, double> mousePos;
+        glfwGetCursorPos(window, &mousePos.first, &mousePos.second);
 
-MouseInput::~MouseInput()
-{
+        return mousePos;
+    }
 
-}
+    MouseInput::~MouseInput()
+    {
+    }
+};

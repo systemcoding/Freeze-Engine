@@ -2,13 +2,12 @@
 
 #include <GL/glew.h>
 
+#include "Core.h"
+#include "Window.h"
+#include "OpenGLDebug.h"
 #include "../../../sandbox/src/SandboxExample.h"
 #include "../renderer/RenderCommands.h"
 #include "../imgui/ImGuiContext.h"
-#include "OpenGLDebug.h"
-#include "Window.h"
-
-#include "../core/Core.h"
 
 #include <memory>
 
@@ -23,8 +22,10 @@ namespace Freeze
     public:
         Application(uint32_t width, uint32_t height, const std::string &title);
 
-        void Init(uint32_t width, uint32_t height, const std::string &title);
-        void Run();
+        void OnInit(uint32_t width, uint32_t height, const std::string &title);
+        void OnEvent();
+        void OnUpdate();
+
         void SetEngineViewport();
 
         virtual ~Application();
