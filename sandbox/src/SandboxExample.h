@@ -15,9 +15,12 @@
 // Engine Headers
 #include "core/Core.h"
 #include "core/root_dir.h"
-#include "core/Shader.h"
-#include "core/Texture.h"
-#include "buffer/Buffer.h"
+
+#include "renderer/Renderer2D.h"
+#include "renderer/Shader.h"
+#include "renderer/Texture.h"
+#include "renderer/Buffer.h"
+#include "renderer/VertexArray.h"
 #include "input/KeyboardInput.h"
 #include "input/MouseInput.h"
 
@@ -36,16 +39,7 @@ public:
     ~SandboxExample();
 
 private:
-    uint32_t m_VertexBufferObject, m_VertexArrayObject, m_ElementBufferObject;
-
-private:
-    std::shared_ptr<Freeze::Shader> m_Shader = std::make_shared<Freeze::Shader>();
-    std::shared_ptr<Freeze::Texture> m_Texture = std::make_shared<Freeze::Texture>();
-    std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
-    std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
     std::shared_ptr<Freeze::KeyboardInput> m_KeyboardInput = std::make_shared<Freeze::KeyboardInput>();
     std::shared_ptr<Freeze::MouseInput> m_MouseInput = std::make_shared<Freeze::MouseInput>();
-
-private:
-    bool m_Show{true};
+    std::shared_ptr<Freeze::Renderer2D> m_Renderer2D = std::make_shared<Freeze::Renderer2D>();
 };
