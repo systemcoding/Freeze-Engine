@@ -2,15 +2,14 @@
 
 namespace Freeze
 {
-    Application::Application(uint32_t width, uint32_t height, const std::string &title)
+    Application::Application(uint32_t width, uint32_t height, const std::string& title)
     {
         OnInit(width, height, title);
         InitGLEW();
-        Freeze::EnableOpenGLDebug();
         SetEngineViewport();
     }
 
-    void Application::OnInit(uint32_t width, uint32_t height, const std::string &title)
+    void Application::OnInit(uint32_t width, uint32_t height, const std::string& title)
     {
         FZ_INFO("Engine Running!");
         m_Window = std::make_unique<Freeze::Window>();
@@ -65,7 +64,7 @@ namespace Freeze
     }
 
     // Callback functions
-    inline void framebuffer_size_callback(GLFWwindow *window, int width, int height)
+    inline void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     {
         glViewport(0, 0, width, height);
     }

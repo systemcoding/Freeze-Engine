@@ -2,7 +2,7 @@
 
 namespace Freeze
 {
-   void VertexArray::AddVertexArray(int nVao)
+    void VertexArray::AddVertexArray(int nVao)
     {
         m_NVertexArrays = nVao;
         glGenVertexArrays(nVao, &m_VertexArrayID);
@@ -22,5 +22,5 @@ namespace Freeze
     {
         FZ_INFO("Freed Vertex Arrays: {}", m_NVertexArrays);
         glDeleteVertexArrays(m_NVertexArrays, &m_VertexArrayID);
-    } 
+    }
 };

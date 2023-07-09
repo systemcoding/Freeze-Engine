@@ -11,9 +11,9 @@ namespace Freeze {
         glBindBuffer(GL_ARRAY_BUFFER, m_VertexBufferObjectID);
         glBufferData(GL_ARRAY_BUFFER, size, data, drawType);
 
-        if(data == nullptr || m_NVertexBuffers == 0)
+        if (data == nullptr || m_NVertexBuffers == 0)
         {
-            FZ_ERROR("Vertex Buffer: No Data/Invalid Data Provided or No Of Buffers is 0!");
+            spdlog::error("Vertex Buffer: No Data/Invalid Data Provided or No Of Buffers is 0!");
             exit(0);
         }
     }
@@ -43,7 +43,7 @@ namespace Freeze {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ElementBufferObjectID);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, drawType);
 
-        if(data == nullptr || m_NElementBuffers == 0)
+        if (data == nullptr || m_NElementBuffers == 0)
         {
             FZ_ERROR("Element Buffer: No Data/Invalid Data Provided or No Of Buffers is 0!");
             exit(0);

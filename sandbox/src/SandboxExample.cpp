@@ -1,28 +1,48 @@
 #include "SandboxExample.h"
 
 SandboxExample::SandboxExample()
+    :m_Camera(glm::vec4(-1.0f, 1.0f, -1.0f, 1.0f))
 {
+    FZ_INFO("Sandbox Example Calling!");
 }
 
 void SandboxExample::OnInit()
 {
-    // texture attribute
-    // glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)(6 * sizeof(float)));
-    // glEnableVertexAttribArray(2);
+    Freeze::EnableOpenGLDebug();
 
-    // m_Shader->LoadShadersFromFile(rootDir + "shaders/SandboxExample.vert", rootDir + "shaders/SandboxExample.frag");
-    // m_Shader->UseShader();
+    float vertices[] = {
+        // first triangle
+        -0.9f, -0.5f, 0.0f,  // left 
+        -0.0f, -0.5f, 0.0f, // right
+        -0.45f, 0.5f, 0.0f, // top 
 
-    // m_Texture->GenerateTexture(1, rootDir + "resources/textures/pop_cat.png", GL_RGBA);
+        // second triangle
+        0.0f, -0.5f, 0.0f,  // left
+        0.9f, -0.5f, 0.0f,  // right
+        0.45f, 0.5f, 0.0f   // top 
+    };
 
-    m_Renderer2D->DrawQuad(glm::vec3(0.0f, 0.0f, 0.0f), rootDir + "shaders/SandboxExample.vert", rootDir + "shaders/SandboxExample.frag");
+    // Vertex Array Object
+    m_VertexArray->AddVertexArray(1);
+    m_VertexArray->BindVertexArray();
+
+    // Vertex Buffer Object
+    m_VertexBuffer->AddVertexBuffer(1, vertices, sizeof(vertices), GL_STATIC_DRAW);
+    m_VertexBuffer->BindVertexBuffer();
+
+    m_Shader->LoadShadersFromFile(rootDir + "shaders/SandboxExample.vert", rootDir + "shaders/SandboxExample.frag");
+
+    // position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
 }
 
-void SandboxExample::OnInput(GLFWwindow *window)
+void SandboxExample::OnInput(GLFWwindow* window)
 {
+
     if (Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_ESCAPE))
     {
-        FZ_INFO("Pressed Escape Key and Window Closed!");
+        FZ_WARN("Pressed Escape Key and Window Closed!");
         glfwSetWindowShouldClose(window, true);
     }
     if (Freeze::MouseInput::IsMousePressed(window, GLFW_MOUSE_BUTTON_LEFT))
@@ -31,11 +51,17 @@ void SandboxExample::OnInput(GLFWwindow *window)
     }
 }
 
-void SandboxExample::OnUpdate(float dt, GLFWwindow *window)
+void SandboxExample::OnUpdate(float dt, GLFWwindow* window)
 {
-    FZ_INFO("Mouse Coordinates are: {}, {}", m_MouseInput->GetMouseCoords(window).first, m_MouseInput->GetMouseCoords(window).second);
 
-    m_Renderer2D->RenderQuad();
+    m_Shader->UseShader();
+
+    m_Camera.SetRotation(30.0f);
+
+    m_Shader->SetMatrix4fv(m_Shader->GetUniformLocation("a_ProjectionViewMat"), m_Camera.GetProjectionViewMatrix());
+
+    m_VertexArray->BindVertexArray();
+    glDrawArrays(GL_TRIANGLES, 0, 6);
 }
 
 SandboxExample::~SandboxExample()

@@ -2,7 +2,7 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <stb/stb_image.h>
+#include <stb_image.h>
 #include <spdlog/spdlog.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -15,14 +15,14 @@
 // Engine Headers
 #include "core/Core.h"
 #include "core/root_dir.h"
-
-#include "renderer/Renderer2D.h"
 #include "renderer/Shader.h"
+#include "renderer/VertexArray.h"
+#include "renderer/Camera.h"
 #include "renderer/Texture.h"
 #include "renderer/Buffer.h"
-#include "renderer/VertexArray.h"
 #include "input/KeyboardInput.h"
 #include "input/MouseInput.h"
+#include "core/OpenGLDebug.h"
 
 #include <iostream>
 #include <memory>
@@ -33,13 +33,21 @@ public:
     SandboxExample();
 
     void OnInit();
-    void OnUpdate(float dt, GLFWwindow *window);
-    void OnInput(GLFWwindow *window);
+    void OnUpdate(float dt, GLFWwindow* window);
+    void OnInput(GLFWwindow* window);
 
     ~SandboxExample();
 
 private:
+    std::shared_ptr<Freeze::Shader> m_Shader = std::make_shared<Freeze::Shader>();
+    std::shared_ptr<Freeze::Texture> m_Texture = std::make_shared<Freeze::Texture>();
+    std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
+    std::shared_ptr<Freeze::VertexArray> m_VertexArray = std::make_shared<Freeze::VertexArray>();
+    std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
     std::shared_ptr<Freeze::KeyboardInput> m_KeyboardInput = std::make_shared<Freeze::KeyboardInput>();
     std::shared_ptr<Freeze::MouseInput> m_MouseInput = std::make_shared<Freeze::MouseInput>();
-    std::shared_ptr<Freeze::Renderer2D> m_Renderer2D = std::make_shared<Freeze::Renderer2D>();
+
+    Freeze::Camera m_Camera;
+private:
+    bool m_Show{ true };
 };

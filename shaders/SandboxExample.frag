@@ -1,9 +1,9 @@
 #version 420 core
 
-out vec4 f_TColor;
-in vec3 triangleColor;
+in vec3 a_ShapeCoords;
+out vec4 f_Color;
 
 void main()
 {
-    f_TColor = vec4(triangleColor, 1.0f);
+    f_Color = vec4(a_ShapeCoords, 0.3f);
 }

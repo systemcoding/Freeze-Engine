@@ -1,7 +1,7 @@
 #pragma once
 
 #include <GL/glew.h>
-#include "stb/stb_image.h"
+#include "stb_image.h"
 #include <spdlog/spdlog.h>
 
 #include <string>
@@ -13,7 +13,7 @@ namespace Freeze
     public:
         Texture();
 
-        void GenerateTexture(int nTextures, const std::string &filepath, GLint format);
+        void GenerateTexture(int nTextures, const std::string& filepath, GLint format);
 
         void BindTexture() const;
         void UnbindTexture() const;
@@ -22,7 +22,7 @@ namespace Freeze
 
     private:
         uint32_t m_TextureID;
-        uint8_t *m_ImageData;
+        uint8_t* m_ImageData;
         int m_TextureWidth, m_TextureHeight, m_NTextureChannels;
     };
 };

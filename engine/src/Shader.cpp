@@ -6,9 +6,9 @@ namespace Freeze
     {
     }
 
-    void Shader::LoadShaders(const std::string &vertexShader, const std::string &fragmentShader)
+    void Shader::LoadShaders(const std::string& vertexShader, const std::string& fragmentShader)
     {
-        const GLchar *vertexSource = vertexShader.c_str();
+        const GLchar* vertexSource = vertexShader.c_str();
         m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(m_VertexShader, 1, &vertexSource, nullptr);
         glCompileShader(m_VertexShader);
@@ -23,7 +23,7 @@ namespace Freeze
             spdlog::error("Failed to compile vertex shader {}", infoVertex);
         }
 
-        const GLchar *fragmentSource = fragmentShader.c_str();
+        const GLchar* fragmentSource = fragmentShader.c_str();
         m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
         glShaderSource(m_FragmentShader, 1, &fragmentSource, nullptr);
         glCompileShader(m_FragmentShader);
@@ -44,7 +44,7 @@ namespace Freeze
         glLinkProgram(m_ShaderProgramID);
     }
 
-    void Shader::LoadShadersFromFile(const std::string &vertexShaderFile, const std::string &fragmentShaderFile)
+    void Shader::LoadShadersFromFile(const std::string& vertexShaderFile, const std::string& fragmentShaderFile)
     {
         std::string vertexCode;
         std::string fragmentCode;
@@ -70,12 +70,12 @@ namespace Freeze
             vertexCode = vShaderStream.str();
             fragmentCode = fShaderStream.str();
         }
-        catch (std::ifstream::failure &e)
+        catch (std::ifstream::failure& e)
         {
             FZ_INFO("Shader file failed to read! {}", e.what());
         }
 
-        const GLchar *vertexSource = vertexCode.c_str();
+        const GLchar* vertexSource = vertexCode.c_str();
         m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(m_VertexShader, 1, &vertexSource, nullptr);
         glCompileShader(m_VertexShader);
@@ -90,7 +90,7 @@ namespace Freeze
             spdlog::error("Failed to compile vertex shader {}", infoVertex);
         }
 
-        const GLchar *fragmentSource = fragmentCode.c_str();
+        const GLchar* fragmentSource = fragmentCode.c_str();
         m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
         glShaderSource(m_FragmentShader, 1, &fragmentSource, nullptr);
         glCompileShader(m_FragmentShader);
@@ -121,15 +121,15 @@ namespace Freeze
         glUseProgram(0);
     }
 
-    uint32_t Shader::GetUniformLocation(const std::string &uniformName) const
+    uint32_t Shader::GetUniformLocation(const std::string& uniformName) const
     {
         m_GetUniformLocation = glGetUniformLocation(m_ShaderProgramID, uniformName.c_str());
         return m_GetUniformLocation;
     }
 
-    void Shader::SetMatrix4fv(uint32_t loc, int matrixCount, GLboolean transpose, const glm::mat4 &matrix)
+    void Shader::SetMatrix4fv(uint32_t loc, const glm::mat4& matrix)
     {
-        glUniformMatrix4fv(m_GetUniformLocation, matrixCount, transpose, glm::value_ptr(matrix));
+        glUniformMatrix4fv(m_GetUniformLocation, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 
     Shader::~Shader()

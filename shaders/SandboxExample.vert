@@ -1,12 +1,13 @@
 #version 420 core
 
 layout (location = 0) in vec3 a_Position;
-layout (location = 1) in vec3 a_Color;
 
-out vec3 triangleColor;
+uniform mat4 a_ProjectionViewMat;
+
+out vec3 a_ShapeCoords;
 
 void main()
 {
-    gl_Position = vec4(a_Position, 1.0f);
-    triangleColor = a_Color;
+    gl_Position = a_ProjectionViewMat * vec4(a_Position, 1.0f);
+    a_ShapeCoords = vec3(a_Position);
 }

@@ -21,7 +21,7 @@ namespace Freeze
     public:
         Shader();
 
-        void LoadShaders(const std::string &vertexShader, const std::string &fragmentShader);
+        void LoadShaders(const std::string& vertexShader, const std::string& fragmentShader);
         void LoadShadersFromFile(const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
 
         void UseShader();
@@ -29,8 +29,8 @@ namespace Freeze
 
         uint32_t getShaderProgramID() { return m_ShaderProgramID; }
 
-        uint32_t GetUniformLocation(const std::string &uniformName) const;
-        void SetMatrix4fv(uint32_t loc, int matrixCount, GLboolean transpose, const glm::mat4 &matrix);
+        uint32_t GetUniformLocation(const std::string& uniformName) const;
+        void SetMatrix4fv(uint32_t loc, const glm::mat4& matrix);
 
         ~Shader();
 
