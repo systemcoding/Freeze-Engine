@@ -3,13 +3,10 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <stb_image.h>
-#include <spdlog/spdlog.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 // ImGui
 #include <imgui.h>
+#include <ImGuiFileDialog.h>
 #include <imgui_internal.h>
 
 // Engine Headers
@@ -34,6 +31,7 @@ public:
 
     void OnInit();
     void OnUpdate(float dt, GLFWwindow* window);
+    void OnImGui();
     void OnInput(GLFWwindow* window);
 
     ~SandboxExample();
@@ -49,5 +47,5 @@ private:
 
     Freeze::Camera m_Camera;
 private:
-    bool m_Show{ true };
+    std::string m_TexturePath;
 };

@@ -4,18 +4,16 @@
 #include <string>
 
 #ifdef RELEASE
-    #if 0
-        #define FZ_INFO(x, ...) spdlog::info(x, ##__VA_ARGS__)
-        #define FZ_WARN(x, ...) spdlog::warn(x, ##__VA_ARGS__)
-        #define FZ_ERROR(x, ...) spdlog::error(x, ##__VA_ARGS__)
+    #define FZ_INFO(x, ...) spdlog::info()
+    #define FZ_WARN(x, ...) spdlog::warn()
+    #define FZ_ERROR(x, ...) spdlog::error()
 
-        #ifdef __linux__
-            #include <csignal>
-            #define FZ_ASSERT(x, ...) {FZ_ERROR(x, ##__VA_ARGS__); raise(SIGTRAP);}
-        #else
-            // For MSVC
-            #define FZ_ASSERT(x, ...) {FZ_ERROR(x, ##__VA_ARGS__); __debugbreak();}
-        #endif
+    #ifdef __linux__
+        #include <csignal>
+        #define FZ_ASSERT(x, ...) {FZ_ERROR(); raise(SIGTRAP);}
+    #else
+        // For MSVC
+        #define FZ_ASSERT(x, ...) {FZ_ERROR(); __debugbreak();}
     #endif
 #else
     #define FZ_INFO(x, ...) spdlog::info(x, ##__VA_ARGS__)

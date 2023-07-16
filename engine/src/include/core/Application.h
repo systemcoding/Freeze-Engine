@@ -6,6 +6,7 @@
 #include "Window.h"
 #include "../../../sandbox/src/SandboxExample.h"
 #include "../renderer/RenderCommands.h"
+#include "../renderer/Renderer2D.h"
 #include "../imgui/ImGuiContext.h"
 
 #include <memory>

@@ -2,6 +2,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include "../core/Core.h"
 
 /* Basic Camera System.
    This doesn't work with the mouse and keyboard controls yet, but hopefully i will make it a bit more usable later.

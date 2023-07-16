@@ -10,9 +10,6 @@ targetdir "bin/%{cfg.buildcfg}"
 
 files {"../src/*.cpp", "../src/**.h"}
 files {"../../engine/src/*.cpp", "../../engine/src/include/*.h"}
-files {"../../engine/src/platform/linux/*.cpp", "../../engine/src/platform/linux/*.h",
-       "../../engine/src/platform/linux/build_dir.h"}
-files {"../../engine/src/platform/linux/root_dir.h"}
 
 -- External Deps
 files {"../../vendor/stb_image/stb_image.cpp"} -- stb_image

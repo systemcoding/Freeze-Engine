@@ -11,6 +11,8 @@ namespace Freeze
 
     void Application::OnInit(uint32_t width, uint32_t height, const std::string& title)
     {
+        Freeze::Renderer2D::Init();
+
         FZ_INFO("Engine Running!");
         m_Window = std::make_unique<Freeze::Window>();
         m_Window->CreateWindow(width, height, title);
@@ -24,13 +26,16 @@ namespace Freeze
         while (!glfwWindowShouldClose(m_Window->getWindowInstance()))
         {
             m_Sandbox->OnInput(m_Window->getWindowInstance());
+
             // clear the screen with some color at every start of the frame
             RenderCommands::SetRenderColor(glm::vec4(0.2f, 0.3f, 0.5f, 1.0f));
             RenderCommands::RenderClear();
 
-            m_Sandbox->OnUpdate(0.23423f, m_Window->getWindowInstance());
-            // Setup ImGui
+            // ALWAYS UPDATE IMGUI BEFORE DOING SANDBOX STUFF!!!
             m_ImGuiContext->UpdateImGui();
+            m_Sandbox->OnImGui();
+
+            m_Sandbox->OnUpdate(0.23423f, m_Window->getWindowInstance());
 
             // Render ImGui Stuff
             m_ImGuiContext->RenderImGui();
@@ -51,7 +56,7 @@ namespace Freeze
     {
         if (glewInit() != GLEW_OK)
         {
-            spdlog::error("GLEW failed to initialise");
+            FZ_ERROR("GLEW failed to initialise");
             exit(0);
             return false;
         }

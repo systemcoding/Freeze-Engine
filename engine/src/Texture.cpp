@@ -26,7 +26,7 @@ namespace Freeze
         }
         else
         {
-            spdlog::error("Failed to load texture {}", stbi_failure_reason());
+            FZ_ERROR("Failed to load texture {}", stbi_failure_reason());
         }
     }
 

@@ -5,6 +5,7 @@ namespace Freeze {
         : m_ProjectionMatrix(glm::ortho(camPos.x, camPos.y, camPos.z, camPos.w, -1.0f, 1.0f)), // Create a ortho camera because it's 2D!
         m_ViewMatrix(glm::mat4(1.0f))
     {
+        FZ_INFO("Hello there!");
         m_ProjectionViewMatrix = m_ProjectionMatrix * m_ViewMatrix;
     }
 

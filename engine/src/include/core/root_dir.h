@@ -1,3 +1,3 @@
 #include <string>
 
-static std::string rootDir = "/home/revanth/Dev/Freeze-Engine/";
+static std::string rootDir = "/home/revanth/Dev/projects/Freeze-Engine/";

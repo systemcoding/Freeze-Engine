@@ -2,7 +2,7 @@
 
 #include <GL/glew.h>
 #include "stb_image.h"
-#include <spdlog/spdlog.h>
+#include "../core/Core.h"
 
 #include <string>
 
