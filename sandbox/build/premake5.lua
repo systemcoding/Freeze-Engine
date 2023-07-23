@@ -21,8 +21,9 @@ local parentDir = path.getdirectory(rootDir)
 
 local outputFilePath = "../../engine/src/include/core/root_dir.h" -- Adjust the file path as needed
 local outputFile = io.open(outputFilePath, "w")
+outputFile:write("#pragma once\n\n")
 outputFile:write("#include <string>\n\n")
-outputFile:write("static std::string rootDir = \"" .. parentDir .. "/" .. "\";\n")
+outputFile:write("inline std::string rootDir = \"" .. parentDir .. "/" .. "\";\n")
 outputFile:close()
 
 -- OpenGL

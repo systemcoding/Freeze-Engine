@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>
 
-static std::string rootDir = "/home/revanth/Dev/projects/Freeze-Engine/";
+inline std::string rootDir = "/home/revanth/Dev/projects/Freeze-Engine/";

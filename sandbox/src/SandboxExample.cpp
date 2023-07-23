@@ -7,9 +7,9 @@ void SandboxExample::OnInit()
 {
     Freeze::EnableOpenGLDebug();
 
-    m_Shader->LoadShadersFromFile(rootDir + "shaders/SandboxExample.vert", rootDir + "shaders/SandboxExample.frag");
+    m_Shader->LoadShadersFromFile(Freeze::Utils::GetFilePath("shaders/SandboxExample.vert"), Freeze::Utils::GetFilePath("shaders/SandboxExample.frag"));
 
-    m_Texture->GenerateTexture(1, rootDir + "resources/sprites/awesomeface.png", GL_RGBA);
+    m_Texture->GenerateTexture(1, Freeze::Utils::GetFilePath("resources/sprites/awesomeface.png"), GL_RGBA);
     m_Sprite = std::make_shared<Freeze::Sprite>(m_Shader);
 }
 

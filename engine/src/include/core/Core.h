@@ -3,6 +3,8 @@
 #include <spdlog/spdlog.h>
 #include <string>
 
+#include "root_dir.h"
+
 #ifdef RELEASE
     #define FZ_INFO(x, ...) spdlog::info()
     #define FZ_WARN(x, ...) spdlog::warn()
@@ -28,3 +30,16 @@
         #define FZ_ASSERT(x, ...) {FZ_ERROR(x, ##__VA_ARGS__); __debugbreak();}
     #endif
 #endif
+
+namespace Freeze {
+    class Utils {
+    public:
+        Utils() = default;
+
+        static std::string GetFilePath(const std::string& filepath)
+        {
+            std::string newFilePath = rootDir + filepath;
+            return newFilePath;
+        }
+    };
+};
