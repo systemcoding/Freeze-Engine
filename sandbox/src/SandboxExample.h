@@ -13,6 +13,7 @@
 #include "core/Core.h"
 #include "core/root_dir.h"
 #include "renderer/Shader.h"
+#include "renderer/Sprite.h"
 #include "renderer/VertexArray.h"
 #include "renderer/Camera.h"
 #include "renderer/Texture.h"
@@ -37,7 +38,6 @@ public:
     ~SandboxExample();
 
 private:
-    std::shared_ptr<Freeze::Shader> m_Shader = std::make_shared<Freeze::Shader>();
     std::shared_ptr<Freeze::Texture> m_Texture = std::make_shared<Freeze::Texture>();
     std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
     std::shared_ptr<Freeze::VertexArray> m_VertexArray = std::make_shared<Freeze::VertexArray>();
@@ -46,6 +46,8 @@ private:
     std::shared_ptr<Freeze::MouseInput> m_MouseInput = std::make_shared<Freeze::MouseInput>();
 
     Freeze::Camera m_Camera;
+    Freeze::Sprite* m_Sprite;
+    Freeze::Shader* m_Shader = new Freeze::Shader();
 private:
     std::string m_TexturePath;
 };

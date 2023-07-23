@@ -1,9 +1,65 @@
 #include "include/renderer/Sprite.h"
 
 namespace Freeze {
-  Sprite::Sprite()
+  Sprite::Sprite(Shader* shader)
+    :m_Shader(shader)
   {
+    InitRendererData();
+  }
 
+  // This is a private function that initialises the sprite data required for rendering! DON'T MODIFY THIS!
+  void Sprite::InitRendererData()
+  {
+    float spriteVertices[] = {
+      // Positions      // Texture Coordinates
+      0.0f, 1.0f,       0.0f, 1.0f,
+      1.0f, 0.0f,       1.0f, 0.0f,
+      0.0f, 0.0f,       0.0f, 0.0f,
+
+      0.0f, 1.0f,       0.0f, 1.0f,
+      1.0f, 1.0f,       1.0f, 1.0f,
+      1.0f, 0.0f,       1.0f, 0.0f
+    };
+
+    // Generate an vertex array using Freeze::VertexArray API
+    m_VertexArray->AddVertexArray(1);
+    m_VertexArray->BindVertexArray();
+
+    m_VertexBuffer->AddVertexBuffer(1, spriteVertices, sizeof(spriteVertices), GL_STATIC_DRAW);
+    m_VertexBuffer->BindVertexBuffer();
+
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 16, (void*)0);
+    glEnableVertexAttribArray(0);
+  }
+
+  void Sprite::DrawSprite(std::shared_ptr<Texture> texture, glm::vec2 position, glm::vec2 size, float rotation, glm::vec3 color)
+  {
+    m_Shader->UseShader();
+    /*  First scale, then rotate and then translate. (SRT)
+        This is the advised order of transforming an object.
+
+        But when it comes to multiplying matrices in the shader we need to reverse the order to the following:
+        Translation, rotation, scaling (TRS)
+
+        The origin of rotation is at the top-left of the quad, which produces undesirable results. What we want to do is move the origin of rotation to the center of the quad so the quad neatly rotates around this origin, instead of rotating around the top-left of the quad. We solve this by translating the quad by half its size first, so its center is at coordinate (0,0) before rotating.
+    */
+
+    glm::mat4 modelMatrix = glm::mat4(1.0f);
+    modelMatrix = glm::translate(modelMatrix, glm::vec3(position, 1.0f)); // first translate using the given position vector parameter
+    modelMatrix = glm::translate(modelMatrix, glm::vec3(0.5f * size.x, 0.5f * size.y, 0.0f)); // translate again but now the size.x and size.y (with 0.5f)
+
+    modelMatrix = glm::rotate(modelMatrix, glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f)); // now rotate using the angle specified and in the z (x, y rotation is going to give weird results!)
+
+    modelMatrix = glm::translate(modelMatrix, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f)); // rotate again but using the value of -0.5f.
+
+    modelMatrix = glm::scale(modelMatrix, glm::vec3(size, 1.0f)); // scale the texture using the size specified and the z-axis is default as usual.
+
+    m_Shader->SetMatrix4fv(m_Shader->GetUniformLocation("a_ModelMatrix"), modelMatrix);
+    glActiveTexture(GL_TEXTURE0);
+
+    texture->BindTexture(); // bind the texture (the texture will be passed when using the function)
+    m_VertexArray->BindVertexArray(); // bind the vertex array
+    glDrawArrays(GL_TRIANGLES, 0, 6);  // Finally draw it. (We don't really have any index buffer setup and likely we won't so this is fine)
   }
 
   Sprite::~Sprite()

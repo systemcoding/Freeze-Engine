@@ -30,7 +30,6 @@ namespace Freeze {
 
     VertexBuffer::~VertexBuffer()
     {
-        FZ_INFO("Freed Vertex Buffers: {}", m_NVertexBuffers);
         glDeleteBuffers(m_NVertexBuffers, &m_VertexBufferObjectID);
     }
 
@@ -62,7 +61,6 @@ namespace Freeze {
 
     ElementBuffer::~ElementBuffer()
     {
-        FZ_INFO("Freed Element Buffers: {}", m_NElementBuffers);
         glDeleteBuffers(m_NElementBuffers, &m_ElementBufferObjectID);
     }
 };

@@ -20,7 +20,6 @@ namespace Freeze
 
     VertexArray::~VertexArray()
     {
-        FZ_INFO("Freed Vertex Arrays: {}", m_NVertexArrays);
         glDeleteVertexArrays(m_NVertexArrays, &m_VertexArrayID);
     }
 };
