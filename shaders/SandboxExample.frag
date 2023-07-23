@@ -8,5 +8,6 @@ out vec4 o_FragColor;
 
 void main()
 {
+    // TODO: Multiple textures support in fragment shader!
     o_FragColor = vec4(spriteColor, 1.0f) * texture(ourTexture, o_TexCoords);
 }

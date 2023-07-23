@@ -2,7 +2,7 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <stb_image.h>
+#include <stb/stb_image.h>
 
 // ImGui
 #include <imgui.h>
@@ -39,15 +39,12 @@ public:
 
 private:
     std::shared_ptr<Freeze::Texture> m_Texture = std::make_shared<Freeze::Texture>();
-    std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
-    std::shared_ptr<Freeze::VertexArray> m_VertexArray = std::make_shared<Freeze::VertexArray>();
-    std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
     std::shared_ptr<Freeze::KeyboardInput> m_KeyboardInput = std::make_shared<Freeze::KeyboardInput>();
     std::shared_ptr<Freeze::MouseInput> m_MouseInput = std::make_shared<Freeze::MouseInput>();
 
     Freeze::Camera m_Camera;
-    Freeze::Sprite* m_Sprite;
-    Freeze::Shader* m_Shader = new Freeze::Shader();
+    std::shared_ptr<Freeze::Sprite> m_Sprite;
+    std::shared_ptr<Freeze::Shader> m_Shader;
 private:
     std::string m_TexturePath;
 };

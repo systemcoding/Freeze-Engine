@@ -12,7 +12,7 @@ namespace Freeze {
   class Sprite {
   public:
     // @param shader Shader that should be passed which is responsible for rendering the actual sprite
-    Sprite(Shader* shader);
+    Sprite(std::shared_ptr<Shader> shader);
 
     // @param texture The actual texture that needs to be modified
     // @param position Position of the texture. Requires position only in the x, y direction so position is a glm::vec2
@@ -29,6 +29,6 @@ namespace Freeze {
     std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
     std::shared_ptr<Freeze::VertexArray> m_VertexArray = std::make_shared<Freeze::VertexArray>();
 
-    Shader* m_Shader = new Shader();
+    std::shared_ptr<Shader> m_Shader = std::make_shared<Shader>();
   };
 };

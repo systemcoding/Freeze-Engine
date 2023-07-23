@@ -30,8 +30,9 @@ namespace Freeze
         }
     }
 
-    void Texture::BindTexture() const
+    void Texture::BindTexture(int slot) const
     {
+        glActiveTexture(GL_TEXTURE0 + slot);
         glBindTexture(GL_TEXTURE_2D, m_TextureID);
     }
 

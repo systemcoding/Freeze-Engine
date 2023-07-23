@@ -2,6 +2,8 @@
 
 #include <GL/glew.h>
 
+#include "../core/Core.h"
+
 namespace Freeze {
     class Renderer2D {
     public:

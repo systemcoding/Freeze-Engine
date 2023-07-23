@@ -31,6 +31,8 @@ namespace Freeze
 
         uint32_t GetUniformLocation(const std::string& uniformName) const;
         void SetMatrix4fv(uint32_t loc, const glm::mat4& matrix);
+        void SetVector3f(uint32_t loc, const glm::vec3& vector);
+        void SetInteger(uint32_t loc, int index);
 
         ~Shader();
 
