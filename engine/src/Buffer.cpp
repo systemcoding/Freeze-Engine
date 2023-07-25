@@ -13,7 +13,7 @@ namespace Freeze {
 
         if (data == nullptr || m_NVertexBuffers == 0)
         {
-            spdlog::error("Vertex Buffer: No Data/Invalid Data Provided or No Of Buffers is 0!");
+            FZ_ERROR("Vertex Buffer: No Data/Invalid Data Provided or No Of Buffers is 0!");
             exit(0);
         }
     }
