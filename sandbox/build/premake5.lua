@@ -44,6 +44,9 @@ includedirs {"../../external/stb_image/include"}
 -- imgui
 includedirs {"../../external/imgui"}
 
+-- glm
+includedirs {"../../external/glm/"}
+
 -- ImGuiFileDialog
 includedirs {"../../external/ImGuiFileDialog/"}
 
