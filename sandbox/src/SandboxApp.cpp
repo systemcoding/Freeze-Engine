@@ -1,8 +1,10 @@
-#include "spdlog/spdlog.h"
-
 #include "core/Window.h"
 #include "core/Application.h"
 #include "core/Core.h"
+
+#include "Sandbox.h"
+
+#include <memory>
 
 class SandboxApp : public Freeze::Application
 {
@@ -16,12 +18,14 @@ public:
     ~SandboxApp()
     {
     }
+private:
+    std::shared_ptr<Sandbox> m_Sandbox = std::shared_ptr<Sandbox>();
 };
 
 int main()
 {
     SandboxApp *sandboxApp = new SandboxApp();
-    sandboxApp->OnUpdate();
+    sandboxApp->Run();
 
     delete sandboxApp;
 

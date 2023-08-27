@@ -4,6 +4,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include "../core/Core.h"
 
+#include "Shader.h"
+
 /* Basic Camera System.
    This doesn't work with the mouse and keyboard controls yet, but hopefully i will make it a bit more usable later.
    Rotation is supported only in the z-axis otherwise you would see weird results!
@@ -15,6 +17,7 @@ namespace Freeze {
     public:
         Camera(const glm::vec4& camPos);
 
+
         void SetPosition(const glm::vec3& position) { m_Position = position; CalculateViewMatrix(); }
         void SetRotation(float rotation) { m_Rotation = rotation; CalculateViewMatrix(); }
 
@@ -25,6 +28,7 @@ namespace Freeze {
         const glm::mat4 GetProjectionViewMatrix() const { return m_ProjectionViewMatrix; }
 
         void CalculateViewMatrix();
+        void Update();
 
         ~Camera();
     private:
@@ -34,5 +38,7 @@ namespace Freeze {
 
         glm::vec3 m_Position = glm::vec3(0.0f, 0.0f, 0.0f);
         float m_Rotation = 0.0f;
+    private:
+        std::shared_ptr<Freeze::Shader> m_CameraShader = std::make_shared<Freeze::Shader>();
     };
 };

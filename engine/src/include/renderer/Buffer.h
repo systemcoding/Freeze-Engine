@@ -12,7 +12,7 @@ namespace Freeze {
     public:
         VertexBuffer() = default;
 
-        void AddVertexBuffer(int nBuffers, float* data, uint32_t size, GLenum drawType);
+        void AddVertexBuffer(float* data, uint32_t size, GLenum drawType);
 
         void BindVertexBuffer() const;
         void UnbindVertexBuffer() const;
@@ -20,7 +20,6 @@ namespace Freeze {
         ~VertexBuffer();
     private:
         uint32_t m_VertexBufferObjectID;
-        int m_NVertexBuffers;
     };
 
     class ElementBuffer
@@ -28,7 +27,7 @@ namespace Freeze {
     public:
         ElementBuffer() = default;
 
-        void AddElementBuffer(int nBuffers, uint32_t* data, uint32_t size, GLenum drawType);
+        void AddElementBuffer(uint32_t* data, uint32_t size, GLenum drawType);
 
         void BindElementBuffer() const;
         void UnbindElementBuffer() const;
@@ -36,6 +35,5 @@ namespace Freeze {
         ~ElementBuffer();
     private:
         uint32_t m_ElementBufferObjectID;
-        int m_NElementBuffers;
     };
 };

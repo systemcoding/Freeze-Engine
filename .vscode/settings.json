@@ -79,7 +79,9 @@
         "shared_mutex": "cpp",
         "*.rh": "cpp",
         "csignal": "cpp",
-        "any": "cpp"
+        "any": "cpp",
+        "strstream": "cpp",
+        "complex": "cpp"
     },
     "explorer.autoReveal": false
 }

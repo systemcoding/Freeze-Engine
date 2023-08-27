@@ -22,7 +22,7 @@ namespace Freeze
         Shader();
 
         void LoadShaders(const std::string& vertexShader, const std::string& fragmentShader);
-        void LoadShadersFromFile(const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
+        void LoadShadersFromFiles(const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
 
         void UseShader();
         void UnbindShader();

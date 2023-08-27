@@ -6,6 +6,7 @@ namespace Freeze
     {
     }
 
+
     void Shader::LoadShaders(const std::string& vertexShader, const std::string& fragmentShader)
     {
         const GLchar* vertexSource = vertexShader.c_str();
@@ -44,7 +45,7 @@ namespace Freeze
         glLinkProgram(m_ShaderProgramID);
     }
 
-    void Shader::LoadShadersFromFile(const std::string& vertexShaderFile, const std::string& fragmentShaderFile)
+    void Shader::LoadShadersFromFiles(const std::string& vertexShaderFile, const std::string& fragmentShaderFile)
     {
         std::string vertexCode;
         std::string fragmentCode;

@@ -4,7 +4,7 @@
 
 #include "Core.h"
 #include "Window.h"
-#include "../../../sandbox/src/SandboxExample.h"
+#include "../../../sandbox/src/Sandbox.h"
 #include "../renderer/RenderCommands.h"
 #include "../renderer/Renderer2D.h"
 #include "../imgui/ImGuiContext.h"
@@ -24,7 +24,7 @@ namespace Freeze
 
         void OnInit(uint32_t width, uint32_t height, const std::string& title);
         void OnEvent();
-        void OnUpdate();
+        void Run();
 
         void SetEngineViewport();
 
@@ -34,7 +34,7 @@ namespace Freeze
         bool InitGLEW();
 
     private:
-        std::shared_ptr<SandboxExample> m_Sandbox{ new SandboxExample() };
+        std::shared_ptr<Sandbox> m_Sandbox{ new Sandbox() };
         std::shared_ptr<Freeze::Window> m_Window;
         std::shared_ptr<Freeze::ImGuiContext> m_ImGuiContext;
     };

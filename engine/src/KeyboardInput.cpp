@@ -2,34 +2,23 @@
 
 namespace Freeze {
 
-    KeyboardInput::KeyboardInput()
-    {
+KeyboardInput::KeyboardInput() {}
 
-    }
+bool KeyboardInput::IsKeyPressed(GLFWwindow* window, int scancode) {
+  if (glfwGetKey(window, scancode) == GLFW_PRESS) {
+    return true;
+  }
 
-    bool KeyboardInput::IsKeyPressed(GLFWwindow* window, int scancode)
-    {
-        if(glfwGetKey(window, scancode) == GLFW_PRESS)
-        {
-            return true;
-        }
+  return false;
+}
 
-        return false;
-    }
+bool KeyboardInput::IsKeyRepeated(GLFWwindow* window, int scancode) {
+  if (glfwGetKey(window, scancode) == GLFW_REPEAT) {
+    return true;
+  }
 
+  return false;
+}
 
-    bool KeyboardInput::IsKeyRepeated(GLFWwindow* window, int scancode)
-    {
-        if(glfwGetKey(window, scancode) == GLFW_REPEAT)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    KeyboardInput::~KeyboardInput()
-    {
-
-    }
-};
+KeyboardInput::~KeyboardInput() {}
+};  // namespace Freeze

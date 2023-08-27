@@ -26,7 +26,7 @@ namespace Freeze {
     m_VertexArray->AddVertexArray(1);
     m_VertexArray->BindVertexArray();
 
-    m_VertexBuffer->AddVertexBuffer(1, spriteVertices, sizeof(spriteVertices), GL_STATIC_DRAW);
+    m_VertexBuffer->AddVertexBuffer(spriteVertices, sizeof(spriteVertices), GL_STATIC_DRAW);
     m_VertexBuffer->BindVertexBuffer();
 
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 16, (void*)0);

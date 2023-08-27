@@ -1,0 +1,36 @@
+#pragma once
+
+#include <memory>
+
+#include "renderer/Buffer.h"
+#include "renderer/VertexArray.h"
+#include "renderer/Shader.h"
+#include "renderer/Camera.h"
+
+#include "Player.h"
+
+#include <glm/glm.hpp>
+
+class World {
+public:
+    World();
+
+    void Init();
+    void InitPlatformData();
+    void RenderPlatform();
+
+    glm::mat4 GetCurrentProjectionMatrix() { return m_Camera->GetProjectionViewMatrix(); }
+
+    void Update();
+
+    ~World();
+private:
+    std::shared_ptr<Freeze::Camera> m_Camera;
+
+    std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
+    std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
+    std::shared_ptr<Freeze::VertexArray> m_VertexArray = std::make_shared<Freeze::VertexArray>();
+    std::shared_ptr<Freeze::Shader> m_Shader = std::make_shared<Freeze::Shader>();
+
+    std::shared_ptr<Player> m_Player = std::make_shared<Player>();
+};

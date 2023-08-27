@@ -19,7 +19,7 @@ make -j5
 ./bin/Debug/Sandbox
 ```
 
-That's it! Now you can open up and edit `sandbox/src/SandboxExample.cpp` to your liking!
+That's it! Now you can open up and edit `sandbox/src/Sandbox.cpp` to your liking!
 
 ### 23-07-2023 Update:
 [Freeze Engine New Demo](https://github.com/systemcoding/Freeze-Engine/assets/68456596/e78ff5b2-5af8-4fd2-a541-96592d109fc7)
