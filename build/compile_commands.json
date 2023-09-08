@@ -1,0 +1,122 @@
+[
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/Application.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/Application.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/Application.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/Buffer.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/Buffer.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/Buffer.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/Camera.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/Camera.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/Camera.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/KeyboardInput.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/KeyboardInput.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/KeyboardInput.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/MouseInput.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/MouseInput.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/MouseInput.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/RenderCommands.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/RenderCommands.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/RenderCommands.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/Renderer2D.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/Renderer2D.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/Renderer2D.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/Shader.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/Shader.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/Shader.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/Sprite.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/Sprite.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/Sprite.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/Texture.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/Texture.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/Texture.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/VertexArray.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/VertexArray.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/VertexArray.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/Window.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/Window.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/Window.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/engine/src/stb_image.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/engine/src/stb_image.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/engine/src/stb_image.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/sandbox/src/Player.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/sandbox/src/Player.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/sandbox/src/Player.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/sandbox/src/Sandbox.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/sandbox/src/Sandbox.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/sandbox/src/Sandbox.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/sandbox/src/SandboxApp.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/sandbox/src/SandboxApp.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/sandbox/src/SandboxApp.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/sandbox/src/World.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/sandbox/src/World.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/sandbox/src/World.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/lib/imgui/backends/imgui_impl_opengl3.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/lib/imgui/backends/imgui_impl_opengl3.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/lib/imgui/backends/imgui_impl_opengl3.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/lib/imgui/backends/imgui_impl_glfw.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/lib/imgui/backends/imgui_impl_glfw.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/lib/imgui/backends/imgui_impl_glfw.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/lib/imgui/imgui.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/lib/imgui/imgui.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/lib/imgui/imgui.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/lib/imgui/imgui_demo.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/lib/imgui/imgui_demo.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/lib/imgui/imgui_demo.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/lib/imgui/imgui_draw.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/lib/imgui/imgui_draw.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/lib/imgui/imgui_draw.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/lib/imgui/imgui_tables.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/lib/imgui/imgui_tables.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/lib/imgui/imgui_tables.cpp"
+},
+{
+  "directory": "/home/revanth/Dev/projects/Freeze-Engine/build",
+  "command": "/usr/bin/g++ -DDEBUG -I/home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/stb_image/include -I/home/revanth/Dev/projects/Freeze-Engine/lib/imgui -I/home/revanth/Dev/projects/Freeze-Engine/lib/glm -I/home/revanth/Dev/projects/Freeze-Engine/lib/ImGuiFileDialog -I/home/revanth/Dev/projects/Freeze-Engine/engine/src/include -g -g -o CMakeFiles/Sandbox.dir/lib/imgui/imgui_widgets.cpp.o -c /home/revanth/Dev/projects/Freeze-Engine/lib/imgui/imgui_widgets.cpp",
+  "file": "/home/revanth/Dev/projects/Freeze-Engine/lib/imgui/imgui_widgets.cpp"
+}
+]

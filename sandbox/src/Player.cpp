@@ -8,13 +8,11 @@ Player::Player()
 
 void Player::CreateEntity()
 {
-    FZ_INFO("CREATING PLAYER");
     float playerCoords[] = {
         100.0f, 100.0f, 0.0f,   // top right
         100.0f, -100.0f, 0.0f,  // bottom right
         -100.0f, -100.0f, 0.0f, // bottom left
         -100.0f, 100.0f, 0.0f   // top left
-
     };
 
     uint32_t indices[] = {
@@ -38,12 +36,19 @@ void Player::CreateEntity()
                                          Freeze::Utils::GetFilePath("sandbox/shaders/Player.frag"));
 }
 
+void Player::MovePlayer(GLFWwindow* window)
+{
+    if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_D)) // Move Right
+    {
+    }
+}
+
 void Player::RenderEntity(const glm::mat4& projectionMatrix)
 {
-    FZ_INFO("player!");
-    m_PlayerShader->UseShader();
+    m_PlayerShader->UseShader(); 
 
     m_PlayerShader->SetMatrix4fv(m_PlayerShader->GetUniformLocation("a_ProjectionMatrix"), projectionMatrix);
+    m_PlayerShader->SetMatrix4fv(m_PlayerShader->GetUniformLocation("a_InputMatrix"), m_InputMatrix);
 
     m_VertexArray->BindVertexArray();
     m_ElementBuffer->BindElementBuffer();

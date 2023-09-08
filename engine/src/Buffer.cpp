@@ -17,7 +17,7 @@ namespace Freeze
     {
       FZ_ERROR(
           "Vertex Buffer: No Data/Invalid Data Provided");
-      exit(0);
+      _exit(0);
     }
   }
 

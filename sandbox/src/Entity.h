@@ -6,7 +6,7 @@
 
 class Entity {
 public:
-    Entity(const std::string& id="Entity") : m_EntityID(id) 
+    Entity(const std::string& id) : m_EntityID(id) 
     {
 
     }

@@ -45,7 +45,6 @@ void World::InitPlatformData()
 
 void World::RenderPlatform()
 {
-    FZ_INFO("platform rendering");
     m_Shader->UseShader();
 
     m_Shader->SetMatrix4fv(m_Shader->GetUniformLocation("a_ProjectionViewMatrix"), m_Camera->GetProjectionViewMatrix());

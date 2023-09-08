@@ -9,6 +9,7 @@
 #include "core/OpenGLDebug.h"
 
 #include "World.h"
+#include "Player.h"
 
 class Sandbox
 {
@@ -17,11 +18,12 @@ public:
 
     void OnInit();
     void OnImGui();
-    void OnInput(GLFWwindow* window);
+    void OnEvent(GLFWwindow* window);
     void OnUpdate(float dt);
 
     ~Sandbox();
 
 private:
     std::shared_ptr<World> m_World = std::make_shared<World>();
+    std::shared_ptr<Player> m_Player = std::make_shared<Player>();
 };

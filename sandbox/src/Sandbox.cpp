@@ -10,9 +10,9 @@ void Sandbox::OnInit()
     m_World->Init();
 }
 
-void Sandbox::OnInput(GLFWwindow *window)
+void Sandbox::OnEvent(GLFWwindow *window)
 {
-   
+    m_Player->MovePlayer(window);    
 }
 
 void Sandbox::OnImGui()

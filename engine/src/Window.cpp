@@ -17,7 +17,7 @@ namespace Freeze
 
         if (m_Window == nullptr)
         {
-            spdlog::error("Window failed to initialise");
+            FZ_ERROR("Window failed to initialise");
             exit(0);
             return false;
         }

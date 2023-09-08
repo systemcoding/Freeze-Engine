@@ -7,3 +7,4 @@
 - [] Make delta time work!
 - [] Make camera work with the Input System (No plans for API abstraction yet)
 - [] Make a small entity editor (Edit it's position, rotation for testing)
+- [] Make an Event System and call the OnInput function only once for a key press (not multiple times)
