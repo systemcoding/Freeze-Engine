@@ -12,7 +12,7 @@ Other dependencies will be taken care by the premake5.
 
 Instructions:
 ```bash
-git clone https://github.com/systemcoding/Freeze-Engine
+git clone --recursive https://github.com/systemcoding/Freeze-Engine
 cd Freeze-Engine/sandbox/build
 premake5 gmake
 make -j5
