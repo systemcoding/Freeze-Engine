@@ -25,7 +25,7 @@ CMakeFiles/Sandbox.dir/engine/src/Renderer2D.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h /usr/include/GL/glu.h \
  /usr/include/GL/gl.h \
- /home/revanth/Dev/projects/Freeze-Engine/engine/src/include/renderer/../core/Core.h \
+ /home/revanth/Dev/projects/Freeze-Engine/engine/src/include/core/Core.h \
  /home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include/spdlog/spdlog.h \
  /home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include/spdlog/common.h \
  /home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include/spdlog/tweakme.h \
@@ -296,7 +296,7 @@ CMakeFiles/Sandbox.dir/engine/src/Renderer2D.cpp.o: \
  /home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include/spdlog/version.h \
  /home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include/spdlog/details/synchronous_factory.h \
  /home/revanth/Dev/projects/Freeze-Engine/lib/spdlog/include/spdlog/spdlog-inl.h \
- /home/revanth/Dev/projects/Freeze-Engine/engine/src/include/renderer/../core/root_dir.h \
+ /home/revanth/Dev/projects/Freeze-Engine/engine/src/include/core/root_dir.h \
  /usr/include/c++/11/csignal /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
  /usr/include/x86_64-linux-gnu/bits/signum-arch.h \

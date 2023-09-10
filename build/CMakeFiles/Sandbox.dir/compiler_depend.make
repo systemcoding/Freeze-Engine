@@ -603,6 +603,12 @@ CMakeFiles/Sandbox.dir/engine/src/Application.cpp.o: ../engine/src/Application.c
   ../engine/src/include/renderer/Buffer.h \
   ../engine/src/include/renderer/VertexArray.h \
   ../sandbox/src/Player.h \
+  ../lib/glm/glm/gtx/string_cast.hpp \
+  ../lib/glm/glm/gtc/type_precision.hpp \
+  ../lib/glm/glm/gtc/type_precision.inl \
+  ../lib/glm/glm/gtx/dual_quaternion.hpp \
+  ../lib/glm/glm/gtx/dual_quaternion.inl \
+  ../lib/glm/glm/gtx/string_cast.inl \
   ../engine/src/include/input/KeyboardInput.h \
   ../engine/src/include/input/MouseInput.h \
   ../sandbox/src/Entity.h \
@@ -6499,37 +6505,64 @@ CMakeFiles/Sandbox.dir/sandbox/src/Player.cpp.o: ../sandbox/src/Player.cpp \
   ../lib/glm/glm/detail/type_half.inl \
   ../lib/glm/glm/integer.hpp \
   ../lib/glm/glm/detail/func_integer.inl \
-  /usr/include/c++/11/memory \
-  /usr/include/c++/11/bits/allocator.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
-  /usr/include/c++/11/ext/new_allocator.h \
-  /usr/include/c++/11/new \
-  /usr/include/c++/11/bits/exception.h \
-  /usr/include/c++/11/bits/memoryfwd.h \
-  /usr/include/c++/11/bits/stl_construct.h \
-  /usr/include/c++/11/bits/stl_uninitialized.h \
-  /usr/include/c++/11/ext/alloc_traits.h \
-  /usr/include/c++/11/bits/alloc_traits.h \
-  /usr/include/c++/11/bits/stl_tempbuf.h \
-  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/11/bits/align.h \
-  /usr/include/c++/11/bit \
-  /usr/include/c++/11/bits/uses_allocator.h \
-  /usr/include/c++/11/bits/unique_ptr.h \
-  /usr/include/c++/11/utility \
-  /usr/include/c++/11/bits/stl_relops.h \
-  /usr/include/c++/11/initializer_list \
-  /usr/include/c++/11/tuple \
-  /usr/include/c++/11/array \
-  /usr/include/c++/11/bits/range_access.h \
-  /usr/include/c++/11/bits/invoke.h \
-  /usr/include/c++/11/bits/stl_function.h \
-  /usr/include/c++/11/backward/binders.h \
-  /usr/include/c++/11/bits/functional_hash.h \
-  /usr/include/c++/11/bits/hash_bytes.h \
-  /usr/include/c++/11/bits/shared_ptr.h \
-  /usr/include/c++/11/iosfwd \
+  ../lib/glm/glm/gtx/string_cast.hpp \
+  ../lib/glm/glm/gtc/type_precision.hpp \
+  ../lib/glm/glm/gtc/quaternion.hpp \
+  ../lib/glm/glm/gtc/constants.hpp \
+  ../lib/glm/glm/ext/scalar_constants.hpp \
+  ../lib/glm/glm/detail/setup.hpp \
+  ../lib/glm/glm/ext/scalar_constants.inl \
+  ../lib/glm/glm/gtc/constants.inl \
+  ../lib/glm/glm/gtc/matrix_transform.hpp \
+  ../lib/glm/glm/ext/matrix_projection.hpp \
+  ../lib/glm/glm/ext/matrix_projection.inl \
+  ../lib/glm/glm/ext/matrix_clip_space.hpp \
+  ../lib/glm/glm/ext/matrix_clip_space.inl \
+  ../lib/glm/glm/ext/matrix_transform.hpp \
+  ../lib/glm/glm/ext/matrix_transform.inl \
+  ../lib/glm/glm/gtc/matrix_transform.inl \
+  ../lib/glm/glm/ext/vector_relational.hpp \
+  ../lib/glm/glm/ext/vector_relational.inl \
+  ../lib/glm/glm/detail/type_float.hpp \
+  ../lib/glm/glm/detail/setup.hpp \
+  ../lib/glm/glm/ext/quaternion_common.hpp \
+  ../lib/glm/glm/ext/quaternion_geometric.hpp \
+  ../lib/glm/glm/ext/quaternion_geometric.inl \
+  ../lib/glm/glm/ext/quaternion_common.inl \
+  ../lib/glm/glm/ext/quaternion_float.hpp \
+  ../lib/glm/glm/detail/type_quat.hpp \
+  ../lib/glm/glm/ext/quaternion_relational.hpp \
+  ../lib/glm/glm/ext/quaternion_relational.inl \
+  ../lib/glm/glm/detail/type_quat.inl \
+  ../lib/glm/glm/ext/quaternion_float_precision.hpp \
+  ../lib/glm/glm/ext/quaternion_double.hpp \
+  ../lib/glm/glm/ext/quaternion_double_precision.hpp \
+  ../lib/glm/glm/ext/quaternion_trigonometric.hpp \
+  ../lib/glm/glm/ext/quaternion_trigonometric.inl \
+  ../lib/glm/glm/ext/quaternion_transform.hpp \
+  ../lib/glm/glm/ext/quaternion_transform.inl \
+  ../lib/glm/glm/gtc/quaternion.inl \
+  ../lib/glm/glm/gtc/epsilon.hpp \
+  ../lib/glm/glm/detail/setup.hpp \
+  ../lib/glm/glm/gtc/epsilon.inl \
+  ../lib/glm/glm/gtc/vec1.hpp \
+  ../lib/glm/glm/ext/vector_bool1.hpp \
+  ../lib/glm/glm/ext/vector_bool1_precision.hpp \
+  ../lib/glm/glm/ext/vector_float1.hpp \
+  ../lib/glm/glm/ext/vector_float1_precision.hpp \
+  ../lib/glm/glm/ext/vector_double1.hpp \
+  ../lib/glm/glm/ext/vector_double1_precision.hpp \
+  ../lib/glm/glm/ext/vector_int1.hpp \
+  ../lib/glm/glm/ext/vector_int1_sized.hpp \
+  ../lib/glm/glm/ext/vector_uint1.hpp \
+  ../lib/glm/glm/ext/vector_uint1_sized.hpp \
+  ../lib/glm/glm/gtc/type_precision.inl \
+  ../lib/glm/glm/gtx/dual_quaternion.hpp \
+  ../lib/glm/glm/gtx/dual_quaternion.inl \
+  /usr/include/c++/11/string \
   /usr/include/c++/11/bits/stringfwd.h \
+  /usr/include/c++/11/bits/memoryfwd.h \
+  /usr/include/c++/11/bits/char_traits.h \
   /usr/include/c++/11/bits/postypes.h \
   /usr/include/c++/11/cwchar \
   /usr/include/wchar.h \
@@ -6539,11 +6572,26 @@ CMakeFiles/Sandbox.dir/sandbox/src/Player.cpp.o: ../sandbox/src/Player.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
-  /usr/include/c++/11/bits/shared_ptr_base.h \
-  /usr/include/c++/11/typeinfo \
-  /usr/include/c++/11/bits/allocated_ptr.h \
-  /usr/include/c++/11/bits/refwrap.h \
-  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/bits/allocator.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
+  /usr/include/c++/11/ext/new_allocator.h \
+  /usr/include/c++/11/new \
+  /usr/include/c++/11/bits/exception.h \
+  /usr/include/c++/11/bits/localefwd.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
+  /usr/include/c++/11/clocale \
+  /usr/include/locale.h \
+  /usr/include/x86_64-linux-gnu/bits/locale.h \
+  /usr/include/c++/11/iosfwd \
+  /usr/include/c++/11/cctype \
+  /usr/include/ctype.h \
+  /usr/include/c++/11/bits/ostream_insert.h \
+  /usr/include/c++/11/bits/cxxabi_forced.h \
+  /usr/include/c++/11/bits/stl_function.h \
+  /usr/include/c++/11/backward/binders.h \
+  /usr/include/c++/11/bits/range_access.h \
+  /usr/include/c++/11/initializer_list \
+  /usr/include/c++/11/bits/basic_string.h \
   /usr/include/c++/11/ext/atomicity.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h \
@@ -6561,6 +6609,53 @@ CMakeFiles/Sandbox.dir/sandbox/src/Player.cpp.o: ../sandbox/src/Player.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/c++/11/ext/alloc_traits.h \
+  /usr/include/c++/11/bits/alloc_traits.h \
+  /usr/include/c++/11/bits/stl_construct.h \
+  /usr/include/c++/11/string_view \
+  /usr/include/c++/11/bits/functional_hash.h \
+  /usr/include/c++/11/bits/hash_bytes.h \
+  /usr/include/c++/11/bits/string_view.tcc \
+  /usr/include/c++/11/ext/string_conversions.h \
+  /usr/include/c++/11/cstdlib \
+  /usr/include/c++/11/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/c++/11/cerrno \
+  /usr/include/errno.h \
+  /usr/include/x86_64-linux-gnu/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+  /usr/include/c++/11/bits/charconv.h \
+  /usr/include/c++/11/bits/basic_string.tcc \
+  ../lib/glm/glm/gtx/string_cast.inl \
+  /usr/include/c++/11/cstdarg \
+  /usr/include/c++/11/memory \
+  /usr/include/c++/11/bits/stl_uninitialized.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/11/bits/align.h \
+  /usr/include/c++/11/bit \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/unique_ptr.h \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/bits/shared_ptr.h \
+  /usr/include/c++/11/bits/shared_ptr_base.h \
+  /usr/include/c++/11/typeinfo \
+  /usr/include/c++/11/bits/allocated_ptr.h \
+  /usr/include/c++/11/bits/refwrap.h \
+  /usr/include/c++/11/ext/aligned_buffer.h \
   /usr/include/c++/11/ext/concurrence.h \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/bits/exception_ptr.h \
@@ -6583,39 +6678,6 @@ CMakeFiles/Sandbox.dir/sandbox/src/Player.cpp.o: ../sandbox/src/Player.cpp \
   /usr/include/c++/11/ratio \
   /usr/include/c++/11/ctime \
   /usr/include/c++/11/bits/parse_numbers.h \
-  /usr/include/c++/11/string \
-  /usr/include/c++/11/bits/char_traits.h \
-  /usr/include/c++/11/bits/localefwd.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
-  /usr/include/c++/11/clocale \
-  /usr/include/locale.h \
-  /usr/include/x86_64-linux-gnu/bits/locale.h \
-  /usr/include/c++/11/cctype \
-  /usr/include/ctype.h \
-  /usr/include/c++/11/bits/ostream_insert.h \
-  /usr/include/c++/11/bits/cxxabi_forced.h \
-  /usr/include/c++/11/bits/basic_string.h \
-  /usr/include/c++/11/string_view \
-  /usr/include/c++/11/bits/string_view.tcc \
-  /usr/include/c++/11/ext/string_conversions.h \
-  /usr/include/c++/11/cstdlib \
-  /usr/include/c++/11/cstdio \
-  /usr/include/stdio.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
-  /usr/include/c++/11/cerrno \
-  /usr/include/errno.h \
-  /usr/include/x86_64-linux-gnu/bits/errno.h \
-  /usr/include/linux/errno.h \
-  /usr/include/x86_64-linux-gnu/asm/errno.h \
-  /usr/include/asm-generic/errno.h \
-  /usr/include/asm-generic/errno-base.h \
-  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
-  /usr/include/c++/11/bits/charconv.h \
-  /usr/include/c++/11/bits/basic_string.tcc \
   /usr/include/c++/11/functional \
   /usr/include/c++/11/bits/std_function.h \
   /usr/include/c++/11/unordered_map \
@@ -6654,7 +6716,6 @@ CMakeFiles/Sandbox.dir/sandbox/src/Player.cpp.o: ../sandbox/src/Player.cpp \
   ../lib/spdlog/include/spdlog/fmt/bundled/format-inl.h \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/pstl/glue_algorithm_defs.h \
-  /usr/include/c++/11/cstdarg \
   /usr/include/c++/11/locale \
   /usr/include/c++/11/bits/locale_facets.h \
   /usr/include/c++/11/cwctype \
@@ -6768,56 +6829,7 @@ CMakeFiles/Sandbox.dir/sandbox/src/Player.cpp.o: ../sandbox/src/Player.cpp \
   /usr/include/x86_64-linux-gnu/bits/signal_ext.h \
   ../engine/src/include/renderer/VertexArray.h \
   ../engine/src/include/renderer/Shader.h \
-  ../lib/glm/glm/gtc/matrix_transform.hpp \
-  ../lib/glm/glm/ext/matrix_projection.hpp \
-  ../lib/glm/glm/gtc/constants.hpp \
-  ../lib/glm/glm/ext/scalar_constants.hpp \
-  ../lib/glm/glm/detail/setup.hpp \
-  ../lib/glm/glm/ext/scalar_constants.inl \
-  ../lib/glm/glm/gtc/constants.inl \
-  ../lib/glm/glm/ext/matrix_projection.inl \
-  ../lib/glm/glm/ext/matrix_clip_space.hpp \
-  ../lib/glm/glm/ext/matrix_clip_space.inl \
-  ../lib/glm/glm/ext/matrix_transform.hpp \
-  ../lib/glm/glm/ext/matrix_transform.inl \
-  ../lib/glm/glm/gtc/matrix_transform.inl \
   ../lib/glm/glm/gtc/type_ptr.hpp \
-  ../lib/glm/glm/gtc/quaternion.hpp \
-  ../lib/glm/glm/ext/vector_relational.hpp \
-  ../lib/glm/glm/ext/vector_relational.inl \
-  ../lib/glm/glm/detail/type_float.hpp \
-  ../lib/glm/glm/detail/setup.hpp \
-  ../lib/glm/glm/ext/quaternion_common.hpp \
-  ../lib/glm/glm/ext/quaternion_geometric.hpp \
-  ../lib/glm/glm/ext/quaternion_geometric.inl \
-  ../lib/glm/glm/ext/quaternion_common.inl \
-  ../lib/glm/glm/ext/quaternion_float.hpp \
-  ../lib/glm/glm/detail/type_quat.hpp \
-  ../lib/glm/glm/ext/quaternion_relational.hpp \
-  ../lib/glm/glm/ext/quaternion_relational.inl \
-  ../lib/glm/glm/detail/type_quat.inl \
-  ../lib/glm/glm/ext/quaternion_float_precision.hpp \
-  ../lib/glm/glm/ext/quaternion_double.hpp \
-  ../lib/glm/glm/ext/quaternion_double_precision.hpp \
-  ../lib/glm/glm/ext/quaternion_trigonometric.hpp \
-  ../lib/glm/glm/ext/quaternion_trigonometric.inl \
-  ../lib/glm/glm/ext/quaternion_transform.hpp \
-  ../lib/glm/glm/ext/quaternion_transform.inl \
-  ../lib/glm/glm/gtc/quaternion.inl \
-  ../lib/glm/glm/gtc/epsilon.hpp \
-  ../lib/glm/glm/detail/setup.hpp \
-  ../lib/glm/glm/gtc/epsilon.inl \
-  ../lib/glm/glm/gtc/vec1.hpp \
-  ../lib/glm/glm/ext/vector_bool1.hpp \
-  ../lib/glm/glm/ext/vector_bool1_precision.hpp \
-  ../lib/glm/glm/ext/vector_float1.hpp \
-  ../lib/glm/glm/ext/vector_float1_precision.hpp \
-  ../lib/glm/glm/ext/vector_double1.hpp \
-  ../lib/glm/glm/ext/vector_double1_precision.hpp \
-  ../lib/glm/glm/ext/vector_int1.hpp \
-  ../lib/glm/glm/ext/vector_int1_sized.hpp \
-  ../lib/glm/glm/ext/vector_uint1.hpp \
-  ../lib/glm/glm/ext/vector_uint1_sized.hpp \
   ../lib/glm/glm/gtc/type_ptr.inl \
   /usr/include/c++/11/fstream \
   /usr/include/c++/11/istream \
@@ -6836,6 +6848,7 @@ CMakeFiles/Sandbox.dir/sandbox/src/Player.cpp.o: ../sandbox/src/Player.cpp \
   ../engine/src/include/input/KeyboardInput.h \
   /usr/include/GLFW/glfw3.h \
   ../engine/src/include/input/MouseInput.h \
+  /usr/include/c++/11/iostream \
   ../sandbox/src/Entity.h
 
 CMakeFiles/Sandbox.dir/sandbox/src/Sandbox.cpp.o: ../sandbox/src/Sandbox.cpp \
@@ -7436,8 +7449,15 @@ CMakeFiles/Sandbox.dir/sandbox/src/Sandbox.cpp.o: ../sandbox/src/Sandbox.cpp \
   ../engine/src/include/renderer/Buffer.h \
   ../engine/src/include/renderer/VertexArray.h \
   ../sandbox/src/Player.h \
+  ../lib/glm/glm/gtx/string_cast.hpp \
+  ../lib/glm/glm/gtc/type_precision.hpp \
+  ../lib/glm/glm/gtc/type_precision.inl \
+  ../lib/glm/glm/gtx/dual_quaternion.hpp \
+  ../lib/glm/glm/gtx/dual_quaternion.inl \
+  ../lib/glm/glm/gtx/string_cast.inl \
   ../engine/src/include/input/KeyboardInput.h \
   ../engine/src/include/input/MouseInput.h \
+  /usr/include/c++/11/iostream \
   ../sandbox/src/Entity.h
 
 CMakeFiles/Sandbox.dir/sandbox/src/SandboxApp.cpp.o: ../sandbox/src/SandboxApp.cpp \
@@ -8042,6 +8062,12 @@ CMakeFiles/Sandbox.dir/sandbox/src/SandboxApp.cpp.o: ../sandbox/src/SandboxApp.c
   ../engine/src/include/renderer/Buffer.h \
   ../engine/src/include/renderer/VertexArray.h \
   ../sandbox/src/Player.h \
+  ../lib/glm/glm/gtx/string_cast.hpp \
+  ../lib/glm/glm/gtc/type_precision.hpp \
+  ../lib/glm/glm/gtc/type_precision.inl \
+  ../lib/glm/glm/gtx/dual_quaternion.hpp \
+  ../lib/glm/glm/gtx/dual_quaternion.inl \
+  ../lib/glm/glm/gtx/string_cast.inl \
   ../engine/src/include/input/KeyboardInput.h \
   ../engine/src/include/input/MouseInput.h \
   ../sandbox/src/Entity.h \
@@ -8735,9 +8761,16 @@ CMakeFiles/Sandbox.dir/sandbox/src/World.cpp.o: ../sandbox/src/World.cpp \
   /usr/include/c++/11/bits/sstream.tcc \
   ../engine/src/include/renderer/Camera.h \
   ../sandbox/src/Player.h \
+  ../lib/glm/glm/gtx/string_cast.hpp \
+  ../lib/glm/glm/gtc/type_precision.hpp \
+  ../lib/glm/glm/gtc/type_precision.inl \
+  ../lib/glm/glm/gtx/dual_quaternion.hpp \
+  ../lib/glm/glm/gtx/dual_quaternion.inl \
+  ../lib/glm/glm/gtx/string_cast.inl \
   ../engine/src/include/input/KeyboardInput.h \
   /usr/include/GLFW/glfw3.h \
   ../engine/src/include/input/MouseInput.h \
+  /usr/include/c++/11/iostream \
   ../sandbox/src/Entity.h
 
 
@@ -8898,6 +8931,16 @@ CMakeFiles/Sandbox.dir/sandbox/src/World.cpp.o: ../sandbox/src/World.cpp \
 ../engine/src/include/renderer/Renderer2D.h:
 
 ../engine/src/include/input/MouseInput.h:
+
+../lib/glm/glm/gtx/string_cast.inl:
+
+../lib/glm/glm/gtx/dual_quaternion.inl:
+
+../lib/glm/glm/gtc/type_precision.inl:
+
+../lib/glm/glm/gtc/type_precision.hpp:
+
+../lib/glm/glm/gtx/string_cast.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vnniintrin.h:
 
@@ -9112,6 +9155,8 @@ CMakeFiles/Sandbox.dir/sandbox/src/World.cpp.o: ../sandbox/src/World.cpp \
 /usr/include/c++/11/bits/stream_iterator.h:
 
 /usr/include/ctype.h:
+
+../lib/glm/glm/gtx/dual_quaternion.hpp:
 
 /usr/include/c++/11/locale:
 

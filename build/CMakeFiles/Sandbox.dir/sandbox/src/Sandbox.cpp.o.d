@@ -531,6 +531,13 @@ CMakeFiles/Sandbox.dir/sandbox/src/Sandbox.cpp.o: \
  /home/revanth/Dev/projects/Freeze-Engine/engine/src/include/renderer/Buffer.h \
  /home/revanth/Dev/projects/Freeze-Engine/engine/src/include/renderer/VertexArray.h \
  /home/revanth/Dev/projects/Freeze-Engine/sandbox/src/Player.h \
+ /home/revanth/Dev/projects/Freeze-Engine/lib/glm/glm/gtx/string_cast.hpp \
+ /home/revanth/Dev/projects/Freeze-Engine/lib/glm/glm/gtx/../gtc/type_precision.hpp \
+ /home/revanth/Dev/projects/Freeze-Engine/lib/glm/glm/gtx/../gtc/type_precision.inl \
+ /home/revanth/Dev/projects/Freeze-Engine/lib/glm/glm/gtx/../gtx/dual_quaternion.hpp \
+ /home/revanth/Dev/projects/Freeze-Engine/lib/glm/glm/gtx/../gtx/dual_quaternion.inl \
+ /home/revanth/Dev/projects/Freeze-Engine/lib/glm/glm/gtx/string_cast.inl \
  /home/revanth/Dev/projects/Freeze-Engine/engine/src/include/input/KeyboardInput.h \
  /home/revanth/Dev/projects/Freeze-Engine/engine/src/include/input/MouseInput.h \
+ /usr/include/c++/11/iostream \
  /home/revanth/Dev/projects/Freeze-Engine/sandbox/src/Entity.h

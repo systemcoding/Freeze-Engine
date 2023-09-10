@@ -1,3 +1,7 @@
 {
-    "C_Cpp.default.compilerPath": "/usr/bin/g++"
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
+    "files.associations": {
+        "limits": "cpp",
+        "ostream": "cpp"
+    }
 }

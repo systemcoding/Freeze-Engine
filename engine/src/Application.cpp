@@ -1,7 +1,8 @@
 #include "include/core/Application.h"
+#include <iostream>
 
 namespace Freeze {
-Application::Application(uint32_t width, uint32_t height,
+          Application::Application(uint32_t width, uint32_t height,
                          const std::string &title) {
   OnInit(width, height, title);
   InitGLEW();
@@ -67,4 +68,4 @@ inline void framebuffer_size_callback(GLFWwindow *window, int width,
   glViewport(0, 0, width, height);
 }
 
-}; // namespace Freeze
+};

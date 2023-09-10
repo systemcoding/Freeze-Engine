@@ -1,13 +1,14 @@
 #include "Player.h"
 
 Player::Player()
-    : Entity("Player")
+    : Entity("Player"), m_X(0.0f), m_Y(0.0f)
 {
     FZ_INFO("Entity: {}", PrintEntityName());
 }
 
 void Player::CreateEntity()
 {
+    FZ_INFO("Hello world");
     float playerCoords[] = {
         100.0f, 100.0f, 0.0f,   // top right
         100.0f, -100.0f, 0.0f,  // bottom right
@@ -40,15 +41,27 @@ void Player::MovePlayer(GLFWwindow* window)
 {
     if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_D)) // Move Right
     {
+        m_X += 20.0f;
+        std::cout << "Key pressed!\n";
+        std::cout << this << std::endl;
+        FZ_INFO("X: {}", m_X);
+        std::cout << "---------------------------------\n";
     }
 }
 
 void Player::RenderEntity(const glm::mat4& projectionMatrix)
 {
-    m_PlayerShader->UseShader(); 
+    m_PlayerShader->UseShader();
+
+    std::cout << "Rendering entity!\n";
+    std::cout << this << std::endl;
+    FZ_INFO("X: {}", m_X);
+    std::cout << "---------------------------\n";
+    m_PlayerMove = glm::translate(glm::mat4(1.0f), glm::vec3(m_X, 0.0f, 0.0f));
 
     m_PlayerShader->SetMatrix4fv(m_PlayerShader->GetUniformLocation("a_ProjectionMatrix"), projectionMatrix);
-    m_PlayerShader->SetMatrix4fv(m_PlayerShader->GetUniformLocation("a_InputMatrix"), m_InputMatrix);
+    std::string matrix = glm::to_string(m_PlayerMove);
+    m_PlayerShader->SetMatrix4fv(m_PlayerShader->GetUniformLocation("a_InputMatrix"), m_PlayerMove);
 
     m_VertexArray->BindVertexArray();
     m_ElementBuffer->BindElementBuffer();
