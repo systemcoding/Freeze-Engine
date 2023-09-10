@@ -6,20 +6,24 @@ This engine only supports linux for now (I will extend this to windows and etc..
 - glew
 - glfw
 - opengl
-- premake5
+- cmake
 
 Other dependencies will be taken care by the premake5.
 
 Instructions:
 ```bash
 git clone --recursive https://github.com/systemcoding/Freeze-Engine
-cd Freeze-Engine/sandbox/build
-premake5 gmake
+cd Freeze-Engine/
+mkdir build
+cmake ..
 make -j5
-./bin/Debug/Sandbox
+./bin/Sandbox
 ```
 
 That's it! Now you can open up and edit `sandbox/src/Sandbox.cpp` to your liking!
+
+### 10-09-2023 Update:
+[2023-09-10 20-20-57.webm](https://github.com/systemcoding/Freeze-Engine/assets/68456596/88893803-050e-49c7-b4d1-866043e30816)
 
 ### 23-07-2023 Update:
 [Freeze Engine New Demo](https://github.com/systemcoding/Freeze-Engine/assets/68456596/e78ff5b2-5af8-4fd2-a541-96592d109fc7)
