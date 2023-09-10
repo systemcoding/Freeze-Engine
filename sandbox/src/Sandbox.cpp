@@ -12,7 +12,7 @@ void Sandbox::OnInit()
 
 void Sandbox::OnEvent(GLFWwindow *window)
 {
-    m_Player->MovePlayer(window);    
+    m_World->GetPlayerInstance()->MovePlayer(window);    
 }
 
 void Sandbox::OnImGui()

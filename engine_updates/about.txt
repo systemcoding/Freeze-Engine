@@ -1,0 +1,8 @@
+- This is all about my mistakes that i made while progressing through this engine.
+
+-> 10th September, 2023
+The two_instances.png is about accidentally making two instances of the player. I tried to apply transformations on the Player
+when i pressed any key on the keyboard, later i learnt that i am applying the transformations on the player, but the x and y values
+of the player are being applied to the duplicate instance of the player class. 
+
+In World.h and Sandbox.h i had different instances of the player class which is why the input didnt work at all.

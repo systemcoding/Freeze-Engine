@@ -25,5 +25,4 @@ public:
 
 private:
     std::shared_ptr<World> m_World = std::make_shared<World>();
-    std::shared_ptr<Player> m_Player = std::make_shared<Player>();
 };

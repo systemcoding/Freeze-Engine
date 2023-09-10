@@ -42,10 +42,10 @@ void Player::MovePlayer(GLFWwindow* window)
     if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_D)) // Move Right
     {
         m_X += 20.0f;
-        std::cout << "Key pressed!\n";
-        std::cout << this << std::endl;
-        FZ_INFO("X: {}", m_X);
-        std::cout << "---------------------------------\n";
+    }
+    if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_A)) // Move Left
+    {
+        m_X += -20.0f;
     }
 }
 
@@ -53,10 +53,6 @@ void Player::RenderEntity(const glm::mat4& projectionMatrix)
 {
     m_PlayerShader->UseShader();
 
-    std::cout << "Rendering entity!\n";
-    std::cout << this << std::endl;
-    FZ_INFO("X: {}", m_X);
-    std::cout << "---------------------------\n";
     m_PlayerMove = glm::translate(glm::mat4(1.0f), glm::vec3(m_X, 0.0f, 0.0f));
 
     m_PlayerShader->SetMatrix4fv(m_PlayerShader->GetUniformLocation("a_ProjectionMatrix"), projectionMatrix);
