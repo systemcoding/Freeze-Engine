@@ -1,3 +1,0 @@
-/home/revanth/Dev/projects/Freeze-Engine/build/CMakeFiles/Sandbox.dir
-/home/revanth/Dev/projects/Freeze-Engine/build/CMakeFiles/edit_cache.dir
-/home/revanth/Dev/projects/Freeze-Engine/build/CMakeFiles/rebuild_cache.dir
