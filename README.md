@@ -7,10 +7,22 @@ This engine only supports linux for now (I will extend this to windows and etc..
 - glfw
 - opengl
 - cmake
-
 Other dependencies will be taken care by the premake5.
 
-Instructions:
+### C++ LSP Neovim Issue:
+If you are using neovim as your editor and you have clangd server enabled then follow these steps:
+```bash
+git clone https://github.com/systemcoding/Freeze-Engine
+cd Freeze-Engine
+mkdir build
+cd build
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+cmake --build . -j5
+./bin/Sandbox
+```
+Since the clangd lsp server requires the compile_commands.json for finding header files and correct linking use the above commands.
+
+Instructions: (Not For Neovim LSP Users!!!)
 ```bash
 git clone --recursive https://github.com/systemcoding/Freeze-Engine
 cd Freeze-Engine/
