@@ -20,8 +20,6 @@ namespace Freeze
     class Application
     {
     public:
-        Application(uint32_t width, uint32_t height, const std::string& title);
-
         void OnInit(uint32_t width, uint32_t height, const std::string& title);
         void OnEvent();
         void Run();
@@ -34,7 +32,7 @@ namespace Freeze
         bool InitGLEW();
 
     private:
-        std::shared_ptr<Sandbox> m_Sandbox{ new Sandbox() };
+        std::shared_ptr<Sandbox> m_Sandbox;
         std::shared_ptr<Freeze::Window> m_Window;
         std::shared_ptr<Freeze::ImGuiContext> m_ImGuiContext;
     };

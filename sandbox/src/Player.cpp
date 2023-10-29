@@ -8,7 +8,6 @@ Player::Player()
 
 void Player::CreateEntity()
 {
-    FZ_INFO("Hello world");
     float playerCoords[] = {
         100.0f, 100.0f, 0.0f,   // top right
         100.0f, -100.0f, 0.0f,  // bottom right
@@ -33,8 +32,8 @@ void Player::CreateEntity()
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 12, (void *)0);
     glEnableVertexAttribArray(0);
 
-    m_PlayerShader->LoadShadersFromFiles(Freeze::Utils::GetFilePath("sandbox/shaders/Player.vert"),
-                                         Freeze::Utils::GetFilePath("sandbox/shaders/Player.frag"));
+    m_PlayerShader->LoadShadersFromFiles(Freeze::Utils::GetFilePath("assets/shaders/Player.vert"),
+                                         Freeze::Utils::GetFilePath("assets/shaders/Player.frag"));
 }
 
 void Player::MovePlayer(GLFWwindow* window)

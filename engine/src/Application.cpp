@@ -1,27 +1,23 @@
 #include "include/core/Application.h"
-#include <iostream>
 
 namespace Freeze {
-          Application::Application(uint32_t width, uint32_t height,
-                         const std::string &title) {
-  OnInit(width, height, title);
-  InitGLEW();
-  SetEngineViewport();
-}
 
 void Application::OnInit(uint32_t width, uint32_t height,
                          const std::string &title) {
   Freeze::Renderer2D::Init();
 
-  FZ_INFO("Engine Running: Freeze Engine v0.0.1DEV");
   m_Window = std::make_unique<Freeze::Window>();
   m_Window->CreateWindow(width, height, title);
   m_Window->CreateWindowContext();
+  InitGLEW();
+  SetEngineViewport();
   m_ImGuiContext->CreateImGuiContext(m_Window->getWindowInstance());
+
+  m_Sandbox = std::make_shared<Sandbox>();
+  m_Sandbox->OnInit();
 }
 
 void Application::Run() {
-  m_Sandbox->OnInit();
   while (!glfwWindowShouldClose(m_Window->getWindowInstance())) {
     m_Sandbox->OnEvent(m_Window->getWindowInstance());
 
@@ -68,4 +64,4 @@ inline void framebuffer_size_callback(GLFWwindow *window, int width,
   glViewport(0, 0, width, height);
 }
 
-};
+}; // namespace Freeze

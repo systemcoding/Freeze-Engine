@@ -39,8 +39,8 @@ void World::InitPlatformData()
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 12, (void *)0);
     glEnableVertexAttribArray(0);
 
-    m_Shader->LoadShadersFromFiles(Freeze::Utils::GetFilePath("sandbox/shaders/Sandbox.vert"),
-                                  Freeze::Utils::GetFilePath("sandbox/shaders/Sandbox.frag"));
+    m_Shader->LoadShadersFromFiles(Freeze::Utils::GetFilePath("assets/shaders/Sandbox.vert"),
+                                  Freeze::Utils::GetFilePath("assets/shaders/Sandbox.frag"));
 }
 
 void World::RenderPlatform()
