@@ -10,7 +10,7 @@ This engine only supports linux for now (I will extend this to windows and etc..
 Other dependencies will be taken care by the premake5.
 
 ### C++ LSP Neovim Issue:
-If you are using neovim as your editor and you have clangd server enabled then follow these steps:
+If you are using neovim (or any other editor with clang lsp server) as your editor and you have clangd server enabled then follow these steps:
 ```bash
 git clone https://github.com/systemcoding/Freeze-Engine
 cd Freeze-Engine
@@ -31,6 +31,7 @@ cmake ..
 make -j5
 ./bin/Sandbox
 ```
+Also for debugging, compile with this: `cmake -DCMAKE_BUILD_TYPE=Debug ..`
 
 That's it! Now you can open up and edit `sandbox/src/Sandbox.cpp` to your liking!
 
