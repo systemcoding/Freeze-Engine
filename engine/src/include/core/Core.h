@@ -17,6 +17,8 @@
         // For MSVC
         #define FZ_ASSERT(x, ...) {FZ_ERROR(); __debugbreak();}
     #endif
+
+    #define FZ_EXIT() {exit(0);}
 #else
     #define FZ_INFO(x, ...) spdlog::info(x, ##__VA_ARGS__)
     #define FZ_WARN(x, ...) spdlog::warn(x, ##__VA_ARGS__)
@@ -29,6 +31,8 @@
         // For MSVC
         #define FZ_ASSERT(x, ...) {FZ_ERROR(x, ##__VA_ARGS__); __debugbreak();}
     #endif
+
+    #define FZ_EXIT() {FZ_INFO("Called Exit Function"); exit(0);}
 #endif
 
 namespace Freeze {

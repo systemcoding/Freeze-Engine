@@ -2,9 +2,8 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include "../core/Core.h"
 
-#include "Shader.h"
+#include "../core/Core.h"
 
 /* Basic Camera System.
    This doesn't work with the mouse and keyboard controls yet, but hopefully i will make it a bit more usable later.
@@ -16,7 +15,6 @@ namespace Freeze {
     class Camera {
     public:
         Camera(const glm::vec4& camPos);
-
 
         void SetPosition(const glm::vec3& position) { m_Position = position; CalculateViewMatrix(); }
         void SetRotation(float rotation) { m_Rotation = rotation; CalculateViewMatrix(); }
@@ -38,7 +36,5 @@ namespace Freeze {
 
         glm::vec3 m_Position = glm::vec3(0.0f, 0.0f, 0.0f);
         float m_Rotation = 0.0f;
-    private:
-        std::shared_ptr<Freeze::Shader> m_CameraShader = std::make_shared<Freeze::Shader>();
     };
 };

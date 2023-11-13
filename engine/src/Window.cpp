@@ -1,4 +1,5 @@
 #include "include/core/Window.h"
+#include "core/Core.h"
 
 namespace Freeze
 {
@@ -18,7 +19,7 @@ namespace Freeze
         if (m_Window == nullptr)
         {
             FZ_ERROR("Window failed to initialise");
-            exit(0);
+            FZ_EXIT();
             return false;
         }
 

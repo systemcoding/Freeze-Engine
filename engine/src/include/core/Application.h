@@ -35,5 +35,6 @@ namespace Freeze
         std::shared_ptr<Sandbox> m_Sandbox;
         std::shared_ptr<Freeze::Window> m_Window;
         std::shared_ptr<Freeze::ImGuiContext> m_ImGuiContext;
+        std::shared_ptr<Freeze::Renderer2D> m_Renderer2D = std::make_shared<Freeze::Renderer2D>();
     };
 };

@@ -7,6 +7,5 @@ uniform mat4 a_InputMatrix;
 
 void main()
 {
-    vec4 transformedPosition = a_ProjectionMatrix * a_InputMatrix * vec4(a_PlayerPos, 1.0f);
-    gl_Position = transformedPosition;
+    gl_Position = a_ProjectionMatrix * vec4(a_PlayerPos, 1.0f);
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 #include <glm/glm.hpp>
 
@@ -8,7 +9,6 @@ class Entity {
 public:
     Entity(const std::string& id) : m_EntityID(id) 
     {
-
     }
 
     const std::string& PrintEntityName() { return m_EntityID; }

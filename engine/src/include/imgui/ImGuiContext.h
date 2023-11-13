@@ -3,7 +3,6 @@
 #include <GLFW/glfw3.h>
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
-#include "spdlog/spdlog.h"
 
 #include "imgui.h"
 #include "imgui_internal.h"
@@ -26,7 +25,6 @@ namespace Freeze
             io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
             io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
             ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-
 
             ImGui_ImplGlfw_InitForOpenGL(window, true);
             ImGui_ImplOpenGL3_Init("#version 420");

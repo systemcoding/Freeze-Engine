@@ -4,13 +4,13 @@ namespace Freeze {
 
 void Application::OnInit(uint32_t width, uint32_t height,
                          const std::string &title) {
-  Freeze::Renderer2D::Init();
-
   m_Window = std::make_unique<Freeze::Window>();
   m_Window->CreateWindow(width, height, title);
   m_Window->CreateWindowContext();
+
   InitGLEW();
   SetEngineViewport();
+
   m_ImGuiContext->CreateImGuiContext(m_Window->getWindowInstance());
 
   m_Sandbox = std::make_shared<Sandbox>();
@@ -49,14 +49,13 @@ void Application::SetEngineViewport() {
 bool Application::InitGLEW() {
   if (glewInit() != GLEW_OK) {
     FZ_ERROR("GLEW failed to initialise");
-    exit(0);
-    return false;
+    FZ_EXIT();
   }
 
   return true;
 }
 
-Application::~Application() {}
+Application::~Application() { m_Renderer2D->DestoryRenderer(); }
 
 // Callback functions
 inline void framebuffer_size_callback(GLFWwindow *window, int width,

@@ -1,10 +1,11 @@
 #include "include/core/Application.h"
 
-int main() {
+int main() 
+{
   Freeze::Application *application = new Freeze::Application();
   FZ_INFO("Freeze Engine v0.1_DEV");
 
-  application->OnInit(800, 600, "EntryPoint Application");
+  application->OnInit(1280, 720, "Freeze Engine v0.1_DEV");
   application->Run();
 
   delete application;

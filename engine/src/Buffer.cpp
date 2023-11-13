@@ -1,4 +1,5 @@
 #include "include/renderer/Buffer.h"
+#include "core/Core.h"
 
 namespace Freeze
 {
@@ -17,7 +18,7 @@ namespace Freeze
     {
       FZ_ERROR(
           "Vertex Buffer: No Data/Invalid Data Provided");
-      _exit(0);
+      FZ_EXIT();
     }
   }
 
@@ -52,6 +53,7 @@ namespace Freeze
           "Element Buffer: No Data/Invalid Data Provided");
       exit(0);
     }
+
   }
 
   void ElementBuffer::BindElementBuffer() const

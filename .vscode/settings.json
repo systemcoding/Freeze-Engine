@@ -2,6 +2,8 @@
     "C_Cpp.default.compilerPath": "/usr/bin/g++",
     "files.associations": {
         "limits": "cpp",
-        "ostream": "cpp"
-    }
+        "ostream": "cpp",
+        "clangd.path": "clangd",
+        "clangd.arguments": "--compile-commands-dir=build",
+    },
 }

@@ -6,11 +6,9 @@
 #include <glm/glm.hpp>
 
 // Engine files
-#include "../renderer/RenderCommands.h"
-#include "../core/OpenGLDebug.h"
+#include "Core.h"
 
 // STD Library Includes
-#include <iostream>
 #include <string>
 #include <memory>
 
@@ -26,7 +24,6 @@ namespace Freeze
         GLFWwindow *getWindowInstance() { return m_Window; }
 
         ~Window();
-
     private:
         static GLFWwindow *m_Window;
     };

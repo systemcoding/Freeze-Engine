@@ -1,5 +1,7 @@
 #include "Sandbox.h"
 
+bool Sandbox::m_OpenImGuiWindow = true;
+
 Sandbox::Sandbox() {}
 
 void Sandbox::OnInit()
@@ -17,6 +19,12 @@ void Sandbox::OnEvent(GLFWwindow *window)
 
 void Sandbox::OnImGui()
 {
+    ImGui::Begin("Entity Editor: ", &m_OpenImGuiWindow);
+    if(ImGui::Button("Create Entity", ImVec2(100.0f, 30.0f)))
+    {
+    }
+    
+    ImGui::End();
 }
 
 void Sandbox::OnUpdate(float dt)

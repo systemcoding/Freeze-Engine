@@ -2,6 +2,8 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <imgui.h>
+#include <imgui_internal.h>
 
 #include <memory>
 
@@ -25,4 +27,5 @@ public:
 
 private:
     std::shared_ptr<World> m_World = std::make_shared<World>();
+    static bool m_OpenImGuiWindow;
 };

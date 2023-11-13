@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 # Add sandbox source files
-file(GLOB_RECURSE SOURCES "sandbox/src/*.cpp" "sandbox/src/*.h" "engine/src/*.cpp" "engine/src/include/*.h")
+file(GLOB_RECURSE SOURCES "sandbox/src/*.cpp" "engine/src/*.cpp")
 
 # Add external dependencies
 file(GLOB IMGUI_SOURCES "lib/imgui/*.cpp")
