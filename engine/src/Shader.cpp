@@ -133,6 +133,11 @@ namespace Freeze
         glUniformMatrix4fv(m_GetUniformLocation, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 
+    void Shader::SetVector2f(uint32_t loc, const glm::vec2& vector)
+    {
+        glUniform2f(m_GetUniformLocation, vector[0], vector[1]);
+    }
+
     void Shader::SetVector3f(uint32_t loc, const glm::vec3& vector)
     {
         glUniform3f(m_GetUniformLocation, vector[0], vector[1], vector[2]);

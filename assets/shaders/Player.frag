@@ -1,8 +1,9 @@
 #version 420 core
 
 out vec4 o_PlayerColor;
+uniform vec4 u_Color;
 
 void main()
 {
-    o_PlayerColor = vec4(0.1f, 0.5f, 0.8f, 0.8f);
+    o_PlayerColor = u_Color;
 }

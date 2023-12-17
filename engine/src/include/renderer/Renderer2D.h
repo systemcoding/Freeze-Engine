@@ -5,7 +5,6 @@
 #include "Buffer.h"
 #include "Shader.h"
 #include "VertexArray.h"
-#include "glm/glm.hpp"
 #include <core/Core.h>
 
 #include <memory>
@@ -32,7 +31,7 @@ public:
   void DrawTriangle();
 
   void CreateQuad();
-  void DrawQuad(const glm::mat4& projectionMatrix);
+  void DrawQuad(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color);
 
   void DestoryRenderer();
 

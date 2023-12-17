@@ -25,7 +25,7 @@ void Player::MovePlayer(GLFWwindow* window)
 
 void Player::RenderEntity(const glm::mat4& projectionMatrix)
 {
-    m_Renderer2D->DrawQuad(projectionMatrix);
+    m_Renderer2D->DrawQuad(projectionMatrix, { 130.0f, 170.0f }, { 0.3f, 0.2f, 0.1f, 1.0f });
 }
 
 Player::~Player()

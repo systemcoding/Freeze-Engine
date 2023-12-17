@@ -8,6 +8,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "../core/Core.h"
+#include "glm/fwd.hpp"
 
 #include <cstdint>
 #include <fstream>
@@ -31,6 +32,7 @@ namespace Freeze
 
         uint32_t GetUniformLocation(const std::string& uniformName) const;
         void SetMatrix4fv(uint32_t loc, const glm::mat4& matrix);
+        void SetVector2f(uint32_t loc, const glm::vec2& vector);
         void SetVector3f(uint32_t loc, const glm::vec3& vector);
         void SetVector4f(uint32_t loc, const glm::vec4& vector);
         void SetInteger(uint32_t loc, int index);

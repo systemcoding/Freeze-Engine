@@ -25,7 +25,7 @@ void Renderer2D::CreateQuad() {
   m_RendererData->m_VertexBuffer->AddVertexBuffer(m_RendererData->m_QuadCoords, 12 * sizeof(float), GL_STATIC_DRAW);
   m_RendererData->m_VertexBuffer->BindVertexBuffer();
   
-  // Ahh, this thing needs to be abstracted away (for more flexiblity)...
+  // This thing needs to be abstracted away (for more flexiblity)
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
   glEnableVertexAttribArray(0);
 
@@ -33,15 +33,15 @@ void Renderer2D::CreateQuad() {
                                                           Freeze::Utils::GetFilePath("assets/shaders/Player.frag"));
 }
 
-void Renderer2D::DrawQuad(const glm::mat4& projectionMatrix) 
+void Renderer2D::DrawQuad(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color) 
 {
   m_RendererData->m_RendererShader->UseShader();
 
-  //m_PlayerMove = glm::translate(glm::mat4(1.0f), glm::vec3(m_X, 0.0f, 0.0f));
+  glm::mat4 newPosMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(positions.x, positions.y, 0.0f));
 
   m_RendererData->m_RendererShader->SetMatrix4fv(m_RendererData->m_RendererShader->GetUniformLocation("a_ProjectionMatrix"), projectionMatrix);
-  // std::string matrix = glm::to_string(m_PlayerMove);
-  // m_PlayerShader->SetMatrix4fv(m_PlayerShader->GetUniformLocation("a_InputMatrix"), m_PlayerMove);
+  m_RendererData->m_RendererShader->SetVector4f(m_RendererData->m_RendererShader->GetUniformLocation("u_Color"), color);
+  m_RendererData->m_RendererShader->SetMatrix4fv(m_RendererData->m_RendererShader->GetUniformLocation("a_NewPosMatrix"), newPosMatrix);
 
   m_RendererData->m_VertexArray->BindVertexArray();
   m_RendererData->m_ElementBuffer->BindElementBuffer();
