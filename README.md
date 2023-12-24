@@ -35,6 +35,14 @@ make -j5
 ```
 Also for debugging, compile with this: `cmake -DCMAKE_BUILD_TYPE=Debug ..`
 
+Some default keybindings:
+```
+Move Left - A
+Move Right - D
+Move Camera Left - Page Down
+Move Camera Right - Page Up
+```
+
 That's it! Now you can open up and edit `sandbox/src/Sandbox.cpp` to your liking!
 
 ### 10-09-2023 Update:
