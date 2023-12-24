@@ -6,6 +6,7 @@
 #include "renderer/VertexArray.h"
 #include "renderer/Shader.h"
 #include "renderer/Camera.h"
+#include "renderer/Renderer2D.h"
 
 #include "Player.h"
 
@@ -32,6 +33,7 @@ private:
     std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
     std::shared_ptr<Freeze::VertexArray> m_VertexArray = std::make_shared<Freeze::VertexArray>();
     std::shared_ptr<Freeze::Shader> m_Shader = std::make_shared<Freeze::Shader>();
+    std::shared_ptr<Freeze::Renderer2D> m_Renderer2D = std::make_shared<Freeze::Renderer2D>();
 
     std::shared_ptr<Player> m_Player = std::make_shared<Player>();
 };

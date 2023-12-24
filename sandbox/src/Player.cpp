@@ -8,7 +8,7 @@ Player::Player()
 
 void Player::CreateEntity()
 {
-    m_Renderer2D->CreateQuad(300.0f, 100.0f);
+    m_Renderer2D->CreateQuad(100.0f, 100.0f);
 }
 
 void Player::MovePlayer(GLFWwindow* window)
