@@ -2,13 +2,33 @@
 
 namespace Freeze {
 
-void Renderer2D::CreateQuad() {
-  m_RendererData->m_QuadCoords = new float[12]{
-      100.0f, 100.0f, 0.0f,   // top right
-      200.0f, 100.0f, 0.0f,   // bottom right
-      200.0f, 200.0f, 0.0f,   // bottom left
-      100.0f, 200.0f, 0.0f  // top left
-  };
+void RenderCommands::SetRenderColor(const glm::vec4& color)
+{
+    glClearColor(color.r, color.g, color.b, color.a);
+}
+
+void RenderCommands::RenderClear()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+}
+
+Renderer2D::Renderer2D()
+{
+  InitRenderer();
+}
+
+void Renderer2D::InitRenderer()
+{
+  m_RendererData = new RendererData();
+}
+
+void Renderer2D::CreateQuad(float width, float height) {
+   m_RendererData->m_QuadCoords = new float[12] {
+        100.0f,           100.0f,           0.0f,  // top left
+        100.0f + width,   100.0f,           0.0f,  // top right
+        100.0f + width,   100.0f + height,  0.0f,  // bottom right
+        100.0f,           100.0f + height,  0.0f   // bottom left
+    };
 
   m_RendererData->m_QuadIndices = new uint32_t[6]{
       0,  1,  3,

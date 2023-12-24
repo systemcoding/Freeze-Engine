@@ -11,6 +11,13 @@
 
 namespace Freeze {
 
+class RenderCommands
+{
+public:
+  static void SetRenderColor(const glm::vec4& color);
+  static void RenderClear();
+};
+
 struct RendererData
 {
   std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
@@ -27,15 +34,19 @@ struct RendererData
 
 class Renderer2D {
 public:
+  Renderer2D();
+
+  void InitRenderer();
   // Draw primitive shapes (only triangle and quads for now)
   void DrawTriangle();
 
-  void CreateQuad();
+  void CreateQuad(float width, float height);
   void DrawQuad(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color);
 
   void DestoryRenderer();
 
 private:
-  RendererData* m_RendererData = new RendererData();
+  RendererData* m_RendererData;
 };
+
 }; // namespace Freeze

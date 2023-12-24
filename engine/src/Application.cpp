@@ -22,8 +22,8 @@ void Application::Run() {
     m_Sandbox->OnEvent(m_Window->getWindowInstance());
 
     // clear the screen with some color at every start of the frame
-    RenderCommands::SetRenderColor(glm::vec4(0.161, 0.161, 0.133, 1.0f));
-    RenderCommands::RenderClear();
+    Freeze::RenderCommands::SetRenderColor(glm::vec4(0.161, 0.161, 0.133, 1.0f));
+    Freeze::RenderCommands::RenderClear();
 
     // ALWAYS UPDATE IMGUI BEFORE DOING SANDBOX STUFF!!!
     m_ImGuiContext->UpdateImGui();
