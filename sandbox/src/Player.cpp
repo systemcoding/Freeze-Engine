@@ -23,10 +23,21 @@ void Player::MovePlayer(GLFWwindow* window)
     }
 }
 
+void Player::OnImGui()
+{
+    ImGui::Begin("Edit Entity:");
+    ImGui::ColorEdit4("Color", playerColors);
+
+    ImGui::Text("X Coord: %f", m_X);
+    ImGui::Text("Y Coord: %f", m_Y);
+
+    ImGui::End();
+}
+
 void Player::RenderEntity(const glm::mat4& projectionMatrix)
 {
+    m_Renderer2D->DrawQuad(projectionMatrix, { m_X, m_Y }, glm::vec4({playerColors[0], playerColors[1], playerColors[2], playerColors[3]}));
     m_Renderer2D->DrawQuad(projectionMatrix, { 130.0f, 170.0f }, { 0.3f, 0.2f, 0.1f, 1.0f });
-    m_Renderer2D->DrawQuad(projectionMatrix, { 200.0f, 280.0f }, { 0.3f, 0.7f, 0.2f, 1.0f });
 }
 
 Player::~Player()

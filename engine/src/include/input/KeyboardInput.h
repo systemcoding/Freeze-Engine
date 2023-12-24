@@ -2,7 +2,6 @@
 
 #include <GLFW/glfw3.h>
 
-#include <memory>
 
 namespace Freeze {
     class KeyboardInput {
@@ -13,6 +12,5 @@ namespace Freeze {
         static bool IsKeyRepeated(GLFWwindow* window, int scancode);
 
         ~KeyboardInput();
-    private:
     };
 };

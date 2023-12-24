@@ -29,7 +29,7 @@ void Application::Run() {
     m_ImGuiContext->UpdateImGui();
     m_Sandbox->OnImGui();
 
-    m_Sandbox->OnUpdate(0.23423f);
+    m_Sandbox->OnUpdate(m_Window->getWindowInstance(), 0.23423f);
 
     // Render ImGui Stuff
     m_ImGuiContext->RenderImGui();

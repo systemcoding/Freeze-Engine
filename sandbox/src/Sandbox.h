@@ -7,11 +7,9 @@
 
 #include <memory>
 
-#include "renderer/Camera.h"
 #include "core/OpenGLDebug.h"
 
 #include "World.h"
-#include "Player.h"
 
 class Sandbox
 {
@@ -21,7 +19,7 @@ public:
     void OnInit();
     void OnImGui();
     void OnEvent(GLFWwindow* window);
-    void OnUpdate(float dt);
+    void OnUpdate(GLFWwindow* window, float dt);
 
     ~Sandbox();
 

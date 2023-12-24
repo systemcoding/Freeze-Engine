@@ -1,5 +1,7 @@
 #pragma once
 
+#include <glm/glm.hpp>
+
 #include <memory>
 
 #include "renderer/Buffer.h"
@@ -10,7 +12,6 @@
 
 #include "Player.h"
 
-#include <glm/glm.hpp>
 
 class World {
 public:
@@ -23,7 +24,7 @@ public:
     glm::mat4 GetCurrentProjectionMatrix() { return m_Camera->GetProjectionViewMatrix(); }
     std::shared_ptr<Player> GetPlayerInstance() { return m_Player; }
 
-    void Update();
+    void Update(GLFWwindow* window);
 
     ~World();
 private:

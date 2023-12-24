@@ -14,7 +14,6 @@ namespace Freeze
         static bool IsMousePressed(GLFWwindow* window, int scancode);
         static void HideCursor(GLFWwindow* window, bool setCursorStatus);
 
-        // Debug
         static std::pair<double, double> GetMouseCoords(GLFWwindow *window);
 
         ~MouseInput();

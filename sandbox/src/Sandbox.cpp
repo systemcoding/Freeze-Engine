@@ -19,19 +19,15 @@ void Sandbox::OnEvent(GLFWwindow *window)
 
 void Sandbox::OnImGui()
 {
-    ImGui::Begin("Entity Editor: ", &m_OpenImGuiWindow);
-    if(ImGui::Button("Create Entity", ImVec2(100.0f, 30.0f)))
-    {
-    }
-    
-    ImGui::End();
+    m_World->GetPlayerInstance()->OnImGui(); 
 }
 
-void Sandbox::OnUpdate(float dt)
+void Sandbox::OnUpdate(GLFWwindow* window, float dt)
 {
-    m_World->Update();
+    m_World->Update(window);
 }
 
 Sandbox::~Sandbox()
 {
 }
+

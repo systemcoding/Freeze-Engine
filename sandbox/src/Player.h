@@ -2,6 +2,7 @@
 
 #include <GL/glew.h>
 #include <glm/glm.hpp>
+#include <imgui.h>
 
 #include <memory>
 
@@ -20,6 +21,8 @@ public:
     void CreateEntity() override;
     void RenderEntity(const glm::mat4& projectionMatrix) override;
 
+    void OnImGui();
+
     void MovePlayer(GLFWwindow* window);
 
     ~Player();
@@ -28,4 +31,7 @@ private:
 private:
     glm::mat4 m_PlayerMove = glm::mat4(1.0f); 
     float m_X, m_Y;
+
+    glm::vec4 m_ColorChoose = { 0.3f, 0.6f, 0.4f, 0.2f };
+    float playerColors[4] = { m_ColorChoose.r, m_ColorChoose.g, m_ColorChoose.b, m_ColorChoose.a };
 };

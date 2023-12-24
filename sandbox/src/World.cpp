@@ -3,7 +3,7 @@
 World::World()
     : m_Camera(std::make_shared<Freeze::Camera>(
           glm::vec4(0.0f, 960.0f, 0.0f, 540.0f)))
-// left,   right,  bottom,  top
+                    // left,   right,  bottom,  top
 {}
 
 void World::Init() {
@@ -20,8 +20,20 @@ void World::RenderPlatform() {
   m_Renderer2D->DrawQuad(m_Camera->GetProjectionViewMatrix(), { 0.0f, -100.0f }, { 1.0f, 1.0f, 1.0f, 1.0f }); 
 }
 
-void World::Update() {
+void World::Update(GLFWwindow* window) {
   RenderPlatform();
+
+  /* Camera movement testing */
+
+  if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_PAGE_DOWN))
+  {
+    m_Camera->MoveCamera(Freeze::Camera::CameraDIR::CAM_LEFT, 20.0f);
+  }
+  if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_PAGE_UP))
+  {
+    m_Camera->MoveCamera(Freeze::Camera::CameraDIR::CAM_RIGHT, 20.0f);
+  }
+  
   m_Player->RenderEntity(m_Camera->GetProjectionViewMatrix());
 }
 
