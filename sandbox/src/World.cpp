@@ -13,20 +13,20 @@ void World::Init() {
 
 void World::InitPlatformData() {
   // Initialise the platform data
-  m_Renderer2D->CreateQuad(780.0f, 100.0f);
+  m_Renderer2D->CreateQuad(780.0f, 100.0f, "", "");
 }
 
 void World::OnImGui() {
-  ImGui::SliderFloat("Change Camera Rotation", &m_CamRotationDefVal, 0.0f, 360.0f);
+  ImGui::SliderFloat("Camera Rotation", &m_CamRotationDefVal, 0.0f, 360.0f);
   m_Camera->SetRotation(m_CamRotationDefVal);
 
   float camPosfl[2] = { m_CamDefPos.x, m_CamDefPos.y }; // fl = float
-  if(ImGui::SliderFloat2("Change Camera Position", camPosfl, -500.0f, 500.0f))
+  if(ImGui::SliderFloat2("Camera Position", camPosfl, -500.0f, 500.0f))
     m_Camera->SetPosition({ camPosfl[0], camPosfl[1], 0.0f });
 
-  ImGui::Text("Camera X Coordinate: %f", m_Camera->GetPosition().x);
-  ImGui::Text("Camera Y Coordinate: %f", m_Camera->GetPosition().y);
-  ImGui::Text("Camera Z Coordinate: %f", m_Camera->GetPosition().z);
+  ImGui::Text("Cam X Coordinate: %f", m_Camera->GetPosition().x);
+  ImGui::Text("Cam Y Coordinate: %f", m_Camera->GetPosition().y);
+  ImGui::Text("Cam Z Coordinate: %f", m_Camera->GetPosition().z);
 }
 
 void World::RenderPlatform() {

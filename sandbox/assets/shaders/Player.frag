@@ -5,5 +5,5 @@ uniform vec4 u_Color;
 
 void main()
 {
-    o_PlayerColor = u_Color;
+    o_PlayerColor = vec4(u_Color);
 }

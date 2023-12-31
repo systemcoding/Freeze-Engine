@@ -1,7 +1,5 @@
 #include "Sandbox.h"
 
-bool Sandbox::m_OpenImGuiWindow = true;
-
 Sandbox::Sandbox() {}
 
 void Sandbox::OnInit()
@@ -19,8 +17,10 @@ void Sandbox::OnEvent(GLFWwindow *window)
 
 void Sandbox::OnImGui()
 {
-    ImGui::Begin("Settings", &m_OpenImGuiWindow);
+    ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x - 410, 10), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(400.0f, 240.0f), ImGuiCond_Always);
 
+    ImGui::Begin("Settings", &m_OpenImGuiWindow, ImGuiWindowFlags_NoMove);
     m_World->GetPlayerInstance()->OnImGui(); 
 
     ImGui::Dummy(ImVec2(0.0f, 20.0f));

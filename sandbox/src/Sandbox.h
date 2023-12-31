@@ -25,5 +25,6 @@ public:
 
 private:
     std::shared_ptr<World> m_World = std::make_shared<World>();
-    static bool m_OpenImGuiWindow;
+
+    bool m_OpenImGuiWindow = true;
 };
