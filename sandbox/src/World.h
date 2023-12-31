@@ -1,7 +1,6 @@
 #pragma once
 
 #include <glm/glm.hpp>
-
 #include <memory>
 
 #include "renderer/Buffer.h"
@@ -21,6 +20,8 @@ public:
     void InitPlatformData();
     void RenderPlatform();
 
+    void OnImGui();
+
     glm::mat4 GetCurrentProjectionMatrix() { return m_Camera->GetProjectionViewMatrix(); }
     std::shared_ptr<Player> GetPlayerInstance() { return m_Player; }
 
@@ -37,4 +38,9 @@ private:
     std::shared_ptr<Freeze::Renderer2D> m_Renderer2D = std::make_shared<Freeze::Renderer2D>();
 
     std::shared_ptr<Player> m_Player = std::make_shared<Player>();
+private:
+    bool m_OpenImGui = true;
+
+    float m_CamRotationDefVal = 0.0f;
+    const glm::vec3 m_CamDefPos = { 0.0f, 0.0f, 0.0f };
 };

@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "input/KeyboardInput.h"
 
 Player::Player()
     : Entity("Player"), m_X(0.0f), m_Y(0.0f)
@@ -19,19 +20,24 @@ void Player::MovePlayer(GLFWwindow* window)
     }
     if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_A)) // Move Left
     {
-        m_X += -20.0f;
+        m_X -= 20.0f;
+    }
+    if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_SPACE))
+    {
+        m_Y += 20.0f;
+    }
+    if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_S))
+    {
+        m_Y -= 20.0f;
     }
 }
 
 void Player::OnImGui()
 {
-    ImGui::Begin("Edit Entity:");
     ImGui::ColorEdit4("Color", playerColors);
 
     ImGui::Text("X Coord: %f", m_X);
     ImGui::Text("Y Coord: %f", m_Y);
-
-    ImGui::End();
 }
 
 void Player::RenderEntity(const glm::mat4& projectionMatrix)

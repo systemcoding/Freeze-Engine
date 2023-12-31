@@ -52,6 +52,9 @@ include_directories(lib/glm)
 # Include ImGuiFileDialog
 include_directories(lib/ImGuiFileDialog)
 
+# Include box2d
+include_directories(lib/box2d)
+
 # Include Engine files
 include_directories(engine/src/include)
 
