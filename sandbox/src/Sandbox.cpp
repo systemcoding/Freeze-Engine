@@ -20,8 +20,13 @@ void Sandbox::OnEvent(GLFWwindow *window)
 void Sandbox::OnImGui()
 {
     ImGui::Begin("Settings", &m_OpenImGuiWindow);
+
     m_World->GetPlayerInstance()->OnImGui(); 
+
+    ImGui::Dummy(ImVec2(0.0f, 20.0f));
+
     m_World->OnImGui();
+
     ImGui::End();
 }
 

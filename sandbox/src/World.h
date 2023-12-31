@@ -43,4 +43,5 @@ private:
 
     float m_CamRotationDefVal = 0.0f;
     const glm::vec3 m_CamDefPos = { 0.0f, 0.0f, 0.0f };
+    float m_CamSpeed = 0.0f;
 };

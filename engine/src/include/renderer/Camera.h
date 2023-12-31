@@ -4,7 +4,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 /* Basic Camera System.
-   This doesn't work with the mouse and keyboard controls yet, but hopefully i will make it a bit more usable later.
+   Keyboard Controls are supported now! (31-12-2023)
    Rotation is supported only in the z-axis otherwise you would see weird results!
    For now there is no Update() function and whenever you set a position / rotation manually it recalculates the view matrix which is fine.
 */
@@ -12,15 +12,6 @@
 namespace Freeze {
     class Camera {
     public:
-
-        enum class CameraDIR
-        {
-            NONE = 0,
-            CAM_LEFT,
-            CAM_RIGHT,
-            CAM_UP
-        };
-
         Camera(const glm::vec4& camPos);
 
         void SetPosition(const glm::vec3& position) { m_Position = position; CalculateViewMatrix(); }
@@ -36,8 +27,6 @@ namespace Freeze {
         void Update();
 
         ~Camera();
-    public:
-        void MoveCamera(Camera::CameraDIR cameraDirection, float camSpeed);
     private:
         glm::mat4 m_ProjectionMatrix;
         glm::mat4 m_ViewMatrix;

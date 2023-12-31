@@ -21,8 +21,8 @@ void World::OnImGui() {
   m_Camera->SetRotation(m_CamRotationDefVal);
 
   float camPosfl[2] = { m_CamDefPos.x, m_CamDefPos.y }; // fl = float
-  ImGui::SliderFloat2("Change Camera Position", camPosfl, -500.0f, 500.0f);
-  m_Camera->SetPosition({ camPosfl[0], camPosfl[1], 0.0f });
+  if(ImGui::SliderFloat2("Change Camera Position", camPosfl, -500.0f, 500.0f))
+    m_Camera->SetPosition({ camPosfl[0], camPosfl[1], 0.0f });
 
   ImGui::Text("Camera X Coordinate: %f", m_Camera->GetPosition().x);
   ImGui::Text("Camera Y Coordinate: %f", m_Camera->GetPosition().y);
@@ -40,11 +40,11 @@ void World::Update(GLFWwindow* window) {
 
   if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_PAGE_DOWN))
   {
-    m_Camera->MoveCamera(Freeze::Camera::CameraDIR::CAM_LEFT, 20.0f);
+    m_Camera->SetPosition({ m_CamSpeed -= 20.0f, 0.0f, 0.0f });
   }
   if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_PAGE_UP))
   {
-    m_Camera->MoveCamera(Freeze::Camera::CameraDIR::CAM_RIGHT, 20.0f);
+    m_Camera->SetPosition({ m_CamSpeed += 20.0f, 0.0f, 0.0f });
   }
   
   m_Player->RenderEntity(m_Camera->GetProjectionViewMatrix());

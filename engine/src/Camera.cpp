@@ -20,27 +20,5 @@ namespace Freeze
         m_ProjectionViewMatrix = m_ProjectionMatrix * m_ViewMatrix; // Make sure to calculate the projection view matrix
     }
 
-    void Camera::MoveCamera(Camera::CameraDIR cameraDirection, float camSpeed)
-    {
-        glm::vec3 newPosition = GetPosition();
-
-        switch(cameraDirection)
-        {
-            case CameraDIR::CAM_RIGHT:
-                newPosition.x += camSpeed;
-                break;
-            case CameraDIR::CAM_LEFT:
-                newPosition.x -= camSpeed;
-                break;
-            case CameraDIR::CAM_UP:
-                newPosition.y += camSpeed;
-                break;
-            case CameraDIR::NONE:
-                break;
-        }
-
-        SetPosition(newPosition);
-    }
-
     Camera::~Camera() {}
 };
