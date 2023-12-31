@@ -21,6 +21,7 @@ void Renderer2D::InitRenderer()
 {
   m_QuadRendererData = new QuadRendererData();
   m_TriangleRendererData = new TriangleRendererData();
+  FZ_INFO("Renderer Initialized");
 }
 
 void Renderer2D::CreateQuad(float width, float height, const std::string& vertexShaderFile, const std::string& fragmentShaderFile) {

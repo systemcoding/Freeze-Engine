@@ -23,8 +23,12 @@ namespace Freeze
         void CreateWindowContext();
         GLFWwindow *getWindowInstance() { return m_Window; }
 
+        uint32_t GetWindowWidth() { return m_Width; }
+        uint32_t GetWindowHeight() { return m_Height; }
+
         ~Window();
     private:
         static GLFWwindow *m_Window;
+        uint32_t m_Width, m_Height;
     };
 };

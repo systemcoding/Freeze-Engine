@@ -16,6 +16,9 @@ namespace Freeze
         glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
         m_Window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
 
+        m_Width = width;
+        m_Height = height;
+
         if (m_Window == nullptr)
         {
             FZ_ERROR("Window failed to initialise");

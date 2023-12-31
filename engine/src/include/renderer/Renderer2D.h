@@ -9,6 +9,10 @@
 
 #include <memory>
 
+/* TODO: Fix multiple calls from 2D Renderer. 
+         Seperate classes for shapes.
+*/
+
 namespace Freeze {
 
 class RenderCommands

@@ -41,7 +41,7 @@ void Application::Run() {
 }
 
 void Application::SetEngineViewport() {
-  glViewport(0, 0, 800, 600);
+  glViewport(0, 0, m_Window->GetWindowWidth(), m_Window->GetWindowHeight());
   glfwSetFramebufferSizeCallback(m_Window->getWindowInstance(),
                                  framebuffer_size_callback);
 }
