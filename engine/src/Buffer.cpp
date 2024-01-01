@@ -50,7 +50,7 @@ namespace Freeze
     {
       FZ_ERROR(
           "Element Buffer: No Data/Invalid Data Provided");
-      exit(0);
+      FZ_EXIT(0);
     }
 
   }
