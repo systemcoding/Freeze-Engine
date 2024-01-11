@@ -31,10 +31,6 @@ public:
 private:
     std::shared_ptr<Freeze::Camera> m_Camera;
 
-    std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
-    std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
-    std::shared_ptr<Freeze::VertexArray> m_VertexArray = std::make_shared<Freeze::VertexArray>();
-    std::shared_ptr<Freeze::Shader> m_Shader = std::make_shared<Freeze::Shader>();
     std::shared_ptr<Freeze::FreezeQuad> m_Platform = std::make_shared<Freeze::FreezeQuad>();
 
     std::shared_ptr<Player> m_Player = std::make_shared<Player>();

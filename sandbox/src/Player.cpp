@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player()
-    : Entity("Player"), m_X(0.0f), m_Y(0.0f)
+    : Entity("Player"), m_X(10.0f), m_Y(200.0f)
 {
     FZ_INFO("Entity: {}", PrintEntityName());
 }
@@ -11,6 +11,7 @@ void Player::CreateEntity()
     m_FreezeQuad->CreateQuad(100.0f, 100.0f, "", "");
     m_FreezeTriangle->CreateTriangle(0.0f, 0.0f, "", "");
 
+    m_PhysicsEntity->CreatePhysicsBody(b2_dynamicBody, { 100.0f, 100.0f }, { m_X, m_Y }, 1.0f, 0.3f);
 }
 
 void Player::MovePlayer(GLFWwindow* window)
@@ -43,7 +44,9 @@ void Player::OnImGui()
 
 void Player::RenderEntity(const glm::mat4& projectionMatrix)
 {
-    m_FreezeQuad->DrawQuad(projectionMatrix, { m_X, m_Y }, glm::vec4({playerColors[0], playerColors[1], playerColors[2], playerColors[3]}));
+    m_PhysicsEntity->RenderPhysicsBody(projectionMatrix);
+
+    // m_FreezeQuad->DrawQuad(projectionMatrix, { m_X, m_Y }, glm::vec4({playerColors[0], playerColors[1], playerColors[2], playerColors[3]}));
     m_FreezeQuad->DrawQuad(projectionMatrix, { 130.0f, 200.0f }, { 0.3f, 0.2f, 0.1f, 1.0f });
     m_FreezeTriangle->DrawTriangle(projectionMatrix, { 400.0f, 200.0f }, { 0.2f, 0.6f, 0.9f, 1.0f });
 }

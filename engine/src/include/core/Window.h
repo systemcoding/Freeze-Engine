@@ -21,7 +21,7 @@ namespace Freeze
 
         bool CreateWindow(uint32_t width, uint32_t height, const std::string &title);
         void CreateWindowContext();
-        GLFWwindow *getWindowInstance() { return m_Window; }
+        GLFWwindow *GetWindowInstance() { return m_Window; }
 
         uint32_t GetWindowWidth() { return m_Width; }
         uint32_t GetWindowHeight() { return m_Height; }

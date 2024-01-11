@@ -1,4 +1,5 @@
 #include "include/core/Application.h"
+#include "physics/InitPhysics.h"
 
 namespace Freeze {
 
@@ -11,15 +12,17 @@ void Application::OnInit(uint32_t width, uint32_t height,
   InitGLEW();
   SetEngineViewport();
 
-  m_ImGuiContext->CreateImGuiContext(m_Window->getWindowInstance());
+  m_ImGuiContext->CreateImGuiContext(m_Window->GetWindowInstance());
+
+  Physics::PhysicsModule::InitPhysicsWorld();
 
   m_Sandbox = std::make_shared<Sandbox>();
   m_Sandbox->OnInit();
 }
 
 void Application::Run() {
-  while (!glfwWindowShouldClose(m_Window->getWindowInstance())) {
-    m_Sandbox->OnEvent(m_Window->getWindowInstance());
+  while (!glfwWindowShouldClose(m_Window->GetWindowInstance())) {
+    m_Sandbox->OnEvent(m_Window->GetWindowInstance());
 
     // clear the screen with some color at every start of the frame
     Freeze::RenderCommands::SetRenderColor(glm::vec4(0.161, 0.161, 0.133, 1.0f));
@@ -29,20 +32,22 @@ void Application::Run() {
     m_ImGuiContext->UpdateImGui();
     m_Sandbox->OnImGui();
 
-    m_Sandbox->OnUpdate(m_Window->getWindowInstance(), 0.23423f);
+    Physics::PhysicsModule::UpdatePhysicsWorld();
+
+    m_Sandbox->OnUpdate(m_Window->GetWindowInstance(), 0.23423f);
 
     // Render ImGui Stuff
     m_ImGuiContext->RenderImGui();
 
     // Then swap the buffers and check for events
-    glfwSwapBuffers(m_Window->getWindowInstance());
+    glfwSwapBuffers(m_Window->GetWindowInstance());
     glfwPollEvents();
   }
 }
 
 void Application::SetEngineViewport() {
   glViewport(0, 0, m_Window->GetWindowWidth(), m_Window->GetWindowHeight());
-  glfwSetFramebufferSizeCallback(m_Window->getWindowInstance(),
+  glfwSetFramebufferSizeCallback(m_Window->GetWindowInstance(),
                                  framebuffer_size_callback);
 }
 

@@ -4,8 +4,9 @@
 
 #include "Window.h"
 #include "../../../sandbox/src/Sandbox.h"
-#include "../renderer/Renderer2D.h"
-#include "../imgui/ImGuiContext.h"
+#include "renderer/Renderer2D.h"
+#include "physics/InitPhysics.h"
+#include "imgui/ImGuiContext.h"
 
 #include <memory>
 

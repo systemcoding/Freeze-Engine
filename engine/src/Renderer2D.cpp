@@ -62,7 +62,11 @@ namespace Freeze {
   {
     m_QuadRendererData->m_RendererShader->UseShader();
 
+
     glm::mat4 newPosMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(positions.x, positions.y, 0.0f));
+
+    m_Positions.x = positions.x;
+    m_Positions.y = positions.y;
 
     m_QuadRendererData->m_RendererShader->SetMatrix4fv(m_QuadRendererData->m_RendererShader->GetUniformLocation("a_ProjectionMatrix"), projectionMatrix);
     m_QuadRendererData->m_RendererShader->SetVector4f(m_QuadRendererData->m_RendererShader->GetUniformLocation("u_Color"), color);
