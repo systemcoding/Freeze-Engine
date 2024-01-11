@@ -9,57 +9,65 @@
 
 #include <memory>
 
-/* TODO: Fix multiple calls from 2D Renderer. 
-         Seperate classes for shapes.
-*/
-
 namespace Freeze {
 
-class RenderCommands
-{
-public:
-  static void SetRenderColor(const glm::vec4& color);
-  static void RenderClear();
-};
+  class RenderCommands
+  {
+  public:
+    static void SetRenderColor(const glm::vec4& color);
+    static void RenderClear();
+  };
 
-struct QuadRendererData
-{
-  std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
-  std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
-  std::shared_ptr<Freeze::VertexArray> m_VertexArray = std::make_shared<Freeze::VertexArray>();
-  std::shared_ptr<Freeze::Shader> m_RendererShader = std::make_shared<Freeze::Shader>();
+  class FreezeQuad {
+  private:
+    struct QuadRendererData
+    {
+      std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
+      std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
+      std::shared_ptr<Freeze::VertexArray> m_VertexArray = std::make_shared<Freeze::VertexArray>();
+      std::shared_ptr<Freeze::Shader> m_RendererShader = std::make_shared<Freeze::Shader>();
 
-  float* m_QuadCoords;
-  uint32_t* m_QuadIndices;
-};
+      float* m_QuadCoords;
+      uint32_t* m_QuadIndices;
+    };
 
-struct TriangleRendererData
-{
-  std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
-  std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
-  std::shared_ptr<Freeze::VertexArray> m_VertexArray = std::make_shared<Freeze::VertexArray>();
-  std::shared_ptr<Freeze::Shader> m_RendererShader = std::make_shared<Freeze::Shader>();
+  public:
+    FreezeQuad();
+    void InitData();
 
-  float* m_TriangleCoords;
-};
+    void CreateQuad(float width, float height, const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
+    void DrawQuad(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color);
 
-class Renderer2D {
-public:
-  Renderer2D();
+    ~FreezeQuad();
 
-  void InitRenderer();
-  // Draw primitive shapes (only triangle and quads for now)
-  void CreateTriangle(float width, float height, const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
-  void DrawTriangle(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color);
+  private:
+    QuadRendererData* m_QuadRendererData;
+  };
 
-  void CreateQuad(float width, float height, const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
-  void DrawQuad(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color);
+  class FreezeTriangle
+  {
+  private:
+    struct TriangleRendererData
+    {
+      std::shared_ptr<Freeze::VertexBuffer> m_VertexBuffer = std::make_shared<Freeze::VertexBuffer>();
+      std::shared_ptr<Freeze::ElementBuffer> m_ElementBuffer = std::make_shared<Freeze::ElementBuffer>();
+      std::shared_ptr<Freeze::VertexArray> m_VertexArray = std::make_shared<Freeze::VertexArray>();
+      std::shared_ptr<Freeze::Shader> m_RendererShader = std::make_shared<Freeze::Shader>();
 
-  void DestoryRenderer();
+      float* m_TriangleCoords;
+    };
 
-private:
-  QuadRendererData* m_QuadRendererData;
-  TriangleRendererData* m_TriangleRendererData;
-};
+  public:
+    FreezeTriangle();
+    void InitData();
+
+    void CreateTriangle(float width, float height, const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
+    void DrawTriangle(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color);
+
+    ~FreezeTriangle();
+
+  private:
+    TriangleRendererData* m_TriangleRendererData;
+  };
 
 }; // namespace Freeze

@@ -55,7 +55,10 @@ bool Application::InitGLEW() {
   return true;
 }
 
-Application::~Application() { m_Renderer2D->DestoryRenderer(); }
+Application::~Application() 
+{  
+
+}
 
 // Callback functions
 inline void framebuffer_size_callback(GLFWwindow *window, int width,

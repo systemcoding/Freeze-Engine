@@ -11,6 +11,7 @@
 
 #include "core/Core.h"
 
+
 #include "Entity.h"
 #include "renderer/Renderer2D.h"
 
@@ -27,8 +28,8 @@ public:
 
     ~Player();
 private:
-    std::shared_ptr<Freeze::Renderer2D> m_Renderer2D = std::make_unique<Freeze::Renderer2D>();
-private:
+    std::shared_ptr<Freeze::FreezeQuad> m_FreezeQuad = std::make_unique<Freeze::FreezeQuad>();
+    std::shared_ptr<Freeze::FreezeTriangle> m_FreezeTriangle = std::make_unique<Freeze::FreezeTriangle>();
     glm::mat4 m_PlayerMove = glm::mat4(1.0f); 
     float m_X, m_Y;
 

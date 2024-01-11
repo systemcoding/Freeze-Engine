@@ -24,7 +24,6 @@ set(SOURCES ${SOURCES} ${IMGUI_BACKEND_FILES})
 file(WRITE "engine/src/include/core/root_dir.h" "#pragma once\n\n#include <string>\n\n")
 file(APPEND "engine/src/include/core/root_dir.h" "inline std::string rootDir = \"${CMAKE_SOURCE_DIR}/\";\n")
 
-
 # Include OpenGL
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS})
@@ -53,7 +52,8 @@ include_directories(lib/glm)
 include_directories(lib/ImGuiFileDialog)
 
 # Include box2d
-include_directories(lib/box2d)
+add_subdirectory(lib/box2d)
+include_directories(lib/box2d/include)
 
 # Include Engine files
 include_directories(engine/src/include)
@@ -62,7 +62,7 @@ include_directories(engine/src/include)
 add_executable(Sandbox ${SOURCES} ${IMGUI_SOURCES} ${IMGUI_BACKEND_SOURCES})
 
 # Link libraries
-target_link_libraries(Sandbox ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES} glfw)
+target_link_libraries(Sandbox ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES} glfw box2d)
 
 # Set build configurations
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")

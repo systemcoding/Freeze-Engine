@@ -15,4 +15,4 @@
 	url = https://github.com/aiekick/ImGuiFileDialog
 [submodule "lib/box2d"]
 	path = lib/box2d
-	url = https://github.com/erincatto/box2d
+	url = https://github.com/systemcoding/box2d.git
