@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player()
-    : Entity("Player"), m_X(10.0f), m_Y(200.0f)
+    : Entity("Player"), m_X(10.0f), m_Y(0.0f)
 {
     FZ_INFO("Entity: {}", PrintEntityName());
 }
@@ -9,28 +9,31 @@ Player::Player()
 void Player::CreateEntity()
 {
     m_FreezeQuad->CreateQuad(100.0f, 100.0f, "", "");
-    m_FreezeTriangle->CreateTriangle(0.0f, 0.0f, "", "");
+    // m_FreezeTriangle->CreateTriangle(0.0f, 0.0f, "", "");
 
-    m_PhysicsEntity->CreatePhysicsBody(b2_dynamicBody, { 100.0f, 100.0f }, { m_X, m_Y }, 1.0f, 0.3f);
+    float x = 20.0f;
+    float y = 200.0f;
+    m_PhysicsEntity->CreateDynamicPhysicsBody({ 100.0f, 100.0f }, { x, y }, 1.0f, 0.3f);
+    m_PhysicsEntity1->CreateStaticPhysicsBody({ 100.0f, 100.0f }, { 90.0f, 10.0f });
 }
 
-void Player::MovePlayer(GLFWwindow* window)
+void Player::MovePlayer(GLFWwindow* window, float dt)
 {
     if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_D)) // Move Right
     {
-        m_X += 20.0f;
+        m_X += 500.0f * dt;
     }
     if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_A)) // Move Left
     {
-        m_X -= 20.0f;
+        m_X -= 500.0f * dt;
     }
     if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_SPACE))
     {
-        m_Y += 20.0f;
+        m_Y += 500.0f * dt;
     }
     if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_S))
     {
-        m_Y -= 20.0f;
+        m_Y -= 500.0f * dt;
     }
 }
 
@@ -44,11 +47,11 @@ void Player::OnImGui()
 
 void Player::RenderEntity(const glm::mat4& projectionMatrix)
 {
-    m_PhysicsEntity->RenderPhysicsBody(projectionMatrix);
+    m_PhysicsEntity->RenderPhysicsBody(projectionMatrix, { 0.2f, 0.1f, 0.4f, 1.0f });
+    m_PhysicsEntity1->RenderPhysicsBody(projectionMatrix, { 0.5f, 0.8f, 0.1f, 1.0f });
 
-    // m_FreezeQuad->DrawQuad(projectionMatrix, { m_X, m_Y }, glm::vec4({playerColors[0], playerColors[1], playerColors[2], playerColors[3]}));
-    m_FreezeQuad->DrawQuad(projectionMatrix, { 130.0f, 200.0f }, { 0.3f, 0.2f, 0.1f, 1.0f });
-    m_FreezeTriangle->DrawTriangle(projectionMatrix, { 400.0f, 200.0f }, { 0.2f, 0.6f, 0.9f, 1.0f });
+    m_FreezeQuad->RenderQuad(projectionMatrix, { m_X, m_Y }, glm::vec4({playerColors[0], playerColors[1], playerColors[2], playerColors[3]}));
+    // m_FreezeTriangle->RenderTriangle(projectionMatrix, { 400.0f, 200.0f }, { 0.2f, 0.6f, 0.9f, 1.0f });
 }
 
 

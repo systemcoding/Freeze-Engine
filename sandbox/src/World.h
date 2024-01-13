@@ -3,9 +3,7 @@
 #include <glm/glm.hpp>
 #include <memory>
 
-#include "renderer/Buffer.h"
-#include "renderer/VertexArray.h"
-#include "renderer/Shader.h"
+#include "physics/PhysicsBody.h"
 #include "renderer/Camera.h"
 #include "renderer/Renderer2D.h"
 
@@ -31,7 +29,7 @@ public:
 private:
     std::shared_ptr<Freeze::Camera> m_Camera;
 
-    std::shared_ptr<Freeze::FreezeQuad> m_Platform = std::make_shared<Freeze::FreezeQuad>();
+    std::shared_ptr<Freeze::Physics::PhysicsBody> m_Platform = std::make_shared<Freeze::Physics::PhysicsBody>();
 
     std::shared_ptr<Player> m_Player = std::make_shared<Player>();
 private:

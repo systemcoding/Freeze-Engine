@@ -16,9 +16,10 @@ namespace Freeze {
         public:
             PhysicsBody() = default;
 
-            void CreatePhysicsBody(b2BodyType bodyType, const glm::vec2& size, const glm::vec2& positions, float density, float friction);
+            void CreateDynamicPhysicsBody(const glm::vec2& size, const glm::vec2& positions, float density, float friction);
+            void CreateStaticPhysicsBody(const glm::vec2& size, const glm::vec2& positions);
 
-            void RenderPhysicsBody(const glm::mat4& projectionMatrix);
+            void RenderPhysicsBody(const glm::mat4& projectionMatrix, const glm::vec4& color);
 
             b2Vec2 GetBodyPositions() { return m_PhysicsBody->GetPosition(); }
 

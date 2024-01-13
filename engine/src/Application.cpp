@@ -1,10 +1,8 @@
 #include "include/core/Application.h"
-#include "physics/InitPhysics.h"
 
 namespace Freeze {
 
-void Application::OnInit(uint32_t width, uint32_t height,
-                         const std::string &title) {
+void Application::OnInit(uint32_t width, uint32_t height, const std::string &title) {
   m_Window = std::make_unique<Freeze::Window>();
   m_Window->CreateWindow(width, height, title);
   m_Window->CreateWindowContext();
@@ -21,8 +19,15 @@ void Application::OnInit(uint32_t width, uint32_t height,
 }
 
 void Application::Run() {
+  float lastFrame = 0.0f;
+
   while (!glfwWindowShouldClose(m_Window->GetWindowInstance())) {
-    m_Sandbox->OnEvent(m_Window->GetWindowInstance());
+
+    float currentFrame = glfwGetTime();
+    float deltaTime = currentFrame - lastFrame;
+    lastFrame = currentFrame;
+
+    m_Sandbox->OnEvent(m_Window->GetWindowInstance(), deltaTime);
 
     // clear the screen with some color at every start of the frame
     Freeze::RenderCommands::SetRenderColor(glm::vec4(0.161, 0.161, 0.133, 1.0f));
@@ -32,9 +37,9 @@ void Application::Run() {
     m_ImGuiContext->UpdateImGui();
     m_Sandbox->OnImGui();
 
-    Physics::PhysicsModule::UpdatePhysicsWorld();
+    Physics::PhysicsModule::UpdatePhysicsWorld(deltaTime);    
 
-    m_Sandbox->OnUpdate(m_Window->GetWindowInstance(), 0.23423f);
+    m_Sandbox->OnUpdate(m_Window->GetWindowInstance(), deltaTime);
 
     // Render ImGui Stuff
     m_ImGuiContext->RenderImGui();
@@ -42,6 +47,7 @@ void Application::Run() {
     // Then swap the buffers and check for events
     glfwSwapBuffers(m_Window->GetWindowInstance());
     glfwPollEvents();
+    
   }
 }
 

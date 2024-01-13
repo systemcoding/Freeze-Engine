@@ -18,7 +18,7 @@ public:
 
     void OnInit();
     void OnImGui();
-    void OnEvent(GLFWwindow* window);
+    void OnEvent(GLFWwindow* window, float dt);
     void OnUpdate(GLFWwindow* window, float dt);
 
     ~Sandbox();

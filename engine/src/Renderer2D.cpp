@@ -56,9 +56,9 @@ namespace Freeze {
       FZ_INFO("Using default quad shaders");
       m_QuadRendererData->m_RendererShader->LoadShadersFromFiles(Freeze::Utils::GetFilePath("engine/assets/shaders/Quad.vert"), 
                                                                   Freeze::Utils::GetFilePath("engine/assets/shaders/Quad.frag"));
-  }
+    }
 
-  void FreezeQuad::DrawQuad(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color) 
+  void FreezeQuad::RenderQuad(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color) 
   {
     m_QuadRendererData->m_RendererShader->UseShader();
 
@@ -121,7 +121,7 @@ namespace Freeze {
                                                                   Freeze::Utils::GetFilePath("engine/assets/shaders/Triangle.frag"));
   }
 
-  void FreezeTriangle::DrawTriangle(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color) 
+  void FreezeTriangle::RenderTriangle(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color) 
   {
     m_TriangleRendererData->m_RendererShader->UseShader();
 

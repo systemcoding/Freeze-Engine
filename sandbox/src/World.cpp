@@ -13,7 +13,7 @@ void World::Init() {
 
 void World::InitPlatformData() {
   // Initialise the platform data
-  m_Platform->CreateQuad(780.0f, 100.0f, "", "");
+  m_Platform->CreateStaticPhysicsBody({ 780.0f, 100.0f }, { 0.0f, -100.0f });
 }
 
 void World::OnImGui() {
@@ -30,7 +30,7 @@ void World::OnImGui() {
 }
 
 void World::RenderPlatform() {
-  m_Platform->DrawQuad(m_Camera->GetProjectionViewMatrix(), { 0.0f, -100.0f }, { 1.0f, 1.0f, 1.0f, 1.0f }); 
+  m_Platform->RenderPhysicsBody(m_Camera->GetProjectionViewMatrix(), { 1.0f, 1.0f, 1.0f, 1.0f }); 
 }
 
 void World::Update(GLFWwindow* window) {

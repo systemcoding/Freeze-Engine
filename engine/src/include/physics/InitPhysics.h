@@ -18,13 +18,12 @@ namespace Freeze
                 m_PhysicsWorld = std::make_shared<b2World>(m_Gravity);
             }
 
-            inline void UpdatePhysicsWorld()
+            inline void UpdatePhysicsWorld(float dt)
             {
-                float timeStep = 1.0f / 10.0f;
-                int32 velocityIterations = 6;
+                int32 velocityIterations = 9;
                 int32 positionIterations = 3; 
 
-                m_PhysicsWorld->Step(timeStep, velocityIterations, positionIterations);
+                m_PhysicsWorld->Step(dt, velocityIterations, positionIterations);
             }
 
             inline std::shared_ptr<b2World> GetPhysicsWorld() { return m_PhysicsWorld; }

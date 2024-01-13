@@ -36,7 +36,7 @@ namespace Freeze {
     void InitData();
 
     void CreateQuad(float width, float height, const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
-    void DrawQuad(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color);
+    void RenderQuad(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color);
 
     glm::vec2 GetQuadPositions() { return m_Positions; }
 
@@ -65,7 +65,7 @@ namespace Freeze {
     void InitData();
 
     void CreateTriangle(float width, float height, const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
-    void DrawTriangle(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color);
+    void RenderTriangle(const glm::mat4& projectionMatrix, const glm::vec2& positions, const glm::vec4& color);
 
     ~FreezeTriangle();
 

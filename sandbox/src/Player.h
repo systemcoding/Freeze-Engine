@@ -24,7 +24,7 @@ public:
 
     void OnImGui();
 
-    void MovePlayer(GLFWwindow* window);
+    void MovePlayer(GLFWwindow* window, float dt);
 
     ~Player();
 private:
@@ -32,6 +32,7 @@ private:
     std::shared_ptr<Freeze::FreezeTriangle> m_FreezeTriangle = std::make_shared<Freeze::FreezeTriangle>();
 
     std::shared_ptr<Freeze::Physics::PhysicsBody> m_PhysicsEntity = std::make_shared<Freeze::Physics::PhysicsBody>();
+    std::shared_ptr<Freeze::Physics::PhysicsBody> m_PhysicsEntity1 = std::make_shared<Freeze::Physics::PhysicsBody>();
 
     glm::mat4 m_PlayerMove = glm::mat4(1.0f); 
     glm::vec4 m_ColorChoose = { 0.3f, 0.6f, 0.4f, 0.2f };

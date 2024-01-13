@@ -8,6 +8,8 @@
 #include "physics/InitPhysics.h"
 #include "imgui/ImGuiContext.h"
 
+#include "Core.h"
+
 #include <memory>
 
 namespace Freeze
