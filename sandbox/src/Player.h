@@ -31,12 +31,11 @@ private:
     std::shared_ptr<Freeze::FreezeQuad> m_FreezeQuad = std::make_shared<Freeze::FreezeQuad>();
     std::shared_ptr<Freeze::FreezeTriangle> m_FreezeTriangle = std::make_shared<Freeze::FreezeTriangle>();
 
-    std::shared_ptr<Freeze::Physics::PhysicsBody> m_PhysicsEntity = std::make_shared<Freeze::Physics::PhysicsBody>();
-    // std::shared_ptr<Freeze::Physics::PhysicsBody> m_PhysicsEntity1 = std::make_shared<Freeze::Physics::PhysicsBody>();
-    // std::shared_ptr<Freeze::Physics::PhysicsBody> m_PhysicsEntity2 = std::make_shared<Freeze::Physics::PhysicsBody>();
+    std::shared_ptr<Freeze::Physics::PhysicsBody> m_PhysicsEntity = std::make_shared<Freeze::Physics::PhysicsBody>(); // dynamic
+    std::shared_ptr<Freeze::Physics::PhysicsBody> m_PhysicsEntity1 = std::make_shared<Freeze::Physics::PhysicsBody>(); // static 
 
     glm::mat4 m_PlayerMove = glm::mat4(1.0f); 
     glm::vec4 m_ColorChoose = { 0.3f, 0.6f, 0.4f, 0.2f };
     float m_X, m_Y;
-    float playerColors[4] = { m_ColorChoose.r, m_ColorChoose.g, m_ColorChoose.b, m_ColorChoose.a };
+    float playerColors[4] = { 0.3f, 0.6f, 0.4f, 0.2f };
 };

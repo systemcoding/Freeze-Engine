@@ -1,6 +1,7 @@
 #include "physics/PhysicsBody.h"
 
 // TODO: API Looks like shit, needs some rework later!
+// TODO: Looks like we need to seperate the dynamic body and static body implementations due to rendering issues. Dynamic could be converted into static and it's a mess!
 
 namespace Freeze
 {
@@ -26,7 +27,7 @@ namespace Freeze
         void PhysicsBody::CreateDynamicPhysicsBody(const glm::vec2& size, const glm::vec2& positions, float density, float friction)
         {
             m_BodyType = PHYBD_TYPES::DYNAMIC_BODY;
-            FZ_INFO("BODY CREATED! and positions: {}, {}", positions.x, positions.y);
+            FZ_INFO("DYNAMIC BODY");
             m_DynamicPhysicsBodyData->m_DynamicPhysicsBodyQuad->CreateQuad(size.x, size.y, "", "");
 
             b2BodyDef bodyDef;
@@ -40,17 +41,16 @@ namespace Freeze
             fixtureDef.shape = &dynamicBox;
             fixtureDef.density = density;
             fixtureDef.friction = friction;
-            m_DynamicPhysicsBodyData->m_DynamicPhysicsBody->CreateFixture(&fixtureDef); 
+            m_DynamicPhysicsBodyData->m_DynamicPhysicsBody->CreateFixture(&fixtureDef);
+
+            m_DynamicBodies.push_back(m_DynamicPhysicsBodyData->m_DynamicPhysicsBody);
         }
 
 
         void PhysicsBody::CreateStaticPhysicsBody(const glm::vec2& size, const glm::vec2& positions)
         {
-
             m_BodyType = PHYBD_TYPES::STATIC_BODY;
             m_StaticPhysicsBodyData->m_StaticPhysicsBodyQuad->CreateQuad(size.x, size.y, "", "");
-
-            FZ_INFO("SOMETHING");
 
             b2BodyDef bodyDef;
             bodyDef.type = b2_staticBody;
@@ -63,6 +63,8 @@ namespace Freeze
             fixtureDef.shape = &staticBox;
             fixtureDef.density = 0.0f;  // No need to set density for static bodies
             m_StaticPhysicsBodyData->m_StaticPhysicsBody->CreateFixture(&fixtureDef);
+
+            m_StaticBodies.push_back(m_StaticPhysicsBodyData->m_StaticPhysicsBody);
         }
 
         b2Vec2 PhysicsBody::GetBodyPositions()
@@ -74,14 +76,20 @@ namespace Freeze
         {
             if (m_BodyType == PHYBD_TYPES::DYNAMIC_BODY && m_DynamicPhysicsBodyData->m_DynamicPhysicsBody != nullptr)
             {
-                b2Vec2 positions = m_DynamicPhysicsBodyData->m_DynamicPhysicsBody->GetPosition();
-                m_DynamicPhysicsBodyData->m_DynamicPhysicsBodyQuad->RenderQuad(projectionMatrix, { positions.x, positions.y }, color);
+                for(auto& dynBody : m_DynamicBodies)
+                {
+                    m_DynamicPhysicsBodyData->m_DynamicBodyPos = dynBody->GetPosition();
+                    m_DynamicPhysicsBodyData->m_DynamicPhysicsBodyQuad->RenderQuad(projectionMatrix, { m_DynamicPhysicsBodyData->m_DynamicBodyPos.x,  m_DynamicPhysicsBodyData->m_DynamicBodyPos.y }, color);
+                }
             }
 
             if (m_BodyType == PHYBD_TYPES::STATIC_BODY && m_StaticPhysicsBodyData->m_StaticPhysicsBody != nullptr)
             {
-                b2Vec2 positions = m_StaticPhysicsBodyData->m_StaticPhysicsBody->GetPosition();
-                m_StaticPhysicsBodyData->m_StaticPhysicsBodyQuad->RenderQuad(projectionMatrix, { positions.x, positions.y }, color);
+                for(auto& staticBody : m_StaticBodies)
+                {
+                    m_StaticPhysicsBodyData->m_StaticBodyPos = staticBody->GetPosition();
+                    m_StaticPhysicsBodyData->m_StaticPhysicsBodyQuad->RenderQuad(projectionMatrix, { m_StaticPhysicsBodyData->m_StaticBodyPos.x, m_StaticPhysicsBodyData->m_StaticBodyPos.y }, color);
+                }
             }
         }
 

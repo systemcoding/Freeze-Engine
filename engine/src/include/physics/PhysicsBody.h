@@ -15,12 +15,14 @@ namespace Freeze {
             struct StaticPhysicsBodyData
             {
                 b2Body* m_StaticPhysicsBody = nullptr;
+                b2Vec2 m_StaticBodyPos = {};
                 std::shared_ptr<Freeze::FreezeQuad> m_StaticPhysicsBodyQuad = std::make_shared<Freeze::FreezeQuad>();
             };
 
             struct DynamicPhysicsBodyData
             {
                 b2Body* m_DynamicPhysicsBody = nullptr;
+                b2Vec2 m_DynamicBodyPos = {};
                 std::shared_ptr<Freeze::FreezeQuad> m_DynamicPhysicsBodyQuad = std::make_shared<Freeze::FreezeQuad>();
 
                 float density, friction;
@@ -51,6 +53,9 @@ namespace Freeze {
             DynamicPhysicsBodyData* m_DynamicPhysicsBodyData;
 
             PHYBD_TYPES m_BodyType = PHYBD_TYPES::NONE;
+
+            std::vector<b2Body*> m_DynamicBodies;
+            std::vector<b2Body*> m_StaticBodies;
         };
     };
 };

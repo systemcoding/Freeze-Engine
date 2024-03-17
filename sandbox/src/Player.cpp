@@ -13,11 +13,15 @@ void Player::CreateEntity()
 
     float x = 20.0f;
     float y = 300.0f;
-    m_PhysicsEntity->CreateDynamicPhysicsBody({ 100.0f, 100.0f }, { x, y }, 1.0f, 0.3f);
-//    m_PhysicsEntity->CreateDynamicPhysicsBody({ 100.0f, 100.0f }, { x + 20, y + 20 }, 1.0f, 0.3f);
+    for(int i = 0; i < 10; i++)
+    {
+        x += 30.0f;
+        y += 40.0f;
 
+        m_PhysicsEntity->CreateDynamicPhysicsBody({ 100.0f, 100.0f }, { x, y }, 1.0f, 0.3f);
+    }
 
-//    m_PhysicsEntity->CreateStaticPhysicsBody({ 120.0f, 100.0f }, { 90.0f, 10.0f });
+    m_PhysicsEntity1->CreateStaticPhysicsBody({ 120.0f, 100.0f }, { 90.0f, 10.0f });
 }
 
 void Player::MovePlayer(GLFWwindow* window, float dt)
@@ -50,9 +54,9 @@ void Player::OnImGui()
 
 void Player::RenderEntity(const glm::mat4& projectionMatrix)
 {
-    m_PhysicsEntity->RenderPhysicsBody(projectionMatrix, { 0.2f, 0.1f, 0.4f, 1.0f });
- //   m_PhysicsEntity->RenderPhysicsBody(projectionMatrix, { 0.3f, 0.4f, 0.4f, 1.0f });
-  //  m_PhysicsEntity->RenderPhysicsBody(projectionMatrix, { 0.5f, 0.8f, 0.1f, 1.0f });
+    m_PhysicsEntity->RenderPhysicsBody(projectionMatrix, { 0.4f, 0.1f, 0.7f, 1.0f });
+
+    m_PhysicsEntity1->RenderPhysicsBody(projectionMatrix, { 0.3f, 0.4f, 0.4f, 1.0f });
 
     m_FreezeQuad->RenderQuad(projectionMatrix, { m_X, m_Y }, glm::vec4({playerColors[0], playerColors[1], playerColors[2], playerColors[3]}));
     m_FreezeTriangle->RenderTriangle(projectionMatrix, { 400.0f, 200.0f }, { 0.2f, 0.6f, 0.9f, 1.0f });
