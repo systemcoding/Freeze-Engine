@@ -1,18 +1,38 @@
 #include "physics/PhysicsBody.h"
 
+// TODO: API Looks like shit, needs some rework later!
+
 namespace Freeze
 {
     namespace Physics 
     {
+
+        PhysicsBody::PhysicsBody()
+        {
+            InitStaticBody();
+            InitDynamicBody();
+        }
+
+       void PhysicsBody::InitStaticBody()
+        {
+            m_StaticPhysicsBodyData = new StaticPhysicsBodyData();
+        }
+
+        void PhysicsBody::InitDynamicBody()
+        {
+            m_DynamicPhysicsBodyData = new DynamicPhysicsBodyData();
+        }
+
         void PhysicsBody::CreateDynamicPhysicsBody(const glm::vec2& size, const glm::vec2& positions, float density, float friction)
         {
+            m_BodyType = PHYBD_TYPES::DYNAMIC_BODY;
             FZ_INFO("BODY CREATED! and positions: {}, {}", positions.x, positions.y);
-            m_PhysicsBodyData->m_PhysicsBodyQuad->CreateQuad(size.x, size.y, "", "");
+            m_DynamicPhysicsBodyData->m_DynamicPhysicsBodyQuad->CreateQuad(size.x, size.y, "", "");
 
             b2BodyDef bodyDef;
             bodyDef.type = b2_dynamicBody;
             bodyDef.position.Set(positions.x, positions.y);
-            m_PhysicsBodyData->m_PhysicsBody = PhysicsModule::GetPhysicsWorld()->CreateBody(&bodyDef);
+            m_DynamicPhysicsBodyData->m_DynamicPhysicsBody = PhysicsModule::GetPhysicsWorld()->CreateBody(&bodyDef);
 
             b2PolygonShape dynamicBox;
             dynamicBox.SetAsBox(size.x / 2.0f, size.y / 2.0f);
@@ -20,38 +40,55 @@ namespace Freeze
             fixtureDef.shape = &dynamicBox;
             fixtureDef.density = density;
             fixtureDef.friction = friction;
-            m_PhysicsBodyData->m_PhysicsBody->CreateFixture(&fixtureDef); 
+            m_DynamicPhysicsBodyData->m_DynamicPhysicsBody->CreateFixture(&fixtureDef); 
         }
 
 
         void PhysicsBody::CreateStaticPhysicsBody(const glm::vec2& size, const glm::vec2& positions)
         {
-            m_PhysicsBodyData->m_PhysicsBodyQuad->CreateQuad(size.x, size.y, "", "");
+
+            m_BodyType = PHYBD_TYPES::STATIC_BODY;
+            m_StaticPhysicsBodyData->m_StaticPhysicsBodyQuad->CreateQuad(size.x, size.y, "", "");
+
+            FZ_INFO("SOMETHING");
 
             b2BodyDef bodyDef;
             bodyDef.type = b2_staticBody;
             bodyDef.position.Set(positions.x, positions.y);
-            m_PhysicsBodyData->m_PhysicsBody = PhysicsModule::GetPhysicsWorld()->CreateBody(&bodyDef);
+            m_StaticPhysicsBodyData->m_StaticPhysicsBody = PhysicsModule::GetPhysicsWorld()->CreateBody(&bodyDef);
 
             b2PolygonShape staticBox;
             staticBox.SetAsBox(size.x / 2.0f, size.y / 2.0f);  // Adjust shape based on half-size
             b2FixtureDef fixtureDef;
             fixtureDef.shape = &staticBox;
             fixtureDef.density = 0.0f;  // No need to set density for static bodies
-            m_PhysicsBodyData->m_PhysicsBody->CreateFixture(&fixtureDef);
+            m_StaticPhysicsBodyData->m_StaticPhysicsBody->CreateFixture(&fixtureDef);
+        }
+
+        b2Vec2 PhysicsBody::GetBodyPositions()
+        {
+            //TODO: NEED TO IMPLEMENT LATER
         }
 
         void PhysicsBody::RenderPhysicsBody(const glm::mat4& projectionMatrix, const glm::vec4& color)
         {
-            b2Vec2 positions = m_PhysicsBodyData->m_PhysicsBody->GetPosition();
+            if (m_BodyType == PHYBD_TYPES::DYNAMIC_BODY && m_DynamicPhysicsBodyData->m_DynamicPhysicsBody != nullptr)
+            {
+                b2Vec2 positions = m_DynamicPhysicsBodyData->m_DynamicPhysicsBody->GetPosition();
+                m_DynamicPhysicsBodyData->m_DynamicPhysicsBodyQuad->RenderQuad(projectionMatrix, { positions.x, positions.y }, color);
+            }
 
-            m_PhysicsBodyData->m_PhysicsBodyQuad->RenderQuad(projectionMatrix, { positions.x, positions.y }, color);
-            FZ_INFO("BODY RENDERED! and positions: {}, {}", positions.x, positions.y);
+            if (m_BodyType == PHYBD_TYPES::STATIC_BODY && m_StaticPhysicsBodyData->m_StaticPhysicsBody != nullptr)
+            {
+                b2Vec2 positions = m_StaticPhysicsBodyData->m_StaticPhysicsBody->GetPosition();
+                m_StaticPhysicsBodyData->m_StaticPhysicsBodyQuad->RenderQuad(projectionMatrix, { positions.x, positions.y }, color);
+            }
         }
 
         PhysicsBody::~PhysicsBody()
         {
-            delete m_PhysicsBodyData;
+            delete m_DynamicPhysicsBodyData;
+            delete m_StaticPhysicsBodyData;
         }
     };
 };
