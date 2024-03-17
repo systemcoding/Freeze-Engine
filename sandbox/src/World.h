@@ -23,7 +23,7 @@ public:
     glm::mat4 GetCurrentProjectionMatrix() { return m_Camera->GetProjectionViewMatrix(); }
     std::shared_ptr<Player> GetPlayerInstance() { return m_Player; }
 
-    void Update(GLFWwindow* window);
+    void Update(GLFWwindow* window, float deltaTime);
 
     ~World();
 private:

@@ -33,18 +33,20 @@ void World::RenderPlatform() {
   m_Platform->RenderPhysicsBody(m_Camera->GetProjectionViewMatrix(), { 1.0f, 1.0f, 1.0f, 1.0f }); 
 }
 
-void World::Update(GLFWwindow* window) {
+void World::Update(GLFWwindow* window, float deltaTime) {
   RenderPlatform();
+
+  float MAX_CAM_SPEED = 400.0f;
 
   /* Camera movement testing */
 
   if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_PAGE_DOWN))
   {
-    m_Camera->SetPosition({ m_CamSpeed -= 20.0f, 0.0f, 0.0f });
+    m_Camera->SetPosition({ m_CamSpeed -= MAX_CAM_SPEED * deltaTime, 0.0f, 0.0f });
   }
   if(Freeze::KeyboardInput::IsKeyPressed(window, GLFW_KEY_PAGE_UP))
   {
-    m_Camera->SetPosition({ m_CamSpeed += 20.0f, 0.0f, 0.0f });
+    m_Camera->SetPosition({ m_CamSpeed += MAX_CAM_SPEED * deltaTime, 0.0f, 0.0f });
   }
   
   m_Player->RenderEntity(m_Camera->GetProjectionViewMatrix());

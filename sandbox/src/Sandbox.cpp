@@ -32,7 +32,7 @@ void Sandbox::OnImGui()
 
 void Sandbox::OnUpdate(GLFWwindow* window, float dt)
 {
-    m_World->Update(window);
+    m_World->Update(window, dt);
 }
 
 Sandbox::~Sandbox()

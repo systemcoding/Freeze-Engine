@@ -9,10 +9,14 @@
 #include "InitPhysics.h"
 
 namespace Freeze {
-
     namespace Physics {
         class PhysicsBody {
-        public:
+        private:
+            struct PhysicsBodyData
+            {
+                b2Body* m_PhysicsBody;
+                std::shared_ptr<Freeze::FreezeQuad> m_PhysicsBodyQuad = std::make_shared<Freeze::FreezeQuad>();
+            };
         public:
             PhysicsBody() = default;
 
@@ -21,14 +25,11 @@ namespace Freeze {
 
             void RenderPhysicsBody(const glm::mat4& projectionMatrix, const glm::vec4& color);
 
-            b2Vec2 GetBodyPositions() { return m_PhysicsBody->GetPosition(); }
+            b2Vec2 GetBodyPositions() { return m_PhysicsBodyData->m_PhysicsBody->GetPosition(); }
 
             ~PhysicsBody();
         private:
-            b2Body* m_PhysicsBody; 
-            std::shared_ptr<Freeze::FreezeQuad> m_Quad = std::make_shared<Freeze::FreezeQuad>();
-
+            PhysicsBodyData* m_PhysicsBodyData = new PhysicsBodyData();
         };
     };
-
 };
