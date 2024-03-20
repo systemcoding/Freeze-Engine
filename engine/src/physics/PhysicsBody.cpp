@@ -36,7 +36,7 @@ namespace Freeze
             m_DynamicPhysicsBodyData->m_DynamicPhysicsBody = PhysicsModule::GetPhysicsWorld()->CreateBody(&bodyDef);
 
             b2PolygonShape dynamicBox;
-            dynamicBox.SetAsBox(size.x / 2.0f, size.y / 2.0f);
+            dynamicBox.SetAsBox(size.x / 2, size.y / 2);
             b2FixtureDef fixtureDef;
             fixtureDef.shape = &dynamicBox;
             fixtureDef.density = density;
@@ -58,10 +58,10 @@ namespace Freeze
             m_StaticPhysicsBodyData->m_StaticPhysicsBody = PhysicsModule::GetPhysicsWorld()->CreateBody(&bodyDef);
 
             b2PolygonShape staticBox;
-            staticBox.SetAsBox(size.x / 2.0f, size.y / 2.0f);  // Adjust shape based on half-size
+            staticBox.SetAsBox(size.x / 2, size.y / 2);  // Adjust shape based on half-size
+
             b2FixtureDef fixtureDef;
             fixtureDef.shape = &staticBox;
-            fixtureDef.density = 0.0f;  // No need to set density for static bodies
             m_StaticPhysicsBodyData->m_StaticPhysicsBody->CreateFixture(&fixtureDef);
 
             m_StaticBodies.push_back(m_StaticPhysicsBodyData->m_StaticPhysicsBody);
@@ -69,7 +69,7 @@ namespace Freeze
 
         b2Vec2 PhysicsBody::GetBodyPositions()
         {
-            //TODO: NEED TO IMPLEMENT LATER
+            //TODO: NEED TO IMPLEMENT
         }
 
         void PhysicsBody::RenderPhysicsBody(const glm::mat4& projectionMatrix, const glm::vec4& color)
@@ -80,6 +80,7 @@ namespace Freeze
                 {
                     m_DynamicPhysicsBodyData->m_DynamicBodyPos = dynBody->GetPosition();
                     m_DynamicPhysicsBodyData->m_DynamicPhysicsBodyQuad->RenderQuad(projectionMatrix, { m_DynamicPhysicsBodyData->m_DynamicBodyPos.x,  m_DynamicPhysicsBodyData->m_DynamicBodyPos.y }, color);
+                    FZ_INFO("Positions: {}, {}", m_DynamicPhysicsBodyData->m_DynamicBodyPos.x, m_DynamicPhysicsBodyData->m_DynamicBodyPos.y);
                 }
             }
 
@@ -89,6 +90,7 @@ namespace Freeze
                 {
                     m_StaticPhysicsBodyData->m_StaticBodyPos = staticBody->GetPosition();
                     m_StaticPhysicsBodyData->m_StaticPhysicsBodyQuad->RenderQuad(projectionMatrix, { m_StaticPhysicsBodyData->m_StaticBodyPos.x, m_StaticPhysicsBodyData->m_StaticBodyPos.y }, color);
+                    //FZ_INFO("Positions: {}, {}", m_StaticPhysicsBodyData->m_StaticBodyPos.x, m_StaticPhysicsBodyData->m_StaticBodyPos.y);
                 }
             }
         }

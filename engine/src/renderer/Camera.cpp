@@ -1,4 +1,4 @@
-#include "include/renderer/Camera.h"
+#include "Camera.h"
 
 namespace Freeze
 {

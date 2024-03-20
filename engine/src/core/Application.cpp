@@ -1,4 +1,4 @@
-#include "include/core/Application.h"
+#include "Application.h"
 
 namespace Freeze {
 

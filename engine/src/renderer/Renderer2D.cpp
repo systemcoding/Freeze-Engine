@@ -1,4 +1,4 @@
-#include "include/renderer/Renderer2D.h"
+#include "Renderer2D.h"
 
 namespace Freeze {
 
@@ -42,7 +42,7 @@ namespace Freeze {
     m_QuadRendererData->m_VertexBuffer->AddVertexBuffer(m_QuadRendererData->m_QuadCoords, 12 * sizeof(float), GL_STATIC_DRAW);
     m_QuadRendererData->m_VertexBuffer->BindVertexBuffer();
     
-    // This thing needs to be abstracted away (for more flexiblity)
+    // TODO: This thing needs to be abstracted away (for more flexiblity)
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
     glEnableVertexAttribArray(0);
 

@@ -1,4 +1,4 @@
-#include "include/renderer/Texture.h"
+#include "Texture.h"
 
 namespace Freeze
 {

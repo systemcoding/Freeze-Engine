@@ -21,18 +21,20 @@ namespace Freeze
                 m_PhysicsWorld = std::make_shared<b2World>(m_Gravity);
 
                 FZ_INFO("Physics API Initialised");
+
             }
 
             inline void UpdatePhysicsWorld(float dt)
             {
-                int32 velocityIterations = 9;
+                float timeStep = 1.0 / 60.0f;
+
+                int32 velocityIterations = 6;
                 int32 positionIterations = 3; 
 
-                m_PhysicsWorld->Step(std::abs(m_Gravity.y) * dt, velocityIterations, positionIterations);
+                m_PhysicsWorld->Step(timeStep, velocityIterations, positionIterations);
             }
 
             inline std::shared_ptr<b2World> GetPhysicsWorld() { return m_PhysicsWorld; }
-
         };
     };
 };

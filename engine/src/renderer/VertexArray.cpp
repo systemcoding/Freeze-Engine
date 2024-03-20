@@ -1,4 +1,4 @@
-#include "include/renderer/VertexArray.h"
+#include "VertexArray.h"
 
 namespace Freeze
 {

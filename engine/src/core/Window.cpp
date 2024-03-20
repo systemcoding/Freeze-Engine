@@ -1,5 +1,5 @@
-#include "include/core/Window.h"
-#include "core/Core.h"
+#include "Window.h"
+#include "Core.h"
 
 namespace Freeze
 {

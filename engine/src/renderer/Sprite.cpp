@@ -1,4 +1,4 @@
-#include "include/renderer/Sprite.h"
+#include "Sprite.h"
 
 namespace Freeze {
   Sprite::Sprite(std::shared_ptr<Shader> shader)

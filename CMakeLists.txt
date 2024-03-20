@@ -21,8 +21,8 @@ set(IMGUI_BACKEND_FILES
 set(SOURCES ${SOURCES} ${IMGUI_BACKEND_FILES})
 
 # Create the root_dir.h file
-file(WRITE "engine/src/include/core/root_dir.h" "#pragma once\n\n#include <string>\n\n")
-file(APPEND "engine/src/include/core/root_dir.h" "inline std::string rootDir = \"${CMAKE_SOURCE_DIR}/\";\n")
+file(WRITE "engine/src/core/root_dir.h" "#pragma once\n\n#include <string>\n\n")
+file(APPEND "engine/src/core/root_dir.h" "inline std::string rootDir = \"${CMAKE_SOURCE_DIR}/\";\n")
 
 # Include OpenGL
 find_package(OpenGL REQUIRED)
@@ -56,7 +56,7 @@ add_subdirectory(lib/box2d)
 include_directories(lib/box2d/include)
 
 # Include Engine files
-include_directories(engine/src/include)
+include_directories(engine/src)
 
 # Create the executable
 add_executable(Sandbox ${SOURCES} ${IMGUI_SOURCES} ${IMGUI_BACKEND_SOURCES})

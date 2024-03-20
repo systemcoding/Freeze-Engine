@@ -1,4 +1,4 @@
-#include "include/renderer/Shader.h"
+#include "Shader.h"
 
 namespace Freeze
 {

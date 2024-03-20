@@ -1,4 +1,4 @@
-#include "include/input/KeyboardInput.h"
+#include "KeyboardInput.h"
 
 namespace Freeze
 {

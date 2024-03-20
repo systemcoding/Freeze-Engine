@@ -2,7 +2,6 @@
 
 #include <GLFW/glfw3.h>
 
-
 namespace Freeze {
     class KeyboardInput {
     public:

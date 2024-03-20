@@ -1,4 +1,4 @@
-#include "include/input/MouseInput.h"
+#include "MouseInput.h"
 
 namespace Freeze
 {

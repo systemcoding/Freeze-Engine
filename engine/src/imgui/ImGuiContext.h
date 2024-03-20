@@ -7,7 +7,7 @@
 #include "imgui.h"
 #include "imgui_internal.h"
 
-#include "../core/Core.h"
+#include "core/Core.h"
 
 namespace Freeze
 {

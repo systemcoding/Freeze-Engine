@@ -1,4 +1,4 @@
-#include "include/renderer/Buffer.h"
+#include "Buffer.h"
 #include "core/Core.h"
 
 namespace Freeze
