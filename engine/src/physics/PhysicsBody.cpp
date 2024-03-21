@@ -24,45 +24,54 @@ namespace Freeze
             m_DynamicPhysicsBodyData = new DynamicPhysicsBodyData();
         }
 
-        void PhysicsBody::CreateDynamicPhysicsBody(const glm::vec2& size, const glm::vec2& positions, float density, float friction)
+        void PhysicsBody::CreateDynamicPhysicsBody(const b2Vec2& size, const b2Vec2& positions, float density, float friction)
         {
+
+            b2Vec2 bodySize = b2Vec2(size.x, size.y);
+            b2Vec2 halfBodySize = b2Vec2(bodySize.x * 0.5f, bodySize.y * 0.5f);
+            b2Vec2 bodyPosition = b2Vec2(positions.x, positions.y);
+
             m_BodyType = PHYBD_TYPES::DYNAMIC_BODY;
-            FZ_INFO("DYNAMIC BODY");
             m_DynamicPhysicsBodyData->m_DynamicPhysicsBodyQuad->CreateQuad(size.x, size.y, "", "");
 
-            b2BodyDef bodyDef;
-            bodyDef.type = b2_dynamicBody;
-            bodyDef.position.Set(positions.x, positions.y);
-            m_DynamicPhysicsBodyData->m_DynamicPhysicsBody = PhysicsModule::GetPhysicsWorld()->CreateBody(&bodyDef);
+            b2BodyDef dynamicBodyDef;
+            dynamicBodyDef.type = b2_dynamicBody;
+            dynamicBodyDef.position = PixelToMeter(bodyPosition);
+
+            m_DynamicPhysicsBodyData->m_DynamicPhysicsBody = PhysicsModule::GetPhysicsWorld()->CreateBody(&dynamicBodyDef);
 
             b2PolygonShape dynamicBox;
-            dynamicBox.SetAsBox(size.x / 2, size.y / 2);
+            dynamicBox.SetAsBox(PixelToMeter(halfBodySize.x), PixelToMeter(halfBodySize.y), PixelToMeter(b2Vec2(0.0f, 0.0f)), 0.0f);
+
             b2FixtureDef fixtureDef;
             fixtureDef.shape = &dynamicBox;
             fixtureDef.density = density;
             fixtureDef.friction = friction;
+
             m_DynamicPhysicsBodyData->m_DynamicPhysicsBody->CreateFixture(&fixtureDef);
 
             m_DynamicBodies.push_back(m_DynamicPhysicsBodyData->m_DynamicPhysicsBody);
         }
 
 
-        void PhysicsBody::CreateStaticPhysicsBody(const glm::vec2& size, const glm::vec2& positions)
+        void PhysicsBody::CreateStaticPhysicsBody(const b2Vec2& size, const b2Vec2& positions)
         {
+            b2Vec2 bodySize = b2Vec2(size.x, size.y);
+            b2Vec2 halfBodySize = b2Vec2(bodySize.x * 0.5f, bodySize.y * 0.5f);
+            b2Vec2 bodyPosition = b2Vec2(positions.x, positions.y);
+
             m_BodyType = PHYBD_TYPES::STATIC_BODY;
             m_StaticPhysicsBodyData->m_StaticPhysicsBodyQuad->CreateQuad(size.x, size.y, "", "");
 
-            b2BodyDef bodyDef;
-            bodyDef.type = b2_staticBody;
-            bodyDef.position.Set(positions.x, positions.y);
-            m_StaticPhysicsBodyData->m_StaticPhysicsBody = PhysicsModule::GetPhysicsWorld()->CreateBody(&bodyDef);
+            b2BodyDef staticBodyDef;
+            staticBodyDef.type = b2_staticBody;
+            staticBodyDef.position = PixelToMeter(bodyPosition);
+
+            m_StaticPhysicsBodyData->m_StaticPhysicsBody = PhysicsModule::GetPhysicsWorld()->CreateBody(&staticBodyDef);
 
             b2PolygonShape staticBox;
-            staticBox.SetAsBox(size.x / 2, size.y / 2);  // Adjust shape based on half-size
-
-            b2FixtureDef fixtureDef;
-            fixtureDef.shape = &staticBox;
-            m_StaticPhysicsBodyData->m_StaticPhysicsBody->CreateFixture(&fixtureDef);
+            staticBox.SetAsBox(PixelToMeter(halfBodySize.x), PixelToMeter(halfBodySize.y), PixelToMeter(b2Vec2(0.0f, 0.0f)), 0.0f);  // Adjust shape based on half-size
+            m_StaticPhysicsBodyData->m_StaticPhysicsBody->CreateFixture(&staticBox, 0.0f);
 
             m_StaticBodies.push_back(m_StaticPhysicsBodyData->m_StaticPhysicsBody);
         }
@@ -74,24 +83,17 @@ namespace Freeze
 
         void PhysicsBody::RenderPhysicsBody(const glm::mat4& projectionMatrix, const glm::vec4& color)
         {
-            if (m_BodyType == PHYBD_TYPES::DYNAMIC_BODY && m_DynamicPhysicsBodyData->m_DynamicPhysicsBody != nullptr)
+            for(auto& dynBody : m_DynamicBodies)
             {
-                for(auto& dynBody : m_DynamicBodies)
-                {
-                    m_DynamicPhysicsBodyData->m_DynamicBodyPos = dynBody->GetPosition();
-                    m_DynamicPhysicsBodyData->m_DynamicPhysicsBodyQuad->RenderQuad(projectionMatrix, { m_DynamicPhysicsBodyData->m_DynamicBodyPos.x,  m_DynamicPhysicsBodyData->m_DynamicBodyPos.y }, color);
-                    FZ_INFO("Positions: {}, {}", m_DynamicPhysicsBodyData->m_DynamicBodyPos.x, m_DynamicPhysicsBodyData->m_DynamicBodyPos.y);
-                }
+                m_DynamicPhysicsBodyData->m_DynamicBodyPos = dynBody->GetPosition();
+                m_DynamicPhysicsBodyData->m_DynamicPhysicsBodyQuad->RenderQuad(projectionMatrix, { m_DynamicPhysicsBodyData->m_DynamicBodyPos.x,  m_DynamicPhysicsBodyData->m_DynamicBodyPos.y }, color);
+                FZ_INFO("Coordinates: {}, {}", m_DynamicPhysicsBodyData->m_DynamicBodyPos.x, m_DynamicPhysicsBodyData->m_DynamicBodyPos.y);
             }
 
-            if (m_BodyType == PHYBD_TYPES::STATIC_BODY && m_StaticPhysicsBodyData->m_StaticPhysicsBody != nullptr)
+            for(auto& staticBody : m_StaticBodies)
             {
-                for(auto& staticBody : m_StaticBodies)
-                {
-                    m_StaticPhysicsBodyData->m_StaticBodyPos = staticBody->GetPosition();
-                    m_StaticPhysicsBodyData->m_StaticPhysicsBodyQuad->RenderQuad(projectionMatrix, { m_StaticPhysicsBodyData->m_StaticBodyPos.x, m_StaticPhysicsBodyData->m_StaticBodyPos.y }, color);
-                    //FZ_INFO("Positions: {}, {}", m_StaticPhysicsBodyData->m_StaticBodyPos.x, m_StaticPhysicsBodyData->m_StaticBodyPos.y);
-                }
+                m_StaticPhysicsBodyData->m_StaticBodyPos = staticBody->GetPosition();
+                m_StaticPhysicsBodyData->m_StaticPhysicsBodyQuad->RenderQuad(projectionMatrix, { m_StaticPhysicsBodyData->m_StaticBodyPos.x, m_StaticPhysicsBodyData->m_StaticBodyPos.y }, color);
             }
         }
 

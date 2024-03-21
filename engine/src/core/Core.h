@@ -1,6 +1,7 @@
 #pragma once
 
 #include <spdlog/spdlog.h>
+
 #include <string>
 
 #include "root_dir.h"

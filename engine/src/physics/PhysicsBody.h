@@ -40,14 +40,23 @@ namespace Freeze {
             void InitStaticBody();
             void InitDynamicBody();
 
-            void CreateDynamicPhysicsBody(const glm::vec2& size, const glm::vec2& positions, float density, float friction);
-            void CreateStaticPhysicsBody(const glm::vec2& size, const glm::vec2& positions);
+            void CreateDynamicPhysicsBody(const b2Vec2& size, const b2Vec2& positions, float density, float friction);
+            void CreateStaticPhysicsBody(const b2Vec2& size, const b2Vec2& positions);
 
             void RenderPhysicsBody(const glm::mat4& projectionMatrix, const glm::vec4& color);
 
             b2Vec2 GetBodyPositions();
 
             ~PhysicsBody();
+
+        private:
+            // Unit conversion functions (CREDIT: https://discourse.libsdl.org/t/initializing-box2d-into-sdl/49047/8)
+            float PixelToMeter(const float value) { return (value * (1.0f / MetersPerPixelFactor)); }
+            b2Vec2 PixelToMeter(const b2Vec2& vector) { return b2Vec2(PixelToMeter(vector.x), PixelToMeter(vector.y)); }
+
+            float MeterToPixel(const float value) { return (value * MetersPerPixelFactor); }
+            b2Vec2 MeterToPixel(const b2Vec2& vector) { return b2Vec2(MeterToPixel(vector.x), MeterToPixel(vector.y)); }
+
         private:
             StaticPhysicsBodyData* m_StaticPhysicsBodyData;
             DynamicPhysicsBodyData* m_DynamicPhysicsBodyData;
@@ -56,6 +65,7 @@ namespace Freeze {
 
             std::vector<b2Body*> m_DynamicBodies;
             std::vector<b2Body*> m_StaticBodies;
+            const float MetersPerPixelFactor = 32.0f;
         };
     };
 };

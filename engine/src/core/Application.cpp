@@ -68,7 +68,7 @@ bool Application::InitGLEW() {
 
 Application::~Application() 
 {  
-
+  Freeze::Physics::PhysicsModule::DestroyPhysicsWorld();
 }
 
 // Callback functions
