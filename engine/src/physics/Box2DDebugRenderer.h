@@ -9,7 +9,7 @@ namespace Freeze {
 	class Box2DDebugRenderer : public b2Draw {
 	public:
 		Box2DDebugRenderer();
-		Box2DDebugRenderer(const float MetersPerPixelFactor, const uint32_t DrawFlags);
+		Box2DDebugRenderer(const uint32_t DrawFlags);
 
 		void DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color) override {};
 		void DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color) override;
@@ -20,9 +20,12 @@ namespace Freeze {
 		void DrawTransform(const b2Transform& xf) override {};
 
 		~Box2DDebugRenderer();
-	private:
+	public:
 		float MeterToPixel(const float value);
 		b2Vec2 MeterToPixel(const b2Vec2& vector);
+		float PixelToMeter(const float value);
+		b2Vec2 PixelToMeter(const b2Vec2& vector);
+
 	private:
 		float m_MetersPerPixelFactor;
 	};

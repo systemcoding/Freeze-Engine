@@ -26,12 +26,10 @@ namespace Freeze
 
         void PhysicsBody::CreateDynamicPhysicsBody(const b2Vec2& size, const b2Vec2& positions, float density, float friction)
         {
-
             b2Vec2 bodySize = b2Vec2(size.x, size.y);
             b2Vec2 halfBodySize = b2Vec2(bodySize.x * 0.5f, bodySize.y * 0.5f);
             b2Vec2 bodyPosition = b2Vec2(positions.x, positions.y);
 
-            m_BodyType = PHYBD_TYPES::DYNAMIC_BODY;
             m_DynamicPhysicsBodyData->m_DynamicPhysicsBodyQuad->CreateQuad(size.x, size.y, "", "");
 
             b2BodyDef dynamicBodyDef;
@@ -47,6 +45,7 @@ namespace Freeze
             fixtureDef.shape = &dynamicBox;
             fixtureDef.density = density;
             fixtureDef.friction = friction;
+            fixtureDef.restitution = 0.6f;
 
             m_DynamicPhysicsBodyData->m_DynamicPhysicsBody->CreateFixture(&fixtureDef);
 
@@ -60,7 +59,6 @@ namespace Freeze
             b2Vec2 halfBodySize = b2Vec2(bodySize.x * 0.5f, bodySize.y * 0.5f);
             b2Vec2 bodyPosition = b2Vec2(positions.x, positions.y);
 
-            m_BodyType = PHYBD_TYPES::STATIC_BODY;
             m_StaticPhysicsBodyData->m_StaticPhysicsBodyQuad->CreateQuad(size.x, size.y, "", "");
 
             b2BodyDef staticBodyDef;

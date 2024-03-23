@@ -14,11 +14,11 @@ void Player::CreateEntity()
 
     ////////// BOX2D QUAD //////////////////
 
-    float x = 440.0f;
-    float y = 300.0f;
+    float x = 0.0f;
+    float y = 20.0f;
 
-    //m_PhysicsEntity->CreateDynamicPhysicsBody({ 100.0f, 100.0f }, { x, y }, 1.0f, 0.3f);
-    //m_PhysicsEntity->CreateDynamicPhysicsBody({ 100.0f, 100.0f }, { x + 20, y + 30}, 1.0f, 0.3f);
+    m_PhysicsEntity->CreateDynamicPhysicsBody({ 10.0f, 10.0f }, { x, y }, 1.0f, 0.3f);
+    m_PhysicsEntity->CreateDynamicPhysicsBody({ 10.0f, 10.0f }, { x + 4.0f, y + 3.0f}, 1.0f, 0.3f);
     ////////////////////////////////////////////
 }
 
@@ -52,7 +52,7 @@ void Player::OnImGui()
 
 void Player::RenderEntity(const glm::mat4& projectionMatrix)
 {
-    //m_PhysicsEntity->RenderPhysicsBody(projectionMatrix, { 0.4f, 0.1f, 0.7f, 1.0f });
+    m_PhysicsEntity->RenderPhysicsBody(projectionMatrix, { 0.4f, 0.1f, 0.7f, 1.0f });
 }
 
 

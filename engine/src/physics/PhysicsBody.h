@@ -28,12 +28,6 @@ namespace Freeze {
                 float density, friction;
             };
 
-            enum class PHYBD_TYPES 
-            {
-                NONE = 0,
-                STATIC_BODY, DYNAMIC_BODY
-            };
-
         public:
             PhysicsBody();
 
@@ -60,8 +54,6 @@ namespace Freeze {
         private:
             StaticPhysicsBodyData* m_StaticPhysicsBodyData;
             DynamicPhysicsBodyData* m_DynamicPhysicsBodyData;
-
-            PHYBD_TYPES m_BodyType = PHYBD_TYPES::NONE;
 
             std::vector<b2Body*> m_DynamicBodies;
             std::vector<b2Body*> m_StaticBodies;
