@@ -8,7 +8,7 @@
             "name": "g++ - Build and debug active file",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceFolder}/build/build-debug/bin/Sandbox",
+            "program": "${workspaceFolder}/build/bin/Sandbox",
             "args": [
                 "-g",
                 "-O6"

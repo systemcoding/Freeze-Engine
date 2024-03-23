@@ -13,9 +13,10 @@ void Application::OnInit(uint32_t width, uint32_t height, const std::string &tit
   m_ImGuiContext->CreateImGuiContext(m_Window->GetWindowInstance());
 
   Physics::PhysicsModule::InitPhysicsWorld();
+  Physics::PhysicsModule::CreatePhysicsBody();
 
-  m_Sandbox = std::make_shared<Sandbox>();
-  m_Sandbox->OnInit();
+  //m_Sandbox = std::make_shared<Sandbox>();
+  //m_Sandbox->OnInit();
 }
 
 void Application::Run() {
@@ -27,7 +28,7 @@ void Application::Run() {
     float deltaTime = currentFrame - lastFrame;
     lastFrame = currentFrame;
 
-    m_Sandbox->OnEvent(m_Window->GetWindowInstance(), deltaTime);
+    //m_Sandbox->OnEvent(m_Window->GetWindowInstance(), deltaTime);
 
     // clear the screen with some color at every start of the frame
     Freeze::RenderCommands::SetRenderColor(glm::vec4(0.161, 0.161, 0.133, 1.0f));
@@ -35,11 +36,11 @@ void Application::Run() {
 
     // ALWAYS UPDATE IMGUI BEFORE DOING SANDBOX STUFF!!!
     m_ImGuiContext->UpdateImGui();
-    m_Sandbox->OnImGui();
+    //m_Sandbox->OnImGui();
 
-    Physics::PhysicsModule::UpdatePhysicsWorld(deltaTime);    
+    Physics::PhysicsModule::UpdatePhysicsWorld();    
 
-    m_Sandbox->OnUpdate(m_Window->GetWindowInstance(), deltaTime);
+    //m_Sandbox->OnUpdate(m_Window->GetWindowInstance(), deltaTime);
 
     // Render ImGui Stuff
     m_ImGuiContext->RenderImGui();
@@ -68,7 +69,7 @@ bool Application::InitGLEW() {
 
 Application::~Application() 
 {  
-  Freeze::Physics::PhysicsModule::DestroyPhysicsWorld();
+  Physics::PhysicsModule::DestroyPhysicsWorld();
 }
 
 // Callback functions

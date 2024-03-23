@@ -2,9 +2,8 @@
 
 World::World()
     : m_Camera(std::make_shared<Freeze::Camera>(
-          //glm::vec4(0.0f, 960.0f, 0.0f, 540.0f))
+          glm::vec4(0.0f, 960.0f, 0.0f, 540.0f))
                     // left,   right,  bottom,  top
-          glm::vec4(0.0f, 0.0f, 0.0f, 0.0f))
       )
 {}
 
