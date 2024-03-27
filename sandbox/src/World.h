@@ -9,7 +9,6 @@
 
 #include "Player.h"
 
-
 class World {
 public:
     World();
@@ -29,7 +28,7 @@ public:
 private:
     std::shared_ptr<Freeze::Camera> m_Camera;
 
-    std::shared_ptr<Freeze::Physics::PhysicsBody> m_Platform = std::make_shared<Freeze::Physics::PhysicsBody>();
+    std::shared_ptr<Freeze::Physics::StaticBody> m_Platform = std::make_shared<Freeze::Physics::StaticBody>();
 
     std::shared_ptr<Player> m_Player = std::make_shared<Player>();
 private:

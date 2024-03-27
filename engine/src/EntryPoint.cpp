@@ -1,5 +1,6 @@
 #include "core/Application.h"
 
+
 int main() 
 {
   Freeze::Application *application = new Freeze::Application();

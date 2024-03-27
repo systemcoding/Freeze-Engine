@@ -4,6 +4,8 @@
 
 #include <string>
 
+#include <box2d/b2_math.h>
+
 #include "root_dir.h"
 
 #ifdef RELEASE
@@ -12,7 +14,6 @@
     #define FZ_ERROR(x, ...) spdlog::error()
 
     #ifdef __linux__
-        #include <csignal>
         #define FZ_ASSERT(x, ...) {FZ_ERROR(); raise(SIGTRAP);}
     #else
         // For MSVC
@@ -26,7 +27,6 @@
     #define FZ_ERROR(x, ...) spdlog::error(x, ##__VA_ARGS__)
 
     #ifdef __linux__
-        #include <csignal>
         #define FZ_ASSERT(x, ...) {FZ_ERROR(x, ##__VA_ARGS__); raise(SIGTRAP);}
     #else
         // For MSVC
@@ -47,4 +47,13 @@ namespace Freeze {
             return newFilePath;
         }
     };
+
+   inline float MetersPerPixelFactor = 32.0f;
+
+   inline float PixelToMeter(const float value) { return (value * (1.0f / MetersPerPixelFactor)); }
+   inline b2Vec2 PixelToMeter(const b2Vec2& vector) { return b2Vec2(PixelToMeter(vector.x), PixelToMeter(vector.y)); }
+
+   inline float MeterToPixel(const float value) { return (value * MetersPerPixelFactor); }
+   inline b2Vec2 MeterToPixel(const b2Vec2& vector) { return b2Vec2(MeterToPixel(vector.x), MeterToPixel(vector.y)); }
+
 };

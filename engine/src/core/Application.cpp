@@ -1,8 +1,10 @@
 #include "Application.h"
 
-namespace Freeze {
+namespace Freeze
+{
 
-  void Application::OnInit(uint32_t width, uint32_t height, const std::string &title) {
+  void Application::OnInit(uint32_t width, uint32_t height, const std::string &title)
+  {
     m_Window = std::make_unique<Freeze::Window>();
     m_Window->CreateWindow(width, height, title);
     m_Window->CreateWindowContext();
@@ -13,16 +15,17 @@ namespace Freeze {
     m_ImGuiContext->CreateImGuiContext(m_Window->GetWindowInstance());
 
     Physics::PhysicsModule::InitPhysicsWorld();
-    Physics::PhysicsModule::CreatePhysicsBody();
 
     m_Sandbox = std::make_shared<Sandbox>();
     m_Sandbox->OnInit();
   }
 
-  void Application::Run() {
+  void Application::Run()
+  {
     float lastFrame = 0.0f;
 
-    while (!glfwWindowShouldClose(m_Window->GetWindowInstance())) {
+    while (!glfwWindowShouldClose(m_Window->GetWindowInstance()))
+    {
 
       float currentFrame = glfwGetTime();
       float deltaTime = currentFrame - lastFrame;
@@ -38,7 +41,7 @@ namespace Freeze {
 
       m_Sandbox->OnImGui();
 
-      Physics::PhysicsModule::UpdatePhysicsWorld(deltaTime);    
+      Physics::PhysicsModule::UpdatePhysicsWorld(deltaTime);
 
       m_Sandbox->OnUpdate(m_Window->GetWindowInstance(), deltaTime);
 
@@ -48,18 +51,20 @@ namespace Freeze {
       // Then swap the buffers and check for events
       glfwSwapBuffers(m_Window->GetWindowInstance());
       glfwPollEvents();
-      
     }
   }
 
-  void Application::SetEngineViewport() {
+  void Application::SetEngineViewport()
+  {
     glViewport(0, 0, m_Window->GetWindowWidth(), m_Window->GetWindowHeight());
     glfwSetFramebufferSizeCallback(m_Window->GetWindowInstance(),
-                                  framebuffer_size_callback);
+                                   framebuffer_size_callback);
   }
 
-  bool Application::InitGLEW() {
-    if (glewInit() != GLEW_OK) {
+  bool Application::InitGLEW()
+  {
+    if (glewInit() != GLEW_OK)
+    {
       FZ_ERROR("GLEW failed to initialise");
       FZ_EXIT();
     }
@@ -67,15 +72,16 @@ namespace Freeze {
     return true;
   }
 
-  Application::~Application() 
-  {  
+  Application::~Application()
+  {
     Physics::PhysicsModule::DestroyPhysicsWorld();
   }
 
   // Callback functions
   inline void framebuffer_size_callback(GLFWwindow *window, int width,
-                                        int height) {
+                                        int height)
+  {
     glViewport(0, 0, width, height);
   }
 
-}; // namespace Freeze
+};

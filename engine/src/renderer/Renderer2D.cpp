@@ -20,6 +20,9 @@ namespace Freeze {
   }
 
   void FreezeQuad::CreateQuad(float width, float height, const std::string& vertexShaderFile, const std::string& fragmentShaderFile) {
+    
+    // TODO: Change the coordinates to be dynamic. Must work for any camera positions. 
+
     m_QuadRendererData->m_QuadCoords = new float[12] {
           100.0f,           100.0f,           0.0f,  // top left
           100.0f + width,   100.0f,           0.0f,  // top right
@@ -93,10 +96,12 @@ namespace Freeze {
 
   void FreezeTriangle::CreateTriangle(float width, float height, const std::string& vertexShaderFile, const std::string& fragmentShaderFile)
   {
+    // TODO: Change the coordinates to be dynamic. Must work for any camera positions. 
+
     m_TriangleRendererData->m_TriangleCoords = new float[9] {
-      -90.0f,         -90.0f,           0.0f,  // top point
-      90.0f + width,  -90.0f + height,  0.0f,  // bottom right
-      0.0f,            90.0f + height,   0.0f   // bottom left
+      -90.0f,          -90.0f,            0.0f,  // top point
+       90.0f + width,  -90.0f + height,   0.0f,  // bottom right
+       0.0f,            90.0f + height,   0.0f   // bottom left
     };
 
     m_TriangleRendererData->m_VertexArray->AddVertexArray(1);

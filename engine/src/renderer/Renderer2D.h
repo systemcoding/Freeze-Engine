@@ -5,7 +5,8 @@
 #include "Buffer.h"
 #include "Shader.h"
 #include "VertexArray.h"
-#include <core/Core.h>
+#include "Camera.h"
+#include "core/Core.h"
 
 #include <memory>
 
