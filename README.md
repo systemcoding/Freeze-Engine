@@ -22,6 +22,8 @@ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 cmake --build . -j5
 ./bin/Sandbox
 ```
+For debugging: `cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..`
+
 Since the clangd lsp server requires the compile_commands.json for finding header files and correct linking use the above commands.
 
 Instructions: (Not For Neovim LSP Users!!!)
